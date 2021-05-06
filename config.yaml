@@ -14,7 +14,7 @@ ignoreFiles:
   - _cache$
 
 GA: 
-disqus: https-jackmd-netlify-app
+disqusShortname = "https-jackmd-netlify-app"
 
 params:
   copyright: © 2021 Jiewen Tsai
