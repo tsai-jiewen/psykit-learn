@@ -1,0 +1,26 @@
+{
+    "id": "19FC62BD",
+    "path": "~/GitHub/jackdown/themes/hugo-tanka/exampleSite/config.toml",
+    "project_path": "themes/hugo-tanka/exampleSite/config.toml",
+    "type": "toml",
+    "hash": "2206196348",
+    "contents": "",
+    "dirty": false,
+    "created": 1620290615117.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "0,12",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1620290726,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1620290726534,
+    "read_only": false,
+    "read_only_alternatives": []
+}
