@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://jackdown.netlify.app/"
 title = "Hugo Tanka Theme Demo"
 author = "Nan Xiao"
 canonifyurls = true
