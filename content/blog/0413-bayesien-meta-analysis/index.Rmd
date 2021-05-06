@@ -1,0 +1,94 @@
+---
+title: "0413 bayesien meta-analysis"
+author: "Jiewen Tsai"
+date: '2021-04-13'
+tags:
+- R
+- bayesien
+- meta-analysis
+image:
+  filename: featured
+  focal_point: Smart
+  preview_only: no
+---
+
+```{r}
+#install.packages("gemtc")
+#install.packages("netmeta")
+#install.packages("rjags")
+
+library(gemtc)
+library(netmeta)
+library(rjags)
+library(rio)
+library(igraph)
+library(tidyverse)
+```
+
+### (Excel import)
+
+```{r}
+# data(Senn2013)
+data <- import('data.xlsx') %>% select(-`...1`)
+data$treatment <- as.factor(data$treatment)
+```
+
+```{r}
+network <- mtc.network(data)
+
+summary(network)
+
+plot(network)
+plot(network, layout=layout.fruchterman.reingold)
+```
+```{r}
+network$data.ab <- network$data.ab %>% rename(mean = diff)
+
+network$data.ab$mean <- as.numeric(as.integer(as.factor(network$data.ab$mean)))
+network$data.ab$std.err <- as.numeric(as.integer(as.factor(network$data.ab$std.err)))
+
+#network$data.ab$mean <- replace_na(network$data.ab$mean, 0)
+#network$data.ab$std.err <- replace_na(network$data.ab$std.err, 0)
+```
+
+### 模型編譯
+
+```{r}
+model <- mtc.model(
+  network,
+  linearModel = 'random',
+  n.chain = 4
+)
+```
+
+```{r}
+mcmc1 <- mtc.run(model, n.adapt = 50, n.iter = 1000, thin = 10)
+mcmc2 <- mtc.run(model, n.adapt = 5000, n.iter = 100000, thin = 10)
+mcmc3 <- mtc.run(model, n.adapt = 5000, n.iter = 100000, thin = 1)
+```
+
+### 
+
+```{r}
+plot(mcmc1)
+plot(mcmc2)
+plot(mcmc3)
+```
+
+```{r}
+gelman.plot(mcmc1)
+gelman.plot(mcmc2)
+```
+
+
+```{r}
+gelman.diag(mcmc1)$mpsrf
+gelman.diag(mcmc2)$mpsrf
+gelman.diag(mcmc3)$mpsrf
+```
+
+
+
+```{r}
+gemtc::forest(relative.effect(mcmc3, t1 = "Placebo"))
+```
