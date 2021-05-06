@@ -1,10 +1,7 @@
 ---
 title: "item_analysis 0506"
 date: 2021-05-06
-draft: false
-featured: false
-authors:
-  - Jiewen Tsai
+author: Jiewen Tsai
 tags:
   - R
   - CTT
@@ -14,12 +11,14 @@ image:
   preview_only: false
 ---
 
+
 - [Data]
 - [Scoring]
 - [Extract responses only]
 - [Item analysis]
 - [Difficulty and Discrimination]
 - [Score transformation]
+
 
 ---
 

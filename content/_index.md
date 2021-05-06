@@ -1,12 +1,8 @@
 ---
-date: "2018-11-09"
+date: "2021-05-06"
 description: Website description.
 menu: main
-title: The Renga Theme for Hugo
+title: Jiewen and His Markdown Docs
 ---
 
-Lorem ipsum dolor sit amet, ex has sale ullum corrumpit, sea dicam nostrum sensibus ad. Porro tritani persecuti te sed. Omittam dissentias pro ex. Atqui luptatum duo id. Eros minim eam ex, novum elitr accusam quo in. Nec ne audire euripidis, [mea qualisque consetetur cu](https://nanx.me). Suspendisse volutpat sem a risus euismod convallis.
-
-In modus congue feugait eos. In nec nonumy volutpat corrumpit, sea assentior quaerendum no, cum affert scripta ea. No nihil voluptaria pro. [Erat democritum mei no](https://nanx.me), homero quodsi aliquando id mel, ridens civibus molestiae et nam.
-
-Ea eam postea facilisi. Nullam forensibus consequuntur usu ea, no ius consul delectus periculis. Eam veri numquam an. Et partiendo gubergren eam. Quod iudicabit has ex, eam diam facilisi eu, elitr aliquip no eum.
+This site is for Jiewen's RMarkdown and Markdown docs. He has tried a ton of ways to save his docs (especially R codes), such as [HackMD](https://hackmd.io), [CoderBridge](https://zh-tw.coderbridge.com), even the popular academic website builder  [Wowchemy](https://wowchemy.com), but finally he came back to `blogdown`. Cuz he didn't need to convert file or do copy-paste job b/w diff platforms anymore. It's so easy and nice! 
