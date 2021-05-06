@@ -7,7 +7,6 @@ tags:
 - bayesien
 - meta-analysis
 image:
-  filename: featured
   focal_point: Smart
   preview_only: no
 ---
@@ -165,11 +164,11 @@ network$data.ab$std.err &lt;- as.numeric(as.integer(as.factor(network$data.ab$st
 <pre class="r"><code>gelman.plot(mcmc2)</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-3.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
 <pre class="r"><code>gelman.diag(mcmc1)$mpsrf</code></pre>
-<pre><code>## [1] 2.109027</code></pre>
+<pre><code>## [1] 1.449146</code></pre>
 <pre class="r"><code>gelman.diag(mcmc2)$mpsrf</code></pre>
-<pre><code>## [1] 1.006961</code></pre>
+<pre><code>## [1] 1.018798</code></pre>
 <pre class="r"><code>gelman.diag(mcmc3)$mpsrf</code></pre>
-<pre><code>## [1] 1.013954</code></pre>
+<pre><code>## [1] 1.005499</code></pre>
 <pre class="r"><code>gemtc::forest(relative.effect(mcmc3, t1 = &quot;Placebo&quot;))</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
