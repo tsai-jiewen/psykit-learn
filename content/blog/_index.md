@@ -1,5 +1,5 @@
 ---
-description: Someone's blog
+description: Jane Doe's blog
 menu: main
 title: Blog
 ---

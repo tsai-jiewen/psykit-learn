@@ -1,8 +1,8 @@
 ---
-date: "2014-04-09"
-description: About description.
-menu: main
-title: About Jane
+title: "The Renga Theme for Hugo"
+date: "2018-11-09"
+menu: "main"
+description: "Website description."
 ---
 
 Lorem ipsum dolor sit amet, ex has sale ullum corrumpit, sea dicam nostrum sensibus ad. Porro tritani persecuti te sed. Omittam dissentias pro ex. Atqui luptatum duo id. Eros minim eam ex, novum elitr accusam quo in. Nec ne audire euripidis, [mea qualisque consetetur cu](https://nanx.me). Suspendisse volutpat sem a risus euismod convallis.
