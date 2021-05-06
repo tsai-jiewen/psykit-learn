@@ -1,5 +1,5 @@
 ---
-title: "Blog"
-menu: "main"
-description: "Someone's blog"
+description: Someone's blog
+menu: main
+title: Blog
 ---

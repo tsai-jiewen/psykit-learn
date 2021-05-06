@@ -1,7 +1,7 @@
 ---
-author: Nan Xiao
-date: 2020-11-20T09:00:00
-title: Bootstrap 4 Components
+title: "Bootstrap 4 Components"
+author: "Nan Xiao"
+date: "2020-11-20T09:00:00"
 ---
 
 Some useful Bootstrap 4 components are listed below.

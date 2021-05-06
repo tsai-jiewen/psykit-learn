@@ -1,8 +1,8 @@
 ---
-author: Nan Xiao
-date: 2020-11-21T12:00:00
+title: "Tanka Theme Demo"
+author: "Nan Xiao"
+date: "2020-11-21T12:00:00"
 meta_img: images/example.jpg
-title: Tanka Theme Demo
 ---
 
 [Tanka](https://github.com/nanxstats/hugo-tanka) is a Bootstrap-based minimalist theme for Hugo.
