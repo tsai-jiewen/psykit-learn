@@ -1,5 +1,5 @@
 baseurl: /
-title: Jiewen and His Markdwon
+title: Jiewen and His Markdown Docs
 author: Jiewen Tsai
 canonifyurls: yes
 languagecode: en
@@ -22,7 +22,7 @@ params:
     - python
     - stan
   progressively: no
-  sitename: Jiewen and His Markdwon
+  sitename: Jiewen and His Markdown Docs
   uselatex: yes
 markup:
   goldmark:
