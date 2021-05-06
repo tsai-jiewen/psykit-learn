@@ -13,7 +13,7 @@ ignoreFiles:
   - _files$
   - _cache$
 
-GA: 
+#GA: 
 disqus: https-jackmd-netlify-app
 
 params:
