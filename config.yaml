@@ -1,11 +1,11 @@
 baseurl: /
-title: Hugo Tanka Theme Demo
-author: Nan Xiao
+title: Jiewen and His Markdwon
+author: Jiewen Tsai
 canonifyurls: yes
 languagecode: en
 theme: hugo-tanka
 enableEmoji: yes
-hasCJKLanguage: no
+hasCJKLanguage: yes
 pygmentsstyle: vs
 pygmentscodefences: yes
 ignoreFiles:
@@ -22,7 +22,7 @@ params:
     - python
     - stan
   progressively: no
-  sitename: Hugo Tanka Theme
+  sitename: Jiewen and His Markdwon
   uselatex: yes
 markup:
   goldmark:
