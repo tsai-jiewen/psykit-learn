@@ -3,7 +3,7 @@
     "path": "~/GitHub/jackdown/themes/hugo-tanka/exampleSite/config.toml",
     "project_path": "themes/hugo-tanka/exampleSite/config.toml",
     "type": "toml",
-    "hash": "468661286",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1620290615117.0,
@@ -12,8 +12,8 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "0,39",
-        "scrollLine": "0"
+        "cursorPosition": "8,22",
+        "scrollLine": "19"
     },
     "folds": "",
     "lastKnownWriteTime": 1620290778,
