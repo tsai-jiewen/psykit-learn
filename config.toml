@@ -22,7 +22,7 @@ highlightjs = "yes"
 logofile = "image/avatar.png"
 pagetitle = "Jiewen Tsai"
 posts_navigation = "yes"
-progressively = "no"
+progressively = "yes"
 uselatex = "yes"
 
 
