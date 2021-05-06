@@ -12,35 +12,43 @@ image:
   filename: featured
   focal_point: Smart
   preview_only: false
-
 ---
 
 <script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
+<ul>
+<li><a href="#data">Data</a></li>
+<li><a href="#scoring">Scoring</a></li>
+<li><a href="#extract-responses-only">Extract responses only</a></li>
+<li><a href="#item-analysis">Item analysis</a></li>
+<li><a href="#difficulty-and-discrimination">Difficulty and Discrimination</a></li>
+<li><a href="#score-transformation">Score transformation</a></li>
+</ul>
+<hr />
 <pre class="r"><code>library(CTT)
 library(psychometric)
 library(tidyverse)</code></pre>
 <div id="data" class="section level2">
-<h2>data</h2>
+<h2>Data</h2>
 <pre class="r"><code>key &lt;-  read_csv(&quot;107ctt_key.csv&quot;, col_names = T) </code></pre>
 <pre><code>## 
-## -- Column specification --------------------------------------------------------
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   quiz_no = col_character(),
 ##   key = col_character()
 ## )</code></pre>
 <pre class="r"><code>dat &lt;- read_csv(&#39;107ctt_dat.csv&#39;)</code></pre>
 <pre><code>## 
-## -- Column specification --------------------------------------------------------
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   .default = col_character(),
 ##   player = col_double()
 ## )
-## i&lt;U+00A0&gt;Use `spec()` for the full column specifications.</code></pre>
+## ℹ Use `spec()` for the full column specifications.</code></pre>
 </div>
 <div id="scoring" class="section level2">
-<h2>scoring</h2>
+<h2>Scoring</h2>
 <pre class="r"><code>scr &lt;- score(items = dat[2:34], key = key$key, output.scored=TRUE)
 scr</code></pre>
 <pre><code>## $score
@@ -106,12 +114,12 @@ scr</code></pre>
 ## [13,]      1      1</code></pre>
 </div>
 <div id="extract-responses-only" class="section level2">
-<h2>extract responses only</h2>
+<h2>Extract responses only</h2>
 <pre class="r"><code>res_mat &lt;- as.matrix(scr$scored) 
 dimnames(res_mat) &lt;- NULL</code></pre>
 </div>
 <div id="item-analysis" class="section level2">
-<h2>item analysis</h2>
+<h2>Item analysis</h2>
 <pre class="r"><code>res &lt;- distractorAnalysis(items = dat[2:34], key = key$key, nGroups = 4, pTable = T, digits = 3#, csvReport=&quot;107res.csv&quot;
                           )
 res</code></pre>
@@ -421,7 +429,9 @@ psychometric::item.exam(res_mat, discrim = T) %&gt;%
 ## 31             NA  0.083262780  0.053660008            NA
 ## 32             NA  0.109282399  0.000000000            NA
 ## 33             NA -0.122292209 -0.187491724            NA</code></pre>
-<p>#Score transformation</p>
+</div>
+<div id="score-transformation" class="section level2">
+<h2>Score transformation</h2>
 <pre class="r"><code># t score
 t_scr &lt;- score.transform(scr$score, mu.new = 50, sd.new = 10, normalize = T)
 t_scr</code></pre>
@@ -436,8 +446,8 @@ t_scr</code></pre>
 ## 0.84615385 0.61538462 0.84615385 0.84615385 0.15384615 0.61538462 1.00000000 
 ##         P8         P9        P10        P11        P12        P13 
 ## 0.38461538 0.38461538 0.38461538 0.23076923 0.61538462 0.07692308</code></pre>
-<p>#cttICC(score = scr<span class="math inline">\(score, itemVector = scr\)</span>scored[,26], colTheme=“spartans”, cex=1.5)</p>
-<pre class="r"><code>CTT::reliability(as.matrix(scr$scored))</code></pre>
+<pre class="r"><code>#cttICC(score = scr$score, itemVector = scr$scored[,26], colTheme=&quot;spartans&quot;, cex=1.5)
+CTT::reliability(as.matrix(scr$scored))</code></pre>
 <pre><code>## You will find additional options and better formatting using itemAnalysis().</code></pre>
 <pre><code>## Warning in cor(items[, i], Xd): the standard deviation is zero
 
