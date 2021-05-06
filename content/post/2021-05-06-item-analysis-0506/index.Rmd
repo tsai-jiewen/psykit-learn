@@ -1,0 +1,55 @@
+---
+title: item analysis 0506
+author: ''
+date: '2021-05-06'
+slug: item-analysis-0506
+categories: []
+tags: []
+---
+```{r message=FALSE}
+library(CTT)
+library(psychometric)
+library(tidyverse)
+```
+
+## data
+```{r}
+key <-  read_csv("107ctt_key.csv", col_names = T) 
+dat <- read_csv('107ctt_dat.csv')
+```
+
+## scoring
+```{r}
+scr <- score(items = dat[2:34], key = key$key, output.scored=TRUE)
+scr
+```
+
+## extract responses only
+```{r}
+res_mat <- as.matrix(scr$scored) 
+dimnames(res_mat) <- NULL
+```
+
+## item analysis
+```{r}
+res <- distractorAnalysis(items = dat[2:34], key = key$key, nGroups = 4, pTable = T, digits = 3#, csvReport="107res.csv"
+                          )
+res
+```
+## Difficulty and Discrimination
+```{r}
+# itemAnalysis(scr$scored)$itemReport
+psychometric::item.exam(res_mat, discrim = T) %>%
+  mutate(item = key$quiz_no, .before = 1)
+```
+#Score transformation
+```{r}
+# t score
+t_scr <- score.transform(scr$score, mu.new = 50, sd.new = 10, normalize = T)
+t_scr
+```
+
+#cttICC(score = scr$score, itemVector = scr$scored[,26], colTheme="spartans", cex=1.5)
+```{r}
+CTT::reliability(as.matrix(scr$scored))
+```
