@@ -1,42 +1,48 @@
 baseurl = "/"
+languageCode = "en-us"
 title = "JackMD"
-author = "Jiewen Tsai"
-canonifyurls = "yes"
-languagecode = "en"
-paginate = 3
 theme = "hugo-lithium"
 enableEmoji = "yes"
 hasCJKLanguage = "yes"
-ignoreFiles = [ "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$" ]
-
-pygmentsstyle = "vs"
-pygmentscodefences = true
-# googleAnalytics = "UA-00000000-1"
+googleAnalytics = ""
 disqusShortname = "https-jackmd-netlify-app"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/rstudio/blogdown"
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/rstudio"
 
 [params]
-copyright = "© 2021 Jiewen Tsai"
-copyrightUrl = "/"
-email = "example@example.com"
-faviconfile = "image/favicon.ico"
-github = "tsai-jiewen"
-highlightjs = "yes"
-logofile = "image/avatar.png"
-pagetitle = "Jiewen Tsai"
-posts_navigation = "yes"
-progressively = "yes"
-uselatex = "yes"
+    description = "A website built through Hugo and blogdown."
 
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.12.0"
+    highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
 
+    MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    MathJaxVersion = "2.7.5"
 
-[[menu.primary]]
-identifier = "about"
-name = "About"
-url = "/about/"
-weight = 1
+    # path to the favicon, under "static"
+    favicon = "image/favicon.ico"
 
-[[menu.primary]]
-identifier = "blog"
-name = "Blog"
-url = "/blog/"
-weight = 2
+    [params.logo]
+    url = "image/avatar.png"
+    width = 50
+    height = 50
+    alt = "Logo"
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark.renderer]
+    unsafe = true  # Enable user to embed HTML snippets in Markdown content.
