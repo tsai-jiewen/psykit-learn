@@ -4,11 +4,13 @@ author = "Jiewen Tsai"
 canonifyurls = "yes"
 languagecode = "en"
 paginate = 3
-theme = "hugo-nanx2020"
+theme = "hugo-renga"
 enableEmoji = "yes"
 hasCJKLanguage = "yes"
 ignoreFiles = [ "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$" ]
 
+pygmentsstyle = "vs"
+pygmentscodefences = true
 # googleAnalytics = "UA-00000000-1"
 disqusShortname = "https-jackmd-netlify-app"
 
