@@ -1,26 +1,24 @@
 ---
 title: "item_analysis 0506"
-date: 2021-05-06
-author: Jiewen Tsai
+author: "Jiewen Tsai"
+date: '2021-05-06'
 tags:
-  - R
-  - CTT
+- R
+- CTT
 image:
   filename: featured
   focal_point: Smart
-  preview_only: false
+  preview_only: no
 ---
 
+-   [Data]
+-   [Scoring]
+-   [Extract responses only]
+-   [Item analysis]
+-   [Difficulty and Discrimination]
+-   [Score transformation]
 
-- [Data]
-- [Scoring]
-- [Extract responses only]
-- [Item analysis]
-- [Difficulty and Discrimination]
-- [Score transformation]
-
-
----
+------------------------------------------------------------------------
 
 ```{r message=FALSE}
 library(CTT)
@@ -29,30 +27,36 @@ library(tidyverse)
 ```
 
 ## Data
+
 ```{r}
 key <-  read_csv("107ctt_key.csv", col_names = T) 
 dat <- read_csv('107ctt_dat.csv')
 ```
 
 ## Scoring
+
 ```{r}
 scr <- score(items = dat[2:34], key = key$key, output.scored=TRUE)
 scr
 ```
 
 ## Extract responses only
+
 ```{r}
 res_mat <- as.matrix(scr$scored) 
 dimnames(res_mat) <- NULL
 ```
 
 ## Item analysis
+
 ```{r}
 res <- distractorAnalysis(items = dat[2:34], key = key$key, nGroups = 4, pTable = T, digits = 3#, csvReport="107res.csv"
                           )
 res
 ```
+
 ## Difficulty and Discrimination
+
 ```{r}
 # itemAnalysis(scr$scored)$itemReport
 psychometric::item.exam(res_mat, discrim = T) %>%
@@ -60,15 +64,21 @@ psychometric::item.exam(res_mat, discrim = T) %>%
 ```
 
 ## Score transformation
+
 ```{r}
 # t score
 t_scr <- score.transform(scr$score, mu.new = 50, sd.new = 10, normalize = T)
 t_scr
 ```
 
-
 ```{r}
 #cttICC(score = scr$score, itemVector = scr$scored[,26], colTheme="spartans", cex=1.5)
 CTT::reliability(as.matrix(scr$scored))
 ```
 
+## table
+
+|  A  |  B  |  C  |
+|:---:|:---:|:---:|
+| 100 | .5  | .04 |
+| 140 | .4  | .03 |
