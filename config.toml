@@ -1,0 +1,42 @@
+baseurl = "/"
+title = "JackMD"
+author = "Jiewen Tsai"
+canonifyurls = "yes"
+languagecode = "en"
+paginate = 3
+theme = "hugo-lithium"
+enableEmoji = "yes"
+hasCJKLanguage = "yes"
+ignoreFiles = [ "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$" ]
+
+pygmentsstyle = "vs"
+pygmentscodefences = true
+# googleAnalytics = "UA-00000000-1"
+disqusShortname = "https-jackmd-netlify-app"
+
+[params]
+copyright = "© 2021 Jiewen Tsai"
+copyrightUrl = "/"
+email = "example@example.com"
+faviconfile = "image/favicon.ico"
+github = "tsai-jiewen"
+highlightjs = "yes"
+logofile = "image/avatar.png"
+pagetitle = "Jiewen Tsai"
+posts_navigation = "yes"
+progressively = "yes"
+uselatex = "yes"
+
+
+
+[[menu.primary]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 1
+
+[[menu.primary]]
+identifier = "blog"
+name = "Blog"
+url = "/blog/"
+weight = 2

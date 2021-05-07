@@ -76,9 +76,4 @@ t_scr
 CTT::reliability(as.matrix(scr$scored))
 ```
 
-## table
 
-|  A  |  B  |  C  |
-|:---:|:---:|:---:|
-| 100 | .5  | .04 |
-| 140 | .4  | .03 |
