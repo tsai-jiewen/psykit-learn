@@ -4,6 +4,10 @@ title = "JackMD"
 theme = "hugo-xmin"
 googleAnalytics = ""
 disqusShortname = "https-jackmd-netlify-app"
+enableEmoji = "yes"
+hasCJKLanguage = "yes"
+uselatex = "yes"
+
 ignoreFiles = [
   "\\.Rmd$",
   "\\.Rmarkdown$",

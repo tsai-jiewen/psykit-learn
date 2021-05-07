@@ -7,10 +7,10 @@
     
     {{ if eq .Section "post" }}
     <span class="author">{{ .Params.author }}</span>
-    {{ end }}|
+    {{ end }} &nbsp;
     {{ if eq .Section "post" }}
     <span class="article-date">{{ .Date.Format "2006-01-02" }}</span>
-    {{ end }}|    
+    {{ end }} &nbsp;     
     {{ if eq .Section "post" }}
     <span class="article-duration">{{ .ReadingTime }} min read</span>
     {{ end }}
