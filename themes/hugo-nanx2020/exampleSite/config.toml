@@ -10,7 +10,7 @@ enableEmoji = true
 hasCJKLanguage = true
 
 # googleAnalytics = "UA-00000000-1"
-disqusShortname = "https-jackmd-netlify-app"
+# disqusShortname = "your-disqus-shortname"
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
@@ -18,7 +18,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 pagetitle = "Jane Doe"
 copyright = "© 2018 Jane Doe"
 copyrightUrl = "https://nanx.me/hugo-renga/"
-faviconfile = "image/favicon.ico"
+faviconfile = "image/favicon.png"
 logofile = "image/avatar.png"
 posts_navigation = true
 uselatex = true
