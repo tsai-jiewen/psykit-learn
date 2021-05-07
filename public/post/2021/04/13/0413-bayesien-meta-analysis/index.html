@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>0413 bayesien meta-analysis | Hugo XMag</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+
+  </head>
+
+  <body class="page">
+    <nav class="header">
+      <div class="banner">
+<a href="/" class="text">
+&Hfr;&Ufr;&Gfr;&Ofr; &Xfr;&Mfr;&Afr;&Gfr;
+</a>
+</div>
+
+      <div class="head-meta">
+      
+        <span><a href="/">&larr; Back to Home</a></span>
+        <span class="date">2021-04-13</span>
+        
+        
+        
+          
+        
+        
+        
+        <span><a href="https://github.com/yihui/hugo-xmag/edit/master/exampleSite/content/post/0413-bayesien-meta-analysis/index.Rmd">Edit this page &rarr;</a></span>
+        
+        
+      
+      </div>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">0413 bayesien meta-analysis</span></h1>
+<h2 class="author">Jiewen Tsai</h2>
+<h2 class="date">2021/04/13</h2>
+</div>
+
+<main>
+
+<script src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/header-attrs/header-attrs.js"></script>
+
+
+<pre class="r"><code>#install.packages(&quot;gemtc&quot;)
+#install.packages(&quot;netmeta&quot;)
+#install.packages(&quot;rjags&quot;)
+
+library(gemtc)</code></pre>
+<pre><code>## Loading required package: coda</code></pre>
+<pre class="r"><code>library(netmeta)</code></pre>
+<pre><code>## Loading required package: meta</code></pre>
+<pre><code>## Loading &#39;meta&#39; package (version 4.16-1).
+## Type &#39;help(meta)&#39; for a brief overview.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;meta&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:gemtc&#39;:
+## 
+##     forest</code></pre>
+<pre><code>## Loading &#39;netmeta&#39; package (version 1.3-0).
+## Type &#39;help(&quot;netmeta-package&quot;)&#39; for a brief overview.</code></pre>
+<pre class="r"><code>library(rjags)</code></pre>
+<pre><code>## Linked to JAGS 4.3.0</code></pre>
+<pre><code>## Loaded modules: basemod,bugs</code></pre>
+<pre class="r"><code>library(rio)
+library(igraph)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;igraph&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     decompose, spectrum</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     union</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.0.5     ✓ dplyr   1.0.3
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::as_data_frame() masks tibble::as_data_frame(), igraph::as_data_frame()
+## x purrr::compose()       masks igraph::compose()
+## x tidyr::crossing()      masks igraph::crossing()
+## x dplyr::filter()        masks stats::filter()
+## x dplyr::groups()        masks igraph::groups()
+## x dplyr::lag()           masks stats::lag()
+## x purrr::simplify()      masks igraph::simplify()</code></pre>
+<div id="excel-import" class="section level3">
+<h3>(Excel import)</h3>
+<pre class="r"><code># data(Senn2013)
+data &lt;- import(&#39;data.xlsx&#39;) %&gt;% select(-`...1`)</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1</code></pre>
+<pre class="r"><code>data$treatment &lt;- as.factor(data$treatment)</code></pre>
+<pre class="r"><code>network &lt;- mtc.network(data)
+
+summary(network)</code></pre>
+<pre><code>## $Description
+## [1] &quot;MTC dataset: Network&quot;
+## 
+## $`Studies per treatment`
+##      Acarbose    Benfluorex     Metformin      Miglitol  Pioglitazone 
+##             3             2             8             3             3 
+##       Placebo Rosiglitazone   Sitagliptin  Sulfonylurea  Vildagliptin 
+##            19            10             1             3             1 
+## 
+## $`Number of n-arm studies`
+## 2-arm 3-arm 
+##    25     1 
+## 
+## $`Studies per treatment comparison`
+##               t1            t2 nr
+## 1       Acarbose     Metformin  1
+## 2       Acarbose       Placebo  2
+## 3       Acarbose  Sulfonylurea  1
+## 4     Benfluorex       Placebo  2
+## 5      Metformin  Pioglitazone  1
+## 6      Metformin       Placebo  4
+## 7      Metformin Rosiglitazone  2
+## 8      Metformin  Sulfonylurea  1
+## 9       Miglitol       Placebo  3
+## 10  Pioglitazone       Placebo  1
+## 11  Pioglitazone Rosiglitazone  1
+## 12       Placebo Rosiglitazone  6
+## 13       Placebo   Sitagliptin  1
+## 14       Placebo  Vildagliptin  1
+## 15 Rosiglitazone  Sulfonylurea  1</code></pre>
+<pre class="r"><code>plot(network)</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>plot(network, layout=layout.fruchterman.reingold)</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre class="r"><code>network$data.ab &lt;- network$data.ab %&gt;% rename(mean = diff)
+
+network$data.ab$mean &lt;- as.numeric(as.integer(as.factor(network$data.ab$mean)))
+network$data.ab$std.err &lt;- as.numeric(as.integer(as.factor(network$data.ab$std.err)))
+
+#network$data.ab$mean &lt;- replace_na(network$data.ab$mean, 0)
+#network$data.ab$std.err &lt;- replace_na(network$data.ab$std.err, 0)</code></pre>
+</div>
+<div id="模型編譯" class="section level3">
+<h3>模型編譯</h3>
+<pre class="r"><code>model &lt;- mtc.model(
+  network,
+  linearModel = &#39;random&#39;,
+  n.chain = 4
+)</code></pre>
+<pre class="r"><code>mcmc1 &lt;- mtc.run(model, n.adapt = 50, n.iter = 1000, thin = 10)</code></pre>
+<pre><code>## Compiling model graph
+##    Resolving undeclared variables
+##    Allocating nodes
+## Graph information:
+##    Observed stochastic nodes: 53
+##    Unobserved stochastic nodes: 63
+##    Total graph size: 730
+## 
+## Initializing model</code></pre>
+<pre><code>## Warning in rjags::jags.model(file.model, data = syntax[[&quot;data&quot;]], inits =
+## syntax[[&quot;inits&quot;]], : Adaptation incomplete</code></pre>
+<pre><code>## NOTE: Stopping adaptation</code></pre>
+<pre class="r"><code>mcmc2 &lt;- mtc.run(model, n.adapt = 5000, n.iter = 100000, thin = 10)</code></pre>
+<pre><code>## Compiling model graph
+##    Resolving undeclared variables
+##    Allocating nodes
+## Graph information:
+##    Observed stochastic nodes: 53
+##    Unobserved stochastic nodes: 63
+##    Total graph size: 730
+## 
+## Initializing model</code></pre>
+<pre class="r"><code>mcmc3 &lt;- mtc.run(model, n.adapt = 5000, n.iter = 100000, thin = 1)</code></pre>
+<pre><code>## Compiling model graph
+##    Resolving undeclared variables
+##    Allocating nodes
+## Graph information:
+##    Observed stochastic nodes: 53
+##    Unobserved stochastic nodes: 63
+##    Total graph size: 730
+## 
+## Initializing model</code></pre>
+</div>
+<div id="section" class="section level3">
+<h3></h3>
+<pre class="r"><code>plot(mcmc1)</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-2.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-3.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-4.png" width="672" /></p>
+<pre class="r"><code>plot(mcmc2)</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-5.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-6.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-7.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-8.png" width="672" /></p>
+<pre class="r"><code>plot(mcmc3)</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-9.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-10.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-11.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-7-12.png" width="672" /></p>
+<pre class="r"><code>gelman.plot(mcmc1)</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<pre class="r"><code>gelman.plot(mcmc2)</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-8-3.png" width="672" /><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
+<pre class="r"><code>gelman.diag(mcmc1)$mpsrf</code></pre>
+<pre><code>## [1] 1.449146</code></pre>
+<pre class="r"><code>gelman.diag(mcmc2)$mpsrf</code></pre>
+<pre><code>## [1] 1.018798</code></pre>
+<pre class="r"><code>gelman.diag(mcmc3)$mpsrf</code></pre>
+<pre><code>## [1] 1.005499</code></pre>
+<pre class="r"><code>gemtc::forest(relative.effect(mcmc3, t1 = &quot;Placebo&quot;))</code></pre>
+<p><img src="/post/2021/04/13/0413-bayesien-meta-analysis/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+
+</main>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+<footer>
+
+<div class="footer">
+  <ul class="menu">
+    
+    <li><a href="/"><span data-hover="Home">Home</span></a></li>
+    
+    <li><a href="/about/"><span data-hover="About">About</span></a></li>
+    
+    <li><a href="/categories/"><span data-hover="Categories">Categories</span></a></li>
+    
+    <li><a href="/tags/"><span data-hover="Tags">Tags</span></a></li>
+    
+    <li><a href="/about/"><span data-hover="About Jane">About Jane</span></a></li>
+    
+    <li><a href="/post/"><span data-hover="Blog">Blog</span></a></li>
+    
+    <li><a href="/"><span data-hover="Jiewen and His Markdown Docs">Jiewen and His Markdown Docs</span></a></li>
+    
+    <li><a href="/index.xml"><span data-hover="Subscribe">Subscribe</span></a></li>
+    
+  </ul>
+  
+  <div class="copyright">© <a href="https://yihui.org">Yihui Xie</a> 2017 - 2020 | <a href="https://github.com/yihui">Github</a> | <a href="https://twitter.com/xieyihui">Twitter</a></div>
+  
+</div>
+</footer>
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</body>
+</html>
+
