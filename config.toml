@@ -17,10 +17,6 @@ footnotereturnlinkcontents = "↩"
 note = "/note/:year/:month/:day/:slug/"
 post = "/post/:year/:month/:day/:slug/"
 
-[[menu.main]]
-name = "Home"
-url = ""
-weight = 1
 
 [[menu.main]]
 name = "About"
@@ -28,23 +24,14 @@ url = "about/"
 weight = 2
 
 [[menu.main]]
-name = "Series"
-url = "categories/"
-weight = 3
-
-[[menu.main]]
 name = "Tags"
 url = "tags/"
 weight = 4
 
-[[menu.main]]
-name = "Subscribe"
-url = "index.xml"
-weight = 5
 
 [params]
 description = "Jiewen and His Markdown Docs"
-footer = "&copy; [Jiewen Tsai](/) 2021 | [Github](https://github.com/tsai-jiewen) | [Twitter](https://twitter.com/)"
+footer = "&copy; [Jiewen Tsai](/) 2021 | [Github](https://github.com/tsai-jiewen) | [RSS](index.xml)"
 
 [markup.goldmark.renderer]
 unsafe = true

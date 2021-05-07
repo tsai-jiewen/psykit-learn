@@ -1,12 +1,32 @@
 {{ partial "header.html" . }}
-<div class="article-meta">
-<h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
-</div>
 
-<main>
-{{ .Content }}
+<div class="article-meta">
+    <main class="content" role="main">
+      
+    <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+    
+    {{ if eq .Section "post" }}
+    <span class="author">{{ .Params.author }}</span>
+    {{ end }}|
+    {{ if eq .Section "post" }}
+    <span class="article-date">{{ .Date.Format "2006-01-02" }}</span>
+    {{ end }}|    
+    {{ if eq .Section "post" }}
+    <span class="article-duration">{{ .ReadingTime }} min read</span>
+    {{ end }}
+
+</div>
+    
+  <article class="article">
+
+
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+  </article>
+
+  {{ partial "disqus.html" .}}
+
 </main>
-{{ partial "disqus.html" .}}
+
 {{ partial "footer.html" . }}
