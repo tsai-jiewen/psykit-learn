@@ -13,10 +13,10 @@
     
     <item>
       <title>item_analysis 0506</title>
-      <link>/2021/05/06/item_analysis-0506/</link>
+      <link>/post/2021/05/06/item_analysis-0506/</link>
       <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>/2021/05/06/item_analysis-0506/</guid>
+      <guid>/post/2021/05/06/item_analysis-0506/</guid>
       <description>Data Scoring Extract responses only Item analysis Difficulty and Discrimination Score transformation  library(CTT) library(psychometric) library(tidyverse) Data key &amp;lt;- read_csv(&amp;quot;107ctt_key.csv&amp;quot;, col_names = T)  ## ## ── Column specification ──────────────────────────────────────────────────────── ## cols( ## quiz_no = col_character(), ## key = col_character() ## ) dat &amp;lt;- read_csv(&amp;#39;107ctt_dat.csv&amp;#39;) ## ## ── Column specification ──────────────────────────────────────────────────────── ## cols( ## .default = col_character(), ## player = col_double() ## ) ## ℹ Use `spec()` for the full column specifications.</description>
     </item>
     
@@ -32,19 +32,19 @@
     
     <item>
       <title>0413 bayesien meta-analysis</title>
-      <link>/2021/04/13/0413-bayesien-meta-analysis/</link>
+      <link>/post/2021/04/13/0413-bayesien-meta-analysis/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/2021/04/13/0413-bayesien-meta-analysis/</guid>
+      <guid>/post/2021/04/13/0413-bayesien-meta-analysis/</guid>
       <description>#install.packages(&amp;quot;gemtc&amp;quot;) #install.packages(&amp;quot;netmeta&amp;quot;) #install.packages(&amp;quot;rjags&amp;quot;) library(gemtc) ## Loading required package: coda library(netmeta) ## Loading required package: meta ## Loading &amp;#39;meta&amp;#39; package (version 4.16-1). ## Type &amp;#39;help(meta)&amp;#39; for a brief overview. ## ## Attaching package: &amp;#39;meta&amp;#39; ## The following object is masked from &amp;#39;package:gemtc&amp;#39;: ## ## forest ## Loading &amp;#39;netmeta&amp;#39; package (version 1.3-0). ## Type &amp;#39;help(&amp;quot;netmeta-package&amp;quot;)&amp;#39; for a brief overview. library(rjags) ## Linked to JAGS 4.3.0 ## Loaded modules: basemod,bugs library(rio) library(igraph) ## ## Attaching package: &amp;#39;igraph&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## decompose, spectrum ## The following object is masked from &amp;#39;package:base&amp;#39;: ## ## union library(tidyverse) ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.</description>
     </item>
     
     <item>
       <title>Hello R Markdown</title>
-      <link>/2020/12/01/hello-r-markdown/</link>
+      <link>/post/2020/12/01/hello-r-markdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>/2020/12/01/hello-r-markdown/</guid>
+      <guid>/post/2020/12/01/hello-r-markdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
@@ -52,20 +52,20 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
     <item>
       <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
+      <link>/post/2016/12/30/a-plain-markdown-post/</link>
       <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
       
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
+      <guid>/post/2016/12/30/a-plain-markdown-post/</guid>
       <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
  You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
     </item>
     
     <item>
       <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
+      <link>/post/2015/01/01/lorem-ipsum/</link>
       <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
       
-      <guid>/2015/01/01/lorem-ipsum/</guid>
+      <guid>/post/2015/01/01/lorem-ipsum/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
