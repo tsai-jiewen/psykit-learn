@@ -28,7 +28,7 @@ url = "about/"
 weight = 2
 
 [[menu.main]]
-name = "Categories"
+name = "Series"
 url = "categories/"
 weight = 3
 
@@ -40,6 +40,7 @@ weight = 4
 [[menu.main]]
 name = "Subscribe"
 url = "index.xml"
+weight = 5
 
 [params]
 description = "Jiewen and His Markdown Docs"
