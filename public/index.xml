@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jiewen and His Markdown Docs on JackMD</title>
+    <title>JackMD</title>
     <link>/</link>
-    <description>Recent content in Jiewen and His Markdown Docs on JackMD</description>
+    <description>Recent content on JackMD</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate>
@@ -18,6 +18,16 @@
       
       <guid>/2021/05/06/item_analysis-0506/</guid>
       <description>Data Scoring Extract responses only Item analysis Difficulty and Discrimination Score transformation  library(CTT) library(psychometric) library(tidyverse) Data key &amp;lt;- read_csv(&amp;quot;107ctt_key.csv&amp;quot;, col_names = T)  ## ## ── Column specification ──────────────────────────────────────────────────────── ## cols( ## quiz_no = col_character(), ## key = col_character() ## ) dat &amp;lt;- read_csv(&amp;#39;107ctt_dat.csv&amp;#39;) ## ## ── Column specification ──────────────────────────────────────────────────────── ## cols( ## .default = col_character(), ## player = col_double() ## ) ## ℹ Use `spec()` for the full column specifications.</description>
+    </item>
+    
+    <item>
+      <title>Jiewen and His Markdown Docs</title>
+      <link>/about/</link>
+      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>This site is for Jiewen&amp;rsquo;s RMarkdown and Markdown docs. He has tried a ton of ways to save his docs (especially R codes), such as HackMD, CoderBridge, even the popular academic website builder Wowchemy, but finally he came back to blogdown. Cuz he didn&amp;rsquo;t need to convert file or do copy-paste job b/w diff platforms anymore. It&amp;rsquo;s so easy and nice!
+   Col1 Col2 Col3     wt 452 46   we 235 346   et 235 36     This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package.</description>
     </item>
     
     <item>
@@ -48,15 +58,6 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <guid>/2016/12/30/a-plain-markdown-post/</guid>
       <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
  You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
-      
-      <guid>/about/</guid>
-      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
     </item>
     
     <item>
