@@ -1,24 +1,11 @@
 ---
 title: "item_analysis 0506"
-author: 
-  - name: Jiewen Tsai
+author: 'Jiewen Tsai'
 date: '2021-05-06'
 tags:
 - R
 - CTT
-output:
-  distill::distill_article:
-    self_contained: false
 ---
-
--   [Data]
--   [Scoring]
--   [Extract responses only]
--   [Item analysis]
--   [Difficulty and Discrimination]
--   [Score transformation]
-
-------------------------------------------------------------------------
 
 ```{r message=FALSE}
 library(CTT)

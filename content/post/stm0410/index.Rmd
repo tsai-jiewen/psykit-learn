@@ -1,0 +1,255 @@
+---
+title: 'STM: Structural topic modeling (a trail)'
+author: "Jiewen Tsai"
+date: '2021-04-10'
+tags:
+- R
+- STM
+---
+
+- link here: [structural topic modeling \| R Club (uoregon.edu)](https://blogs.uoregon.edu/rclub/2016/04/05/structural-topic-modeling/)
+- [stmVignette.pdf](file:///C:/Users/GameToGo/Downloads/stmVignette.pdf)
+- [learning stm](https://github.com/dondealban/learning-stm)
+
+```{r setup, include=FALSE}
+# install.packages('tidytext')
+library(stm)
+library(tm)
+library(bibliometrix)
+library(tidyverse)
+library(tidytext)
+library(quanteda)
+library(tidystm)
+```
+
+## using DT and Higher Education
+
+```{r message=FALSE}
+#dtc160 <- convert2df(
+#  file = "DTHghEdCov160.bib", 
+#  dbsource = "scopus", 
+#  format = "bibtex"
+#  )
+#dtnc1667 <- convert2df(
+#  file = "DTHghEdNCov1667.bib", 
+#  dbsource = "scopus", 
+#  format = "bibtex"
+#  )
+```
+
+### select variables
+
+select Document Title (TI), Keywords associated by SCOPUS or ISI database (ID), Authors' Keywords (DE) and Abstract (AB), then combined to one variable.
+
+```{r}
+#dtc160_2 <- dtc160 %>%
+#  select(c(TI, DE, ID, AB)) %>%
+#  unite(col = response, sep = ' ') %>%
+#  bind_cols(year = dtc160$PY, title = dtc160$TI) %>%
+#  mutate(treatment = 1)
+
+#dtnc1667_2 <- dtnc1667 %>%
+#  select(c(TI, DE, ID, AB)) %>%
+#  unite(col = response, sep = ' ') %>%
+#  bind_cols(year = dtnc1667$PY, title = dtnc1667$TI) %>%
+#  mutate(treatment = 0)
+
+#dt_com <- bind_rows(dtc160_2, dtnc1667_2)
+# write_csv(dt_com, 'dt_com.csv')
+```
+
+### text processing
+
+```{r}
+dt_com <- read_csv('dt_com.csv')
+```
+
+```{r}
+dt_cps <- corpus(dt_com, text_field = 'response')
+docvars(dt_cps)$text <- as.character(dt_cps)
+dt_fdm <- dt_cps %>% 
+  dfm(stem = TRUE, 
+      remove = stopwords('english'), 
+      remove_punct = TRUE) %>% 
+  # exclude words that appear too little or too much.
+  dfm_trim(termfreq_type = 'quantile',
+           min_termfreq = 0.01,
+           max_termfreq = 0.99,)
+
+out <- convert(dt_fdm, to = 'stm')
+out$meta$treatment <- as.factor(out$meta$treatment)
+
+# fit structural topic models
+dt_stm <- stm(documents = out$documents,
+              vocab = out$vocab,
+              data = out$meta,
+              prevalence =~ treatment + s(year) + treatment:s(year),
+              K = 10, 
+              verbose = FALSE)
+plot.STM(dt_stm, type = "summary") 
+# plot.STM(dt_stm, type = "hist")
+plot.STM(dt_stm, type = "perspectives", topics = c(3,9))
+plot.STM(dt_stm, type = "perspectives", topics = c(6,8))
+```
+
+```{r}
+# estimate effect
+dt_est <- estimateEffect(1:10 ~ treatment + s(year), dt_stm,
+                        meta = out$meta)
+summary(dt_est)
+```
+
+
+
+### topic trends
+
+```{r}
+# topic labels
+dt_lab <- labelTopics(dt_stm, topics = 1:10)
+dt_lab
+
+# find head 5 papers' titles
+find_papers <- function(x){
+thoughts <- findThoughts(dt_stm, texts = dt_com$response, n = 5, topics = x)
+papers <- dt_com %>% 
+    slice(c(thoughts$index[[1]])) %>%
+    select(title)
+papers$title
+}
+
+# related papers
+find_papers(1)
+find_papers(2)
+find_papers(3)
+find_papers(4)
+find_papers(5)
+find_papers(6)
+find_papers(7)
+find_papers(8)
+find_papers(9)
+# plotQuote(thoughts5, main = "Topic 5")
+
+```
+
+```{r}
+# plot
+plot(dt_est,
+     covariate = 'treatment',
+     cov.value1 = "1",
+     cov.value2 = "0",
+     method = "difference", 
+     verbose.labels = F,
+     topics = c(1:10), 
+     xlim = c(-0.5:0.5))
+```
+
+
+```{r}
+par(mfrow=c(2,3))
+for (i in c(9, 10 ,3, 7, 2, 4)){
+plot(dt_est, "year", method = "continuous", topics = i, main = paste0(dt_lab$prob[i,1:3], collapse = ", "), printlegend = F)
+}
+par(mfrow=c(2,3))
+for (i in c(8, 1, 5, 6)){
+plot(dt_est, "year", method = "continuous", topics = i, main = paste0(dt_lab$prob[i,1:3], collapse = ", "), printlegend = F)
+}
+```
+
+### interaction effect (with time)
+
+```{r}
+par(mfrow=c(2,2))
+for (i in c(3, 6:8)){
+  plot(dt_est, "year", method = "continuous", 
+     covariate = "year", topics = c(i), linecol = 'red',
+     moderator = 'treatment', moderator.value = '1',
+     printlegend = F, xaxt = "s", ylim = c(0, 0.2), #xlim = c(2019, 2021), 
+     xlab = "covid (red) vs non-covid (blue)", main = paste('Topic', i, sep = ' '))
+  plot(dt_est, "year", method = "continuous", 
+     covariate = "year", topics = c(i), linecol = 'blue',
+     moderator = 'treatment', moderator.value = '0',
+     printlegend = F, xaxt = "s", ylim = c(0, 0.2), #xlim = c(2019, 2021), 
+     , add = T)
+}
+
+plot(dt_est, "year", method = "continuous", 
+     covariate = "year", topics = c(9), linecol = 'red',
+     moderator = 'treatment', moderator.value = '1',
+     printlegend = F, xaxt = "s", ylim = c(0, 0.5), #xlim = c(2019, 2021), 
+     xlab = "covid (red) vs non-covid (blue)", main = paste('Topic', 9, sep = ' '))
+  plot(dt_est, "year", method = "continuous", 
+     covariate = "year", topics = c(9), linecol = 'blue',
+     moderator = 'treatment', moderator.value = '0',
+     printlegend = F, xaxt = "s", ylim = c(0, 0.5), #xlim = c(2019, 2021), 
+     , add = T)
+```
+
+
+
+```{r}
+#dt_com2 <- dt_com %>% filter(year == c(2019:2021))
+#dt_cps2 <- corpus(dt_com2, text_field = 'response')
+#docvars(dt_cps2)$text <- as.character(dt_cps2)
+#dt_dfm2 <- dfm(dt_cps2, 
+#            stem = TRUE, 
+#            remove = stopwords('english'), 
+#            remove_punct = TRUE)
+#out2 <- convert(dt_dfm2, to = 'stm')
+#out2$meta$treatment <- as.factor(out2$meta$treatment)
+```
+
+```{r}
+#dt_stm2 <- stm(documents = out2$documents,
+#              vocab = out2$vocab,
+#              data = out2$meta,
+#              prevalence =~ treatment * year,
+#              K = 10, verbose = FALSE)
+
+## interaction
+dt_est2 <- estimateEffect(1:10 ~ treatment*s(year), dt_stm,
+                         meta = out$meta)
+summary(dt_est2)
+
+#plot.STM(dt_stm2, type = "summary") 
+par(mfrow=c(1,2))
+plot(dt_est2, "year", method = "continuous", 
+     covariate = "year", topics = c(9), linecol = 'red',
+     moderator = 'treatment', moderator.value = '1',
+     printlegend = F, xaxt = "s", ylim = c(0, 0.5), xlim = c(2019, 2021), 
+     xlab = "covid (red) vs non-covid (blue)", main = paste('Topic', 9, sep = ' '))
+plot(dt_est2, "year", method = "continuous", 
+     covariate = "year", topics = c(9), linecol = 'blue',
+     moderator = 'treatment', moderator.value = '0',
+     printlegend = F, xaxt = "s", ylim = c(0, 0.5), xlim = c(2019, 2021)#, add = T
+     )
+
+
+```
+Estimations of interaction effects had some problems, and there was not significant on any topic.
+
+### topic corr
+
+```{r}
+cormat <- topicCorr(dt_stm)
+plot(cormat)
+```
+
+
+```{r}
+
+```
+
+### model select
+
+```{r}
+#poliblogSelect <- selectModel(out$documents, out$vocab, K = 20,
+#prevalence =~ treatment + s(year), max.em.its = 75, data = out$meta, runs = 20, seed #= 8458159)
+```
+
+
+```{r}
+#storage <- searchK(out$documents, out$vocab, K = c(7, 10),
+#prevalence =~ treatment + s(year), data = out$meta)
+#plot(storage)
+```
+
