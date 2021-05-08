@@ -6,19 +6,10 @@
     <description>Recent content in Posts on ⌾ JackMD</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Apr 2021 14:16:37 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>item_analysis 0506</title>
-      <link>/post/2021/05/06/item_analysis-0506/</link>
-      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2021/05/06/item_analysis-0506/</guid>
-      <description>Data Scoring Extract responses only Item analysis Difficulty and Discrimination Score transformation  library(CTT) library(psychometric) library(tidyverse) Data key &amp;lt;- read_csv(&amp;quot;107ctt_key.csv&amp;quot;, col_names = T)  ## ## ── Column specification ──────────────────────────────────────────────────────── ## cols( ## quiz_no = col_character(), ## key = col_character() ## ) dat &amp;lt;- read_csv(&amp;#39;107ctt_dat.csv&amp;#39;) ## ## ── Column specification ──────────────────────────────────────────────────────── ## cols( ## .default = col_character(), ## player = col_double() ## ) ## ℹ Use `spec()` for the full column specifications.</description>
-    </item>
     
     <item>
       <title>Make Slides by R Markdown Beamer</title>
