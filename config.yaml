@@ -50,8 +50,10 @@ menu:
       weight: 3
 
 params:
-  homePosts: 6
-  mainSections: ["post", "work"]
+  homePosts: 4
+  mainSections: 
+   - post
+   - work
   editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]
