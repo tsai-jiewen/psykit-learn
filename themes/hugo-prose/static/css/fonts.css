@@ -1,10 +1,10 @@
 body {
-  font-family: Seravek, Optima, Candara, Calibri, "Droid Sans", Arial, sans-serif;
-  font-size: 115%;
+  font-family: Seravek, Optima, Candara, Calibri, Droid Sans, Arial, sans-serif;
+  font-size: 120%;
 }
 code {
-  font-family: Consolas, Lucida Console, Monaco, monospace;
-  font-size: 85%;
+  font-family: Monaco, Consolas, Lucida Console, monospace;
+  font-size: 80%;
 }
 h1, h2, h3 {
   font-family: Palatino, Book Antiqua, serif;
