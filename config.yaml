@@ -2,7 +2,7 @@ baseurl: "/"
 languageCode: "en-us"
 defaultContentLanguage: "en"
 # defaultContentLanguage: "zh"
-title: "JackMD"
+title: "⌾ JackMD"
 theme: "hugo-prose"
 googleAnalytics: ""
 disqusShortname: "https-jackmd-netlify-app"
@@ -32,7 +32,7 @@ outputs:
 # some menu items were added via the `menu` option in YAML in posts
 menu:
   header:
-    - name: Search
+    - name: 🔍Search
       url: "#"
       identifier: menu-search
     - name: Posts
