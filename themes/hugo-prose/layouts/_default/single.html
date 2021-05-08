@@ -1,3 +1,5 @@
+
+
 {{ partial "header.html" . }}
 
 <div class="container single">
@@ -9,8 +11,7 @@
 <h1><span class="title">{{ .Title }}</span></h1>
 {{ with .Params.author }}
 <h3 class="author">
-{{ if reflect.IsSlice . }}{{ delimit . (default " / " $.Site.Params.authorDelimiter) }}{{ else }}{{ . }}{{ end }}
-</h3>
+{{ if reflect.IsSlice . }}{{ delimit . (default " / " $.Site.Params.authorDelimiter) }}{{ else }}{{ . }}{{ end }}</h3>
 {{ end }}
 {{ if .Params.date }}<h3 class="date">{{ .Date.Format "2006-01-02" }}</h3>{{ end }}
 <p class="terms">

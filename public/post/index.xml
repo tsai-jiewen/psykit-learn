@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on JackMD</title>
+    <title>Posts on ⌾ JackMD</title>
     <link>/post/</link>
-    <description>Recent content in Posts on JackMD</description>
+    <description>Recent content in Posts on ⌾ JackMD</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate>
@@ -21,12 +21,39 @@
     </item>
     
     <item>
+      <title>Make Slides by R Markdown Beamer</title>
+      <link>/post/2021/04/25/make-slides-by-r-markdown-beamer/</link>
+      <pubDate>Sun, 25 Apr 2021 14:16:37 +0000</pubDate>
+      
+      <guid>/post/2021/04/25/make-slides-by-r-markdown-beamer/</guid>
+      <description>1 R Markdown You follow the basic R presentation way. Do not need any other pkg, but tinytex. 2 YAML settings (the most imp. part) --- title: A minimal example subtitle: With a subtitle author: Matthias Vogelgesang institute: Centre for Modern Beamer Themes date: \today theme: Madrid CJKmainfont: DFKai-SB #標楷體 output: beamer_presentation: latex_engine: xelatex fontsize: 12pt --- use LaTex pkg: {ctex} and {xeCJK} for Chinese fonts. \setCJKmainfont</description>
+    </item>
+    
+    <item>
       <title>0413 bayesien meta-analysis</title>
       <link>/post/2021/04/13/0413-bayesien-meta-analysis/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021/04/13/0413-bayesien-meta-analysis/</guid>
       <description>#install.packages(&amp;quot;gemtc&amp;quot;) #install.packages(&amp;quot;netmeta&amp;quot;) #install.packages(&amp;quot;rjags&amp;quot;) library(gemtc) ## Loading required package: coda library(netmeta) ## Loading required package: meta ## Loading &amp;#39;meta&amp;#39; package (version 4.16-1). ## Type &amp;#39;help(meta)&amp;#39; for a brief overview. ## ## Attaching package: &amp;#39;meta&amp;#39; ## The following object is masked from &amp;#39;package:gemtc&amp;#39;: ## ## forest ## Loading &amp;#39;netmeta&amp;#39; package (version 1.3-0). ## Type &amp;#39;help(&amp;quot;netmeta-package&amp;quot;)&amp;#39; for a brief overview. library(rjags) ## Linked to JAGS 4.3.0 ## Loaded modules: basemod,bugs library(rio) library(igraph) ##</description>
+    </item>
+    
+    <item>
+      <title>Structural topic modeling: a trial</title>
+      <link>/post/2021/04/10/structural-topic-modeling-a-trial/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/10/structural-topic-modeling-a-trial/</guid>
+      <description>link here: structural topic modeling | R Club (uoregon.edu) stmVignette.pdf learning stm  using DT and Higher Education #dtc160 &amp;lt;- convert2df( # file = &amp;quot;DTHghEdCov160.bib&amp;quot;, # dbsource = &amp;quot;scopus&amp;quot;, # format = &amp;quot;bibtex&amp;quot; # ) #dtnc1667 &amp;lt;- convert2df( # file = &amp;quot;DTHghEdNCov1667.bib&amp;quot;, # dbsource = &amp;quot;scopus&amp;quot;, # format = &amp;quot;bibtex&amp;quot; # ) select variables select Document Title (TI), Keywords associated by SCOPUS or ISI database (ID), Authors’ Keywords (DE) and Abstract (AB), then combined to one variable.</description>
+    </item>
+    
+    <item>
+      <title>ConQuest計分檔的分割函數</title>
+      <link>/post/2021/03/26/conquest%E8%A8%88%E5%88%86%E6%AA%94%E7%9A%84%E5%88%86%E5%89%B2%E5%87%BD%E6%95%B8/</link>
+      <pubDate>Fri, 26 Mar 2021 13:13:33 +0000</pubDate>
+      
+      <guid>/post/2021/03/26/conquest%E8%A8%88%E5%88%86%E6%AA%94%E7%9A%84%E5%88%86%E5%89%B2%E5%87%BD%E6%95%B8/</guid>
+      <description>讀取計分檔。 記得用 read_table()，若用 read_csv() 因為是逗點切割，所以會全部分成一個欄位。 tds &amp;lt;- read_table(&#39;TDS.txt&#39;, col_names = FALSE) ConQuest的計分檔（.txt）用</description>
     </item>
     
     <item>
