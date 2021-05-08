@@ -20,6 +20,8 @@ highlightjsLang:
   - tex
   - python
 highlightjsTheme: github
+favicon: favicon.ico
+
 
 permalinks:
   post: "/post/:year/:month/:day/:slug/"
