@@ -1,5 +1,5 @@
 ---
-title: 'Structural topic modeling: a trail'
+title: 'Structural topic modeling: a trial'
 author: "Jiewen Tsai"
 date: '2021-04-10'
 tags:
