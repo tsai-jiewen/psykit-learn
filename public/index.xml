@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JackMD</title>
+    <title>Home on JackMD</title>
     <link>/</link>
-    <description>Recent content on JackMD</description>
+    <description>Recent content in Home on JackMD</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate>
@@ -27,7 +27,7 @@
       
       <guid>/about/</guid>
       <description>This site is for Jiewen&amp;rsquo;s RMarkdown and Markdown docs. He has tried a ton of ways to save his docs (especially R codes), such as HackMD, CoderBridge, even the popular academic website builder Wowchemy, but finally he came back to blogdown. Cuz he didn&amp;rsquo;t need to convert file or do copy-paste job b/w diff platforms anymore. It&amp;rsquo;s so easy and nice!
-   Col1 Col2 Col3     wt 452 46   we 235 346   et 235 36     This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package.</description>
+ This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package.</description>
     </item>
     
     <item>

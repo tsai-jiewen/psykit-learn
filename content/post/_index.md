@@ -1,5 +1,5 @@
 ---
-description: Jane Doe's blog
+#description: Jane Doe's blog
 menu: main
-title: Blog
+title: Posts
 ---

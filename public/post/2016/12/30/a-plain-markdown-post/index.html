@@ -17,26 +17,35 @@
       
       <li><a href="/about/">About</a></li>
       
-      <li><a href="/categories/">Categories</a></li>
-      
-      <li><a href="/tags/">Tags</a></li>
-      
-      <li><a href="/post/">Blog</a></li>
-      
-      <li><a href="/index.xml">Subscribe</a></li>
+      <li><a href="/post/">Posts</a></li>
       
     </ul>
     <hr/>
     </nav>
 
+
 <div class="article-meta">
-<h1><span class="title">A Plain Markdown Post</span></h1>
+    <main class="content" role="main">
+      
+    <h1><span class="title">A Plain Markdown Post</span></h1>
+    
+    
+    <span class="author"></span>
+     &nbsp;
+    
+    <span class="article-date">2016-12-30</span>
+     &nbsp;     
+    
+    <span class="article-duration">2 min read</span>
+    
 
-<h2 class="date">2016/12/30</h2>
 </div>
+    
+  <article class="article">
 
-<main>
-<p>This is a post written in plain Markdown (<code>*.md</code>) instead of R Markdown (<code>*.Rmd</code>). The major differences are:</p>
+
+    <div class="article-content">
+      <p>This is a post written in plain Markdown (<code>*.md</code>) instead of R Markdown (<code>*.Rmd</code>). The major differences are:</p>
 <ol>
 <li>You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (<code>```{r}</code>);</li>
 <li>A plain Markdown post is rendered through <a href="https://gohugo.io/overview/configuration/">Blackfriday</a>, and an R Markdown document is compiled by <a href="http://rmarkdown.rstudio.com"><strong>rmarkdown</strong></a> and <a href="http://pandoc.org">Pandoc</a>.</li>
@@ -52,15 +61,42 @@
 <p>When creating a new post, you have to decide whether the post format is Markdown or R Markdown, and this can be done via the <code>ext</code> argument of the function <code>blogdown::new_post()</code>, e.g.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">blogdown<span style="color:#f92672">::</span><span style="color:#a6e22e">new_post</span>(<span style="color:#e6db74">&#34;Post Title&#34;</span>, ext <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.Rmd&#39;</span>)
 </code></pre></div>
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//https-jackmd-netlify-app.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
 </main>
 
   <footer>
   
   
   <hr/>
-  © <a href="/">Jiewen Tsai</a> 2021 | <a href="https://github.com/tsai-jiewen">Github</a> | <a href="https://twitter.com/">Twitter</a>
+  © <a href="/">Jiewen Tsai</a> 2021 | <a href="https://github.com/tsai-jiewen">Github</a> | <a href="index.xml">RSS</a>
   
   </footer>
   </body>
 </html>
-
