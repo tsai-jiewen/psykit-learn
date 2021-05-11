@@ -38,6 +38,7 @@ tags:
 - citation
 - numbered section
 title: About Hugo Prose
+draft: true
 ---
 
 **Hugo Prose** is a minimalist theme derived from the [**XMin**
