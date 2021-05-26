@@ -1,0 +1,1713 @@
+---
+title: "longirt2563"
+author: "Jiewen Tsai"
+date: '2021-05-09'
+tags:
+- R
+- IRT
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<blockquote>
+<p>The content of this doc is not complete. But the part of bibliometrix process may be useful to refer to later.</p>
+</blockquote>
+<ul>
+<li><a href="intro0524.pdf">Slides</a></li>
+</ul>
+<pre class="r"><code>library(bibliometrix)
+library(tidyverse)</code></pre>
+<div id="data-loading-and-converting" class="section level2">
+<h2>1 Data loading and converting</h2>
+<pre class="r"><code>lirt2563 &lt;- convert2df(
+  file = &quot;longirt2563.bib&quot;, 
+  dbsource = &quot;scopus&quot;, 
+  format = &quot;bibtex&quot;
+  )</code></pre>
+<pre><code>## 
+## Converting your scopus collection into a bibliographic dataframe
+## 
+## 
+## Warning:
+## In your file, some mandatory metadata are missing. Bibliometrix functions may not work properly!
+## 
+## Please, take a look at the vignettes:
+## - &#39;Data Importing and Converting&#39; (https://www.bibliometrix.org/vignettes/Data-Importing-and-Converting.html)
+## - &#39;A brief introduction to bibliometrix&#39; (https://www.bibliometrix.org/vignettes/Introduction_to_bibliometrix.html)
+## 
+## 
+## Missing fields:  CR 
+## Done!
+## 
+## 
+## Generating affiliation field tag AU_UN from C1:  Done!</code></pre>
+</div>
+<div id="bibliometric-analysis" class="section level2">
+<h2>2 Bibliometric Analysis</h2>
+<div id="basic-summary-and-plot" class="section level3">
+<h3>2.1 basic summary and plot</h3>
+<pre class="r"><code>res_lirt2563 &lt;- biblioAnalysis(lirt2563, sep = &quot;;&quot;)
+summary(res_lirt2563, k = 10, pause = FALSE)</code></pre>
+<pre><code>## 
+## 
+## MAIN INFORMATION ABOUT DATA
+## 
+##  Timespan                              1928 : 2021 
+##  Sources (Journals, Books, etc)        1181 
+##  Documents                             2563 
+##  Average years from publication        10 
+##  Average citations per documents       23.14 
+##  Average citations per year per doc    2.08 
+##  References                            1 
+##  
+## DOCUMENT TYPES                     
+##  article      2563 
+##  
+## DOCUMENT CONTENTS
+##  Keywords Plus (ID)                    10422 
+##  Author&#39;s Keywords (DE)                5514 
+##  
+## AUTHORS
+##  Authors                               10176 
+##  Author Appearances                    12923 
+##  Authors of single-authored documents  175 
+##  Authors of multi-authored documents   10001 
+##  
+## AUTHORS COLLABORATION
+##  Single-authored documents             195 
+##  Documents per Author                  0.252 
+##  Authors per Document                  3.97 
+##  Co-Authors per Documents              5.04 
+##  Collaboration Index                   4.22 
+##  
+## 
+## Annual Scientific Production
+## 
+##  Year    Articles
+##     1928        1
+##     1931        1
+##     1935        1
+##     1936        1
+##     1938        1
+##     1954        1
+##     1955        2
+##     1956        1
+##     1958        2
+##     1962        1
+##     1963        4
+##     1965        5
+##     1966        3
+##     1968        3
+##     1969        3
+##     1970        1
+##     1971        3
+##     1972        1
+##     1973        4
+##     1974        3
+##     1975        9
+##     1976        2
+##     1977        3
+##     1978       11
+##     1979        5
+##     1980        6
+##     1981        2
+##     1982        7
+##     1983        6
+##     1984        3
+##     1985        6
+##     1986        4
+##     1987        7
+##     1988        6
+##     1989        9
+##     1990       10
+##     1991       12
+##     1992        7
+##     1993        8
+##     1994        9
+##     1995       14
+##     1996       22
+##     1997       16
+##     1998       24
+##     1999       24
+##     2000       27
+##     2001       34
+##     2002       34
+##     2003       41
+##     2004       37
+##     2005       47
+##     2006       54
+##     2007       50
+##     2008       65
+##     2009       82
+##     2010       83
+##     2011      106
+##     2012      115
+##     2013      114
+##     2014      146
+##     2015      179
+##     2016      174
+##     2017      180
+##     2018      196
+##     2019      184
+##     2020      246
+##     2021       95
+## 
+## Annual Percentage Growth Rate 5.018508 
+## 
+## 
+## Most Productive Authors
+## 
+##    Authors        Articles Authors        Articles Fractionalized
+## 1    TENNANT A          25    TENNANT A                      6.84
+## 2    LAMOUREUX EL       20    FERRANDO PJ                    6.17
+## 3    NI P               17    FISCHER GH                     5.50
+## 4    HARDOUIN JB        14    WILSON M                       4.58
+## 5    CELLA D            13    FORMANN AK                     4.00
+## 6    GLAS CAW           13    LUO S                          3.53
+## 7    HEINEMANN AW       13    FOX JP                         3.48
+## 8    KOTTORP A          13    KOTTORP A                      3.36
+## 9    WILSON M           12    WANG WC                        3.33
+## 10   BLANCHIN M         11    ANDRICH D                      3.31
+## 
+## 
+## Top manuscripts per citations
+## 
+##                             Paper                                           DOI   TC TCperYear   NTC
+## 1  MORIN CM, 2011, SLEEP                   10.1093/sleep/34.5.601               1238     112.5 30.70
+## 2  HIBBARD JH, 2004, HEALTH SERV RES       10.1111/j.1475-6773.2004.00269.x     1235      68.6 14.89
+## 3  PYNOOS RS, 1987, ARCH GEN PSYCHIATRY    10.1001/archpsyc.1987.01800240031005  909      26.0  6.31
+## 4  BEATON DE, 2005, J BONE JT SURG SER A   10.2106/JBJS.D.02060                  891      52.4 15.61
+## 5  LINACRE JM, 1994, ARCH PHYS MED REHABIL 10.1016/0003-9993(94)90384-0          769      27.5  6.50
+## 6  STN TB, 2010, BULL WHO                  10.2471/BLT.09.067231                 617      51.4 14.35
+## 7  KOSINSKI M, 2003, QUAL LIFE RES-a       10.1023/A:1026119331193               577      30.4  9.81
+## 8  TAYLOR S, 1992, J ANXIETY DISORD        10.1016/0887-6185(92)90037-8          554      18.5  6.65
+## 9  ADAMS RJ, 1997, APPL PSYCHOL MEAS       10.1177/0146621697211001              544      21.8  8.20
+## 10 HAYS RD, 2000, MED CARE                 10.1097/00005650-200009002-00007      543      24.7  6.03
+## 
+## 
+## Corresponding Author&#39;s Countries
+## 
+##           Country Articles   Freq SCP MCP MCP_Ratio
+## 1  USA                 822 0.3736 704 118     0.144
+## 2  UNITED KINGDOM      168 0.0764 105  63     0.375
+## 3  AUSTRALIA           143 0.0650  91  52     0.364
+## 4  CANADA              100 0.0455  59  41     0.410
+## 5  GERMANY              90 0.0409  57  33     0.367
+## 6  NETHERLANDS          84 0.0382  53  31     0.369
+## 7  CHINA                80 0.0364  55  25     0.312
+## 8  SPAIN                67 0.0305  51  16     0.239
+## 9  SWEDEN               66 0.0300  37  29     0.439
+## 10 ITALY                62 0.0282  45  17     0.274
+## 
+## 
+## SCP: Single Country Publications
+## 
+## MCP: Multiple Country Publications
+## 
+## 
+## Total Citations per Country
+## 
+##      Country      Total Citations Average Article Citations
+## 1  USA                      24468                     29.77
+## 2  CANADA                    4811                     48.11
+## 3  UNITED KINGDOM            4370                     26.01
+## 4  AUSTRALIA                 3882                     27.15
+## 5  GERMANY                   2044                     22.71
+## 6  NETHERLANDS               1979                     23.56
+## 7  SWEDEN                    1594                     24.15
+## 8  SWITZERLAND               1296                     56.35
+## 9  FRANCE                    1093                     18.53
+## 10 ITALY                      900                     14.52
+## 
+## 
+## Most Relevant Sources
+## 
+##                                      Sources        Articles
+## 1  QUALITY OF LIFE RESEARCH                               63
+## 2  ARCHIVES OF PHYSICAL MEDICINE AND REHABILITATION       47
+## 3  HEALTH AND QUALITY OF LIFE OUTCOMES                    43
+## 4  PSYCHOMETRIKA                                          36
+## 5  JOURNAL OF APPLIED MEASUREMENT                         33
+## 6  APPLIED PSYCHOLOGICAL MEASUREMENT                      28
+## 7  PLOS ONE                                               27
+## 8  PSYCHOLOGICAL ASSESSMENT                               27
+## 9  DISABILITY AND REHABILITATION                          23
+## 10 EDUCATIONAL AND PSYCHOLOGICAL MEASUREMENT              23
+## 
+## 
+## Most Relevant Keywords
+## 
+##    Author Keywords (DE)      Articles Keywords-Plus (ID)     Articles
+## 1      ITEM RESPONSE THEORY       337   FEMALE                   2238
+## 2      RASCH ANALYSIS             135   MALE                     2233
+## 3      PSYCHOMETRICS              121   HUMAN                    1567
+## 4      MEASUREMENT                 90   ADULT                    1476
+## 5      QUALITY OF LIFE             86   ARTICLE                  1373
+## 6      REHABILITATION              86   AGED                     1335
+## 7      RASCH MODEL                 78   HUMANS                   1247
+## 8      INFRARED THERMOGRAPHY       65   MIDDLE AGED              1051
+## 9      VALIDITY                    63   MAJOR CLINICAL STUDY      698
+## 10     ASSESSMENT                  54   ADOLESCENT                617</code></pre>
+<pre class="r"><code>plot(res_lirt2563, k = 10, pause = FALSE)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-2.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-3.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-4.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-5.png" width="672" /></p>
+</div>
+<div id="keywords-growth" class="section level3">
+<h3>2.2 keywords growth</h3>
+<p>It calculates yearly occurrences of top keywords/terms.</p>
+<pre class="r"><code>KeywordGrowth(lirt2563, Tag = &quot;ID&quot;, sep = &quot;;&quot;, top = 10, cdf = T) %&gt;%
+  reshape2::melt(id=&#39;Year&#39;) %&gt;%
+  mutate(Year = as.factor(Year)) %&gt;%
+  ggplot(aes(Year,value, group=variable, color=variable)) + geom_line()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+</div>
+<div id="bibliographic-network-matrices" class="section level2">
+<h2>3 Bibliographic network matrices</h2>
+<div id="co-citation-network-references" class="section level3">
+<h3>3.1 co-citation network (references)</h3>
+<pre class="r"><code># Create a co-citation network
+
+#cocitation_lirt2563 &lt;- biblioNetwork(lirt2563, analysis = &quot;co-citation&quot;, network = &quot;references&quot;, sep = &quot;;&quot;)
+
+# Plot the network
+#coc_net_lirt2563 &lt;- networkPlot(cocitation_lirt2563, n = 30, Title = &quot;Co-Citation Network&quot;, type = &quot;fruchterman&quot;, size=T,edgesize = 5)
+
+# cluster results
+#coc_net_hec318$cluster_res</code></pre>
+</div>
+<div id="keyword-co-occurrences-network-keywords" class="section level3">
+<h3>3.2 keyword co-occurrences network (keywords)</h3>
+<pre class="r"><code># Create keyword co-occurrences network
+
+keyword_lirt2563 &lt;- biblioNetwork(lirt2563, analysis = &quot;co-occurrences&quot;, network = &quot;keywords&quot;, sep = &quot;;&quot;)
+
+# Plot the network
+kco_net_lirt2563 &lt;- networkPlot(keyword_lirt2563, normalize=&quot;association&quot;, weighted=T, n = 30, Title = &quot;Keyword Co-occurrences&quot;, type = &quot;fruchterman&quot;, size=T,edgesize = 5)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># cluster results
+kco_net_lirt2563$cluster_res</code></pre>
+<pre><code>##                        vertex cluster btw_centrality clos_centrality pagerank_centrality
+## 1                      female       1            0.0    0.0007770008         0.067128272
+## 2                        male       1            0.0    0.0005104645         0.066674429
+## 3                       human       1            0.0    0.0011534025         0.073104829
+## 4                       adult       1            0.0    0.0013245033         0.053127967
+## 5                     article       1            0.0    0.0003106555         0.065274941
+## 6                        aged       1            0.0    0.0017889088         0.040866182
+## 7                      humans       1            0.0    0.0011173184         0.065365935
+## 8                 middle aged       1            0.0    0.0018832392         0.041633587
+## 9        major clinical study       1            0.0    0.0017035775         0.042253672
+## 10                 adolescent       1            0.0    0.0016260163         0.023410473
+## 13           priority journal       1            0.0    0.0005146680         0.033853264
+## 14           controlled study       1            0.0    0.0004670715         0.031687585
+## 18                young adult       1            0.0    0.0017035775         0.019913489
+## 20             rasch analysis       1            0.0    0.0018832392         0.022431211
+## 26                80 and over       1            0.0    0.0018832392         0.018561896
+## 27         outcome assessment       1           20.0    0.0018939394         0.015730053
+## 28                 physiology       1           11.0    0.0012391574         0.012388571
+## 29           clinical article       1          104.0    0.0015898251         0.010858681
+## 30                   nonhuman       1          358.5    0.0019880716         0.006866486
+## 11                psychometry       2            0.0    0.0017889088         0.036573894
+## 12            quality of life       2            0.0    0.0008703220         0.023544044
+## 15              questionnaire       2            0.0    0.0007077141         0.034830251
+## 16              psychometrics       2            0.0    0.0018832392         0.035492832
+## 17 reproducibility of results       2            0.0    0.0007855460         0.032201002
+## 19            reproducibility       2            0.0    0.0018832392         0.027180216
+## 22                 psychology       2           95.0    0.0019193858         0.021469320
+## 23 surveys and questionnaires       2            0.0    0.0010660981         0.021141988
+## 24                 procedures       2            0.0    0.0013245033         0.017987709
+## 21         longitudinal study       3            0.0    0.0016393443         0.020870223
+## 25       longitudinal studies       3            0.0    0.0016977929         0.017576998</code></pre>
+</div>
+</div>
+<div id="co-word-analysis-the-conceptual-structure-of-a-field" class="section level2">
+<h2>4 Co-Word Analysis: The conceptual structure of a field</h2>
+<pre class="r"><code># Conceptual Structure using keywords
+
+CS &lt;- conceptualStructure(lirt2563,field=&quot;ID&quot;, method=&quot;MCA&quot;, minDegree=5, clust=&quot;auto&quot;, k.max = 20, stemming=F, labelsize=10, documents=10)</code></pre>
+<pre><code>## Warning: ggrepel: 1354 unlabeled data points (too many overlaps). Consider increasing max.overlaps</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre><code>## Warning: ggrepel: 11 unlabeled data points (too many overlaps). Consider increasing max.overlaps</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<pre><code>## Warning: ggrepel: 11 unlabeled data points (too many overlaps). Consider increasing max.overlaps</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-4.png" width="672" /></p>
+<pre class="r"><code># k-means cluster results
+CS$km.res$data.clust</code></pre>
+<pre><code>##                                                                  Dim.1         Dim.2 clust
+## female                                                    0.3686569496 -2.206110e-02     1
+## male                                                      0.2967408235  1.887829e-02     1
+## human                                                     0.2997579031 -1.860514e-02     1
+## adult                                                     0.4540269254 -2.063364e-03     1
+## article                                                   0.1053767788  4.542114e-02     1
+## aged                                                      0.6052503616  1.030120e-01     1
+## humans                                                    0.3933324505  5.017992e-02     1
+## middle.aged                                               0.7016201645  1.151878e-01     1
+## major.clinical.study                                      0.5960522857  1.185300e-01     1
+## adolescent                                                0.4431070272  3.088795e-02     1
+## psychometry                                               0.6085622061  1.531559e-01     1
+## quality.of.life                                           0.7680715653  2.242921e-01     1
+## priority.journal                                          0.1545535020  1.362480e-01     1
+## controlled.study                                         -0.0601760162  2.165253e-02     1
+## questionnaire                                             0.6547017962  1.719677e-01     1
+## psychometrics                                             0.6357055955  1.609387e-01     1
+## reproducibility.of.results                                0.6883849790  1.276660e-01     1
+## young.adult                                               0.6062989311  9.173084e-02     1
+## child                                                     0.3257404325 -1.398785e-02     1
+## reproducibility                                           0.6805775492  1.336868e-01     1
+## rasch.analysis                                            0.6790586355  1.652063e-01     1
+## longitudinal.study                                        0.4515337811  9.442321e-02     1
+## psychology                                                0.7127922782  1.891022e-01     1
+## statistical                                               0.4038273540  9.356061e-02     1
+## questionnaires                                            0.6491981670  1.733983e-01     1
+## surveys.and.questionnaires                                0.7405587413  1.925149e-01     1
+## procedures                                                0.2990955860 -4.091857e-02     1
+## longitudinal.studies                                      0.4298339718  8.006358e-02     1
+## models                                                    0.1405684218  1.245833e-01     1
+## X80.and.over                                              0.7937217789  2.362230e-01     1
+## self.report                                               0.6856352587  1.854004e-01     1
+## severity.of.illness.index                                 0.6685260054  1.018702e-01     1
+## outcome.assessment                                        0.6949718322  1.912466e-01     1
+## reliability                                               0.5737461612  1.512509e-01     1
+## united.states                                             0.4458033057  1.027812e-01     1
+## treatment.outcome                                         0.5587330499  5.844362e-02     1
+## depression                                                0.6186315734  1.656716e-01     1
+## scoring.system                                            0.5622873862  1.357608e-01     1
+## validation.study                                          0.7512440803  1.797434e-01     1
+## disability.evaluation                                     0.7277948550  1.600625e-01     1
+## disease.severity                                          0.6224121678  1.719858e-01     1
+## factor.analysis                                           0.7028160790  1.904426e-01     1
+## pathophysiology                                           0.4459452739 -2.179114e-01     1
+## disability                                                0.6986220974  1.574035e-01     1
+## physiology                                               -0.0748781298 -2.427829e-01     1
+## statistical.model                                         0.2053361115  1.609922e-02     1
+## follow.up                                                 0.6708755313  1.376224e-01     1
+## rating.scale                                              0.5143624507  9.700056e-02     1
+## daily.life.activity                                       0.6528644852  1.618119e-01     1
+## cohort.analysis                                           0.5864810334  1.043879e-01     1
+## health.status                                             0.6050357029  1.366472e-01     1
+## very.elderly                                              0.8922728668  2.325335e-01     1
+## activities.of.daily.living                                0.7752725927  1.925328e-01     1
+## clinical.article                                          0.0470140844 -4.745445e-01     1
+## cognition                                                 0.4014167480  8.817569e-02     1
+## prospective.study                                         0.6313556595 -1.092176e-01     1
+## clinical.trial                                            0.5663660047  5.276576e-02     1
+## animal                                                   -2.3801451795 -4.328418e-01     1
+## construct.validity                                        0.8622227979  2.523878e-01     1
+## sensitivity.and.specificity                               0.3077833228 -6.437651e-02     1
+## prospective.studies                                       0.6500095672 -1.386536e-01     1
+## education                                                -0.0613557028 -7.944817e-02     1
+## cross.sectional.study                                     0.6770968803  3.250954e-03     1
+## comparative.study                                         0.2279394009 -5.927118e-02     1
+## cross.sectional.studies                                   0.7265744076 -5.316332e-04     1
+## internal.consistency                                      0.8863837664  2.780805e-01     1
+## visual.acuity                                             0.9091945423  2.350444e-01     1
+## methodology                                               0.1070357619 -1.005840e-01     1
+## nonhuman                                                 -2.4915466581  6.778488e-01     1
+## psychological.aspect                                      0.3718348997  5.765892e-02     1
+## statistical.analysis                                      0.2606026333 -7.200650e-03     1
+## infant                                                   -0.0164427733 -1.254544e-01     1
+## sickness.impact.profile                                   0.9313683473  2.843340e-01     1
+## psychological                                             0.3263949126  7.414595e-02     1
+## outcome.assessment..health.care.                          0.6745748131  1.957316e-01     1
+## standards                                                 0.5907447471  1.667004e-01     1
+## thermography                                             -1.2730111737 -5.500870e-01     1
+## multicenter.study                                         0.7801298207  1.786734e-01     1
+## patient.reported.outcome                                  0.7696179604  2.476365e-01     1
+## time.factors                                             -0.4190658918 -2.578686e-01     1
+## functional.assessment                                     0.5134375317  9.756701e-02     1
+## aging                                                     0.3205536249  6.448413e-03     1
+## test.retest.reliability                                   0.8855191452  2.567567e-01     1
+## validity                                                  0.6363634232  1.730182e-01     1
+## human.experiment                                         -0.0583263979 -1.704156e-01     1
+## item.response.theory                                      0.3157246612  1.041209e-01     1
+## randomized.controlled.trial                               0.4535863160  5.847839e-02     1
+## statistics                                                0.1637860152  4.714089e-03     1
+## validation.process                                        0.6392096294  1.644931e-01     1
+## cohort.studies                                            0.5674665593  8.462654e-02     1
+## fatigue                                                   0.7726672421  2.465001e-01     1
+## psychiatric.status.rating.scales                          0.6144749200  1.636139e-01     1
+## pain                                                      0.6423329609  1.205169e-01     1
+## animal.experiment                                        -2.6367679116 -3.840008e-01     1
+## anxiety                                                   0.8217034465  2.430945e-01     1
+## patient.satisfaction                                      0.8242296499  2.256975e-01     1
+## factorial.analysis                                        0.6446388563  1.701571e-01     1
+## preschool                                                 0.3946066719 -2.315461e-02     1
+## self.concept                                              0.5343365771  1.145701e-01     1
+## preschool.child                                           0.3725356317 -1.393350e-02     1
+## computer.simulation                                      -0.1072350634 -3.680577e-02     1
+## age                                                       0.4842830708 -5.555765e-03     1
+## vision                                                    0.9147644623  2.628029e-01     1
+## statistics.and.numerical.data                             0.6312561605  1.598274e-01     1
+## animals                                                  -2.7064833205 -2.246997e-01     1
+## interview                                                 0.7413100808  2.139923e-01     1
+## follow.up.studies                                         0.7253070256  1.104637e-01     1
+## pain.measurement                                          0.5748908997  1.206199e-01     1
+## psychological.rating.scale                                0.6751023108  1.856940e-01     1
+## students                                                 -0.0765688256 -6.434671e-02     1
+## principal.component.analysis                              0.6366400031  1.756418e-01     1
+## rat                                                      -2.5543358437 -4.146834e-01     1
+## health.survey                                             0.5150461569  1.334531e-01     1
+## rats                                                     -2.8921419850 -5.239366e-01     1
+## self.care                                                 0.7939227248  1.848828e-01     1
+## stroke                                                    0.5584655625  8.972511e-02     1
+## observational.study                                       0.9115301603  2.620312e-01     1
+## motor.activity                                           -0.0097778213 -2.721408e-02     1
+## australia                                                 0.3619136020 -8.957664e-02     1
+## chronic.disease                                           0.8824196854  2.254358e-01     1
+## data.interpretation                                       0.1081877263  3.480237e-03     1
+## age.factors                                               0.5205943416 -8.404210e-02     1
+## diabetes.mellitus                                         0.1584292316 -3.142020e-01     1
+## regression.analysis                                       0.0081411871 -2.167964e-01     1
+## analysis.of.variance                                      0.1348306112 -3.275731e-01     1
+## theoretical.model                                         0.3330817759  7.758238e-02     1
+## body.temperature                                         -1.5102250026 -5.703128e-01     1
+## clinical.assessment.tool                                  0.6276038750  1.557575e-01     1
+## motor.performance                                         0.2138027270  2.830992e-02     1
+## stress                                                   -0.2312237060 -1.976469e-02     1
+## calibration                                               0.3945194014  1.102585e-01     1
+## multiple.sclerosis                                        0.5013453038  1.427370e-01     1
+## complication                                              0.7409770810  1.415622e-02     1
+## data.analysis                                             0.1660343028  8.462002e-04     1
+## pregnancy                                                -1.0690844604 -1.853867e+00     1
+## retrospective.study                                       0.6287005659  2.785940e-02     1
+## comorbidity                                               0.6968262933  1.980014e-01     1
+## convergent.validity                                       0.9912453640  2.828544e-01     1
+## heart.rate                                               -0.9866590924 -1.828452e+00     1
+## risk.assessment                                           0.2894562344 -9.814507e-02     1
+## algorithm                                                -0.1090187169 -1.972809e-02     1
+## educational.status                                        0.6142052701  1.085876e-01     1
+## exercise                                                  0.0510008545 -2.144056e-01     1
+## newborn                                                  -0.6756802637 -6.880841e-02     1
+## short.form.36                                             0.9645569182  2.967083e-01     1
+## attitude.to.health                                        0.4607395555  8.895947e-02     1
+## demography                                                0.6107083616  1.602814e-01     1
+## geriatric.assessment                                      0.5324346875  9.811066e-02     1
+## prevalence                                                0.3740804380 -1.724255e-03     1
+## sex.difference                                            0.5834163969  4.735789e-02     1
+## algorithms                                               -0.1413795978 -2.030721e-01     1
+## correlation.analysis                                      0.2863063137 -1.605887e-01     1
+## devices                                                   0.6058036720  1.032317e-01     1
+## mental.health                                             0.6522121904  1.495134e-01     1
+## metabolism                                               -1.9720691239  1.653855e-01     1
+## patient.reported.outcome.measures                         0.8327765683  2.545512e-01     1
+## school.child                                              0.3263982868 -2.414542e-02     1
+## behavior                                                 -1.0991786750 -2.765068e-01     1
+## cognitive.defect                                          0.3347967630 -1.866296e-02     1
+## depressive.disorder                                       0.7675917380  2.303248e-01     1
+## normal.human                                             -0.4242984064 -7.369448e-01     1
+## pathology                                                -0.7456225962  1.518591e-02     1
+## theoretical                                               0.4001048466  8.826948e-02     1
+## learning                                                 -0.3069505484 -1.601549e-01     1
+## mental.disease                                            0.5376926705  1.353335e-01     1
+## sweden                                                    0.6124537095  1.348619e-01     1
+## zinc                                                     -3.4103353491  7.068788e-01     1
+## bayes.theorem                                            -0.0578750436 -7.766227e-02     1
+## cerebrovascular.accident                                  0.7789991829  1.575235e-01     1
+## correlation.coefficient                                   0.6678233606  1.302878e-01     1
+## diagnostic.and.statistical.manual.of.mental.disorders     0.5153412928  1.380782e-01     1
+## neuropsychological.test                                   0.1203846304 -4.735199e-02     1
+## pilot.study                                               0.3317835949 -1.714376e-03     1
+## sensitivity.analysis                                      0.3342031835  1.738765e-01     1
+## standard                                                  0.3468322450  6.498157e-02     1
+## task.performance                                         -0.2096981403 -1.481282e-01     1
+## adaptation                                                0.4230585745  8.083555e-02     1
+## alcoholism                                                0.4425849371  7.730758e-02     1
+## child.development                                         0.1394679839 -1.295617e-01     1
+## cronbach.alpha.coefficient                                0.9066442034  2.676454e-01     1
+## diagnosis                                                 0.2271278454 -9.205719e-02     1
+## echocardiography                                         -0.8048420979 -2.581065e+00     1
+## neuropsychological.tests                                  0.1478702866 -3.352784e-02     1
+## physical.activity                                         0.8039442274  2.173343e-01     1
+## cerebral.palsy                                            0.3897058374 -5.786280e-03     1
+## hypertension                                              0.1326423589 -6.036970e-01     1
+## intermethod.comparison                                    0.3104838679 -1.202821e-01     1
+## language                                                  0.7543580551  1.844013e-01     1
+## motivation                                               -0.2017764469 -7.073110e-02     1
+## schizophrenia                                             0.7088856641  2.704766e-01     1
+## controlled.clinical.trial                                 0.3217189964 -1.830319e-01     1
+## educational.measurement                                  -0.2028659134 -1.244288e-01     1
+## theoretical.study                                        -0.5298023907 -1.280040e-01     1
+## thermography..imaging.                                   -0.8697831764 -2.722786e-01     1
+## unclassified.drug                                        -2.7330164479  1.437556e+00     1
+## clinical.assessment                                       0.5564044942 -4.306795e-02     1
+## health.status.indicators                                  0.6892360342  2.060302e-01     1
+## netherlands                                               0.6033172608  1.776891e-01     1
+## occupational.therapy                                      0.4287327253  7.412452e-02     1
+## osteoarthritis                                            0.7840731094  2.019016e-01     1
+## perception                                               -0.0056885681 -2.635813e-02     1
+## prognosis                                                 0.5043705480  8.749745e-02     1
+## retrospective.studies                                     0.6481738478  2.414375e-02     1
+## rheumatoid.arthritis                                      0.5897321706  1.556221e-01     1
+## time                                                     -0.2981215938 -8.259457e-02     1
+## canada                                                    0.2941493911  8.306690e-02     1
+## germany                                                   0.7669477140  1.900201e-01     1
+## infrared.radiation                                       -1.3695730094 -5.079535e-01     1
+## logistic.models                                           0.4889409704  3.430865e-02     1
+## clinical.competence                                       0.0233035493 -8.565866e-02     1
+## functional.status                                         0.7991249954  2.082685e-01     1
+## health.behavior                                           0.3004397115  1.018169e-02     1
+## parkinson.disease                                         0.3592004250  7.975205e-02     1
+## skin.temperature                                         -1.1544286132 -6.107151e-01     1
+## student                                                   0.0858311260 -4.236372e-02     1
+## animal.model                                             -3.1402328444 -2.352544e-01     1
+## evaluation                                                0.1515163718 -7.904299e-02     1
+## information.processing                                    0.2904339282  6.383260e-02     1
+## risk.factor                                               0.3868795440 -4.356457e-02     1
+## simulation                                               -0.2039390816  1.962166e-02     1
+## treatment.response                                        0.4561150561  8.831506e-02     1
+## alzheimer.disease                                        -0.3536371994  1.315095e-01     1
+## arthritis                                                 0.6706973645  1.565136e-01     1
+## confirmatory.factor.analysis                              0.8594155629  2.840156e-01     1
+## disease.course                                            0.5678971439  2.318462e-01     1
+## genetics                                                 -1.5932228001  4.622782e-01     1
+## named.inventories                                         0.8638061396  2.273910e-01     1
+## probability                                               0.1556148393 -4.750129e-02     1
+## questionnaires.and.rating.scales                          0.8638061396  2.273910e-01     1
+## research.design                                           0.2779602588  7.034178e-02     1
+## sex.factors                                               0.5331974353 -3.277298e-02     1
+## time.factor                                               0.1149862372 -1.836349e-01     1
+## united.kingdom                                            0.3851341524  5.998552e-01     1
+## walking                                                   0.7783830212  1.562441e-01     1
+## decision.making                                           0.2101636758 -3.253593e-03     1
+## disease.progression                                       0.7581554439  2.607699e-01     1
+## predictive.value                                          0.5057142327  1.897696e-01     1
+## reinforcement                                            -2.3835747197 -5.311180e-01     1
+## dementia                                                  0.3408505426  2.379686e-02     1
+## emotion                                                   0.5520150349  9.041984e-02     1
+## psychological.model                                       0.1622657624  2.379411e-02     1
+## risk.factors                                              0.4372148334 -1.702661e-02     1
+## sexual.behavior                                           0.4211628507  1.396785e-01     1
+## clinical.practice                                         0.6952563879  1.706906e-01     1
+## cystic.fibrosis                                          -0.5728494072  5.228794e-01     1
+## disease.exacerbation                                      0.2972285189  1.202127e-01     1
+## measurement                                               0.3027643014 -1.272111e-01     1
+## postoperative.period                                      0.5227876040 -1.273049e-01     1
+## predictive.value.of.tests                                 0.5303246272  7.401236e-02     1
+## symptom.assessment                                        0.7136236358  2.411345e-01     1
+## cognition.disorders                                       0.3142562947 -4.540194e-02     1
+## epidemiology                                              0.4398377595  5.218983e-02     1
+## exercise.test                                             0.1326670637 -3.212600e-01     1
+## infrared.photography                                     -1.3398300627 -6.402831e-01     1
+## mental.disorders                                          0.6020450800  1.440399e-01     1
+## multivariate.analysis                                     0.1293240814 -3.800884e-02     1
+## phenotype                                                -1.1322618018  1.579231e+00     1
+## pilot.projects                                            0.2918306653 -1.286766e-01     1
+## placebo                                                   0.4632795621  1.341127e-01     1
+## prediction                                                0.2386272166 -9.932565e-02     1
+## reading                                                   0.6067742742  7.719971e-02     1
+## spain                                                     0.5725518900  7.903496e-01     1
+## age.distribution                                          0.5503722612 -2.143264e-02     1
+## attitude                                                  0.1882261816 -1.359562e-03     1
+## computer.assisted                                        -0.2259131151 -6.338026e-01     1
+## cultural.factor                                           0.9093519612  2.437005e-01     1
+## discriminant.validity                                     0.7625291037  2.020947e-01     1
+## fear                                                      0.5460119897  1.377932e-01     1
+## gender                                                    0.5505233648  1.196594e-01     1
+## hospitalization                                           0.5292628400  1.456416e-01     1
+## outpatient                                                0.8851407411  2.688106e-01     1
+## recovery.of.function                                      0.9257647144  1.940163e-01     1
+## sample.size                                               0.4184782466  1.150575e-01     1
+## accuracy                                                  0.3374108989  6.976502e-02     1
+## adolescent.behavior                                       0.3306020070  4.969779e-02     1
+## concurrent.validity                                       0.9574854727  2.661187e-01     1
+## disease.association                                       0.6539489357  1.067049e-01     1
+## drug.effect                                              -1.5117841766 -4.590336e-01     1
+## hospital.patient                                          0.7093171569  1.387822e-01     1
+## monte.carlo.method                                       -0.0144585061 -4.093988e-03     1
+## rehabilitation                                            0.5243443144  1.233171e-01     1
+## symptom                                                   0.5140664651  2.188993e-01     1
+## theory                                                    0.4650952640  1.103578e-01     1
+## brain.injuries                                            0.7579185146  1.453918e-01     1
+## child.behavior                                            0.1674945291 -4.692877e-02     1
+## content.validity                                          0.8272117023  2.823769e-01     1
+## doppler.echocardiography                                 -1.0302893878 -2.818998e+00     1
+## effect.size                                               0.6412041651  1.721024e-01     1
+## evaluation.study                                          0.5324631038  7.455792e-02     1
+## gene.expression.regulation                               -3.0965318010  4.962598e-01     1
+## glaucoma                                                  1.3503317587  4.680358e-01     1
+## linear.models                                             0.0921345708 -1.779102e-01     1
+## neoplasms                                                 0.7248574180  1.449649e-01     1
+## observer.variation                                        0.1693357054 -4.427209e-01     1
+## pain.assessment                                           0.6637327571  1.452706e-01     1
+## polyradiculoneuropathy                                    1.0069830855  1.633722e-01     1
+## self.evaluation                                           0.6630396160  1.748834e-01     1
+## affect                                                    0.3937911283  8.398940e-02     1
+## cataract                                                  1.0337065124  3.027938e-01     1
+## conditioning                                             -2.8290848021 -6.533349e-01     1
+## england                                                   0.1132468962 -8.320410e-04     1
+## low                                                       0.7083070946  2.272016e-01     1
+## memory                                                   -0.0672348440 -1.105841e-01     1
+## quantitative.analysis                                     0.0283033394 -1.488705e-01     1
+## reaction.time                                            -1.7887839118 -5.495974e-01     1
+## spinal.cord.injury                                        0.8145508795  1.403671e-01     1
+## teaching                                                 -0.3936726348 -1.310181e-01     1
+## animal.tissue                                            -3.1831498525 -8.715589e-02     1
+## blood                                                    -1.2058593572 -3.145973e-01     1
+## blood.pressure                                           -0.8801888913 -1.545175e+00     1
+## caregiver                                                 0.7569563374  1.942266e-01     1
+## clinical.evaluation                                       0.8019579259  3.948189e-02     1
+## diastole                                                 -0.8730522805 -2.601053e+00     1
+## health.surveys                                            0.6163950786  1.519372e-01     1
+## major.depression                                          0.9480397004  3.093867e-01     1
+## medical                                                  -0.0483779224 -9.142454e-02     1
+## patient.care                                              0.7181051514  2.137455e-01     1
+## psychotherapy                                             0.2887034421  6.206091e-02     1
+## social.behavior                                           0.6306255715  1.898588e-01     1
+## traumatic.brain.injury                                    0.7893779251  1.636107e-01     1
+## cataract.extraction                                       1.0317893923  2.819119e-01     1
+## computerized.adaptive.testing                             0.8110566612  2.286884e-01     1
+## doppler                                                  -1.0383128675 -3.334541e+00     1
+## escherichia.coli                                         -2.6604311585  6.373908e+00     2
+## france                                                    0.7380780577  1.853096e-01     1
+## instrumental.conditioning                                -2.4328967006 -5.500129e-01     1
+## knee                                                      0.9972998346  2.697420e-01     1
+## mass.screening                                            0.3056558408  2.214909e-02     1
+## patient.outcome.assessment                                0.8525082174  3.096407e-01     1
+## physical.disability                                       0.6286103499  1.317524e-01     1
+## primary.health.care                                       0.6293156354  1.532764e-01     1
+## psychological.theory                                      0.2358880386  2.513404e-02     1
+## quality.of.life.assessment                                0.9490117435  2.623860e-01     1
+## self.efficacy                                             0.4966146344  8.599754e-02     1
+## temperature                                              -1.6665721199 -2.921932e-01     1
+## thinking                                                  0.0948559030 -4.726973e-02     1
+## upper.extremity                                           0.7367736723  1.273470e-01     1
+## brain                                                    -1.6723617054 -3.407228e-01     1
+## china                                                     0.4862657532 -3.171119e-02     1
+## convalescence                                             0.9980057744  2.357461e-01     1
+## double.blind.procedure                                    0.4398959669  7.392497e-02     1
+## drug.efficacy                                            -0.1937402327 -1.149011e-01     1
+## exploratory.factor.analysis                               0.8515407767  2.836036e-01     1
+## outcomes.research                                         0.5272796512  1.233664e-01     1
+## personality                                               0.0567612273  3.450041e-02     1
+## psychomotor.performance                                  -0.7947493353 -2.898671e-01     1
+## qualitative.research                                      0.7129993151  2.141623e-01     1
+## smoking                                                   0.0493567379  9.069182e-02     1
+## anxiety.disorder                                          0.7980780049  2.413055e-01     1
+## anxiety.disorders                                         0.7440482064  2.091533e-01     1
+## arm                                                       0.6281400466  6.113521e-02     1
+## disabled.persons                                          0.7482768093  1.583139e-01     1
+## heart.left.ventricle.function                            -0.8877432496 -2.530769e+00     1
+## hospital.admission                                        0.7738758970  1.949297e-01     1
+## human.tissue                                             -0.4711223985 -1.185090e-01     1
+## infrared.rays                                            -1.6300911439 -6.657841e-01     1
+## iron                                                     -2.0743255986  5.005994e-01     1
+## italy                                                     0.2933029072  1.290152e-01     1
+## nuclear.magnetic.resonance.imaging                        0.0562993703 -1.393050e-01     1
+## parent                                                    0.7315985957  1.731563e-01     1
+## practice                                                  0.3252555841  3.736425e-02     1
+## reinforcement.schedule                                   -2.8346587222 -6.866345e-01     1
+## rheumatoid                                                0.6832289641  1.797838e-01     1
+## substance.abuse                                           0.4791063747  1.140718e-01     1
+## trypsinogen                                              -0.7516168199  6.616437e-01     1
+## visual.impairment                                         1.0320166237  2.807065e-01     1
+## attitudes                                                 0.3522752334  4.750402e-02     1
+## caucasian                                                 0.8076618118  2.375646e-01     1
+## diagnostic.imaging                                       -0.3243877844 -1.305616e+00     1
+## disease.duration                                          0.6580050656  2.048800e-01     1
+## executive.function                                        0.2816402197  1.764599e-02     1
+## family                                                    0.6734396742  1.437264e-01     1
+## feasibility.study                                         0.6946311845  1.578235e-01     1
+## hand                                                      0.4830172121  9.157846e-04     1
+## health.knowledge                                          0.3522752334  4.750402e-02     1
+## human.relation                                            0.6866359766  1.714717e-01     1
+## non.insulin.dependent.diabetes.mellitus                  -0.0722438833 -4.743972e-01     1
+## obesity                                                   0.1725488961 -2.455683e-01     1
+## operant                                                  -3.0581974126 -7.015921e-01     1
+## patient.participation                                     0.8029811579  2.465566e-01     1
+## physiotherapy                                             0.6364852960  1.059653e-01     1
+## social.participation                                      1.0861789221  3.174560e-01     1
+## software                                                  0.0146562457  2.183723e-02     1
+## substance.related.disorders                               0.2122756437  2.364587e-02     1
+## support                                                  -1.8360654360 -5.802298e-01     1
+## treatment.duration                                        0.7190533189  1.658890e-01     1
+## vision.disorders                                          1.2854328050  4.395536e-01     1
+## conceptual.framework                                      0.5696520259  2.151412e-01     1
+## diagnostic.accuracy                                       0.3749457294 -1.400888e-01     1
+## headache                                                  0.6568160453  1.408066e-01     1
+## health.care                                               0.5596285706  1.497134e-01     1
+## low.back.pain                                             0.5234553384  9.231511e-02     1
+## muscle.strength                                           0.1819831658 -1.983213e-01     1
+## personality.inventory                                     0.4490058449  1.029239e-01     1
+## randomized.controlled.trials.as.topic                     0.5891582289  2.225126e-01     1
+## sleep.disorder                                            0.9271300358  2.824430e-01     1
+## walking.difficulty                                        0.7290120534  1.115850e-01     1
+## wellbeing                                                 0.8092437508  2.597115e-01     1
+## attitude.of.health.personnel                              0.3486783897  4.512175e-02     1
+## behavior.change                                          -0.1559376738  2.529741e-02     1
+## cation.transport.proteins                                -3.9237694340  7.424400e-01     1
+## checklist                                                 0.4786104833  1.281634e-01     1
+## cross.cultural.comparison                                 0.9604964481  2.759354e-01     1
+## disability.and.health                                     0.8421034015  2.425218e-01     1
+## disabled.person                                           0.7044217314  1.489051e-01     1
+## ethnic.group                                              0.5624563346  1.343759e-01     1
+## gait                                                      0.4844949340  1.258525e-01     1
+## gestational.age                                          -0.7687947550 -2.597288e+00     1
+## human.cell                                               -1.9745216917  3.447466e-01     1
+## image.analysis                                           -0.9367462504 -5.316258e-01     1
+## international.classification.of.functioning               0.8421034015  2.425218e-01     1
+## internet                                                  0.3099378300  1.796878e-01     1
+## interpersonal.relations                                   0.7180508012  1.831923e-01     1
+## left                                                     -1.0062516505 -3.011231e+00     1
+## length.of.stay                                            0.6343933062  1.067374e-01     1
+## major                                                     0.8473838580  2.819809e-01     1
+## medical.education                                        -0.1022172630 -1.096926e-01     1
+## mental.stress                                             0.4048893578  5.276057e-02     1
+## mutation                                                 -1.3841700942  3.245743e+00     1
+## neurologic.examination                                    0.5848616846  1.951701e-01     1
+## parents                                                   0.7787653481  1.759440e-01     1
+## personality.test                                          0.4907739850  1.340127e-01     1
+## physical.therapy.modalities                               0.7776258255  1.581589e-01     1
+## population.research                                       0.7465339799  1.776047e-01     1
+## randomized.controlled.trial..topic.                       0.7218044580  2.528501e-01     1
+## receiver.operating.characteristic                         0.5261049906  7.519670e-02     1
+## rehabilitation.center                                     0.8443599723  2.064223e-01     1
+## singapore                                                 0.8382373743  1.005140e-01     1
+## social.interaction                                        0.8755404166  3.284631e-01     1
+## visual.disorder                                           0.9880991334  3.378898e-01     1
+## aggression                                                0.6918435471  1.414843e-01     1
+## anger                                                     0.8286615836  2.612470e-01     1
+## awareness                                                 0.3834026934  7.177191e-02     1
+## classification                                            0.4097385090  1.375196e-01     1
+## clinical.feature                                          0.5722624396  2.532318e-01     1
+## comprehension                                             0.5474770821  6.672312e-02     1
+## cystic.fibrosis.transmembrane.conductance.regulator      -0.7480016676  8.012916e-01     1
+## diagnostic.test.accuracy.study                            0.6724713082  3.974545e-01     1
+## disease.activity                                          0.5949530313  2.045255e-01     1
+## electrocardiography                                      -0.3536725680 -6.203157e-01     1
+## heart.performance                                        -1.1136614467 -2.877180e+00     1
+## hospital.discharge                                        0.6808230105  1.344359e-01     1
+## incidence                                                 0.3924040286  1.109687e-03     1
+## income                                                    0.4959176054  4.987868e-02     1
+## magnetic.resonance.imaging                               -0.2509536636 -2.807970e-01     1
+## mathematical.computing                                    0.1520005543  4.104921e-02     1
+## mice                                                     -3.4255651901  1.653560e-01     1
+## model                                                    -0.1272580782 -3.235860e-03     1
+## mouse                                                    -3.3034813646  2.212653e-01     1
+## organization.and.management                               0.3651383056  7.206162e-02     1
+## practice.guideline                                        0.6998180509  2.050017e-01     1
+## protein.expression                                       -3.4786399046  1.146898e+00     1
+## psychologic.test                                          0.3083182959 -7.945709e-03     1
+## reference.values                                         -0.1423743986 -1.338843e+00     1
+## sleep                                                     1.0952132869  3.154495e-01     1
+## adipose.tissue                                           -0.6874039989 -6.341487e-01     1
+## asthma                                                    0.9078438998  1.355108e-01     1
+## brazil                                                    0.0928049965 -4.505396e-01     1
+## cancer.patient                                            0.6945031419  2.724079e-01     1
+## case.control.studies                                      0.3779960021 -6.652206e-02     1
+## chronic.obstructive.lung.disease                          0.4287612931  2.134461e-01     1
+## chronic.pain                                              0.7360252230  1.030862e-01     1
+## clinical.trial..topic.                                    0.6795101917  2.362220e-01     1
+## data.collection                                           0.2385624807  1.974317e-02     1
+## dose.response.relationship                               -1.9085856186 -7.930219e-02     1
+## double.blind.method                                       0.4487870829 -1.104754e-01     1
+## ethnicity                                                 0.3484627394  2.878403e-01     1
+## health                                                    0.5438815162  1.492002e-01     1
+## hip                                                       1.1596239163  3.170102e-01     1
+## homeostasis                                              -3.3240220506  6.810304e-01     1
+## immunoglobulin                                            0.6852055999  4.163636e-02     1
+## india                                                     0.7023838585  1.758489e-01     1
+## mathematical.model                                        0.0659304056  5.885261e-02     1
+## measurement.precision                                     0.7122003860  2.084642e-01     1
+## mortality                                                -0.9975214883  7.899638e-01     1
+## motor.skills                                              0.6081454475  6.178776e-02     1
+## neurologic.disease.assessment                             0.7143601229  1.264835e-01     1
+## nursing                                                   0.2415026099 -2.079591e-03     1
+## patient.attitude                                          0.5287488740  1.149079e-01     1
+## remission                                                 0.5337850870  1.716607e-01     1
+## social.support                                            0.9408133219  2.764725e-01     1
+## socioeconomic.factors                                     0.7434477185  1.663421e-01     1
+## stroke.rehabilitation                                     0.8434687992  1.574421e-01     1
+## suicidal.ideation                                         0.8301131580  2.135755e-01     1
+## systole                                                  -0.8576927278 -2.661786e+00     1
+## ultrasonography                                          -0.8997816315 -3.260180e+00     1
+## visual.analog.scale                                       0.8119697599  2.406525e-01     1
+## alcohol.consumption                                       0.5443055084  1.378271e-01     1
+## analytic.method                                           0.5794706534  1.957927e-01     1
+## assessment.of.humans                                      0.7549063351  2.609307e-01     1
+## biological                                               -0.5021970887 -9.430718e-02     1
+## brain.injury                                              0.1285804102 -1.295287e-02     1
+## brown.adipose.tissue                                     -0.8782426237 -7.912186e-01     1
+## cattle                                                   -1.8911024500  6.090659e-01     1
+## central.nervous.system                                   -1.0914713709 -4.032067e-01     1
+## child.parent.relation                                     0.6180213093  1.742961e-01     1
+## clinical.effectiveness                                    0.2982001019  5.367874e-02     1
+## diet                                                     -0.5972218681  4.760337e-02     1
+## drug                                                     -1.7031125607 -1.992579e-02     1
+## ethnology                                                 0.6848909287  1.303909e-01     1
+## health.care.personnel                                     0.7425925872  1.915635e-01     1
+## health.personnel.attitude                                 0.3999334791  6.730780e-02     1
+## heart.contraction                                        -0.7438236598 -3.091083e+00     1
+## instrument.validation                                     0.8363422890  2.550376e-01     1
+## intervention.study                                        0.5713349496  1.491953e-01     1
+## interviews.as.topic                                       0.6817414574  1.845522e-01     1
+## liver                                                    -2.9437876923  8.455876e-02     1
+## locomotion                                               -0.8308864252  1.606633e-02     1
+## measurement.error                                         0.7651580839  2.490357e-01     1
+## mini.mental.state.examination                             0.1990015538  5.996701e-02     1
+## mobility.limitation                                       0.8221673890  1.621218e-01     1
+## musculoskeletal.disease                                   0.7871896153  1.731541e-01     1
+## outpatients                                               1.1314059035  3.649827e-01     1
+## psychological.tests                                       0.2529980231 -3.889959e-02     1
+## publication                                               0.7310079051  1.728648e-01     1
+## social.status                                             0.7406827824  1.957650e-01     1
+## statistical.significance                                 -0.0798654165 -1.184926e-01     1
+## structural.equation.modeling                             -0.0253341004  3.983834e-02     1
+## symptomatology                                            0.7365444511  2.054301e-01     1
+## world.health.organization                                 0.7362020100  2.526529e-01     1
+## bias..epidemiology.                                       0.4894596070  1.238958e-01     1
+## blood.flow.velocity                                      -0.9570530229 -2.709698e+00     1
+## cadmium                                                  -3.3550544675  7.808400e-01     1
+## chemistry                                                -1.1384744688  2.356546e-01     1
+## differential.item.functioning                             0.5566807389  1.821248e-01     1
+## eye                                                      -1.5055366631 -5.342620e-01     1
+## functional.status.assessment                              1.0162061093  2.492157e-01     1
+## genotype                                                 -0.4354786683  4.127884e-01     1
+## great.britain                                             0.3542290673  1.116786e+00     1
+## health.care.quality                                       0.4967935602  1.049041e-01     1
+## image.processing                                         -1.0865934336 -8.268488e-01     1
+## insulin                                                  -1.2315123206 -4.750816e-01     1
+## intraperitoneal.drug.administration                      -2.6696244948 -6.974540e-01     1
+## juvenile.delinquency                                      0.2645568871  3.626427e-02     1
+## knee.osteoarthritis                                       0.9950456564  2.886707e-01     1
+## mathematics                                              -0.3919400907 -1.749408e-01     1
+## myocardial.contraction                                   -0.7804546141 -2.802459e+00     1
+## physical.performance                                      0.9875431543  2.355653e-01     1
+## physiological                                            -0.8191976084  3.283138e-02     1
+## predictive.validity                                       0.3624168928  4.004041e-02     1
+## psychosis                                                 0.6405735490  1.933775e-01     1
+## qualitative.analysis                                      0.5547307554  2.196421e-01     1
+## reference.value                                          -0.1938343366 -1.319425e+00     1
+## rehabilitation.care                                       0.9961115248  2.382279e-01     1
+## social.environment                                        0.4122029535  1.044867e-01     1
+## socioeconomics                                            0.7323259549  1.631347e-01     1
+## spinal.cord.injuries                                      0.8822056502  1.674607e-01     1
+## taiwan                                                    0.2917602130 -1.988936e-01     1
+## type.2                                                    0.2859731898 -8.698406e-02     1
+## upper.limb                                                0.9306236885  1.829045e-01     1
+## animalia                                                 -1.7304750751  3.042209e-01     1
+## biological.model                                         -0.6406872995 -1.617054e-01     1
+## cation.transport.protein                                 -4.1423239718  6.728577e-01     1
+## climate.change                                           -1.3395973849  1.396626e-01     1
+## cognitive.therapy                                         0.6060740435  1.729951e-01     1
+## curriculum                                               -0.1571834145 -1.338692e-01     1
+## diabetic.retinopathy                                      0.7745176655 -2.206437e-01     1
+## disease.models                                           -3.2706506831 -6.190339e-01     1
+## emotions                                                  0.5986320016  1.160274e-01     1
+## functional.independence.measure                           0.8651584911  2.305814e-01     1
+## glucose                                                  -1.0081153643 -5.380497e-01     1
+## grip.strength                                             0.7153713093  8.457184e-02     1
+## hereditary.motor.sensory.neuropathy                       0.6337601302  2.423450e-01     1
+## likelihood.functions                                     -0.1297854923 -7.796325e-02     1
+## middle.age                                               -0.3777699753 -5.102109e-01     1
+## muscle                                                   -0.8347999911 -3.560486e-01     1
+## neoplasm                                                  0.3222374926  1.365578e-01     1
+## norway                                                    0.3359327793  3.882134e-02     1
+## patient.mobility                                          1.0102620619  2.411427e-01     1
+## patient.reported.outcomes.measurement.information.system  0.8984535212  2.530203e-01     1
+## preoperative.period                                       0.2537075392 -1.622814e-01     1
+## resistance.training                                      -0.1383053430 -5.287786e-01     1
+## roc.curve                                                 0.8195028261  1.712915e-01     1
+## satisfaction                                              0.7982279298  2.406377e-01     1
+## skill                                                     0.3855398975  1.413382e-02     1
+## tobacco.dependence                                        0.1860827264  7.500868e-02     1
+## ventricular.function                                     -0.9700339009 -3.120678e+00     1
+## violence                                                  0.4585012105  5.943258e-02     1
+## zinc.transporter                                         -3.6113785781  7.475739e-01     1
+## amyotrophic.lateral.sclerosis                             0.5134985668  1.656531e-01     1
+## autism                                                    0.2101258879 -2.817424e-02     1
+## behavior.assessment                                       0.9125180164  2.552951e-01     1
+## caregivers                                                0.7843422839  2.224340e-01     1
+## chronic.inflammatory.demyelinating                        1.0298253418  1.505193e-01     1
+## clinical.trials.as.topic                                  0.6563296052  1.853542e-01     1
+## cluster.analysis                                          0.7638884644  2.569072e-01     1
+## databases                                                 0.6881682724  2.188621e-01     1
+## dose.response                                            -2.4197545814 -5.122899e-01     1
+## drinking.behavior                                         0.5362549016  1.323955e-01     1
+## dyspnea                                                   0.6900632862  1.886978e-01     1
+## employment                                                0.4648115358  8.597265e-02     1
+## europe                                                    0.3854928581  1.675482e-01     1
+## falling                                                   0.9193426145  2.535375e-01     1
+## feasibility.studies                                       0.4198987377 -1.600158e-01     1
+## fetus                                                    -1.0529515437 -2.885926e+00     1
+## health.care.delivery                                      0.7640450559  1.988671e-01     1
+## heart                                                    -0.8191085843 -1.366863e+00     1
+## hippocampus                                              -1.6328849383 -2.183950e-01     1
+## hispanic                                                  0.8065270327  3.821116e-01     1
+## individuality                                             0.3676717594  2.468120e-02     1
+## insomnia                                                  0.8129542076  3.033357e-01     1
+## internal.validity                                         0.9233346394  2.434679e-01     1
+## intraocular.pressure                                      1.4055364302  5.413920e-01     1
+## irritability                                              0.7061277273  2.722711e-01     1
+## japan                                                     0.1249263117 -1.101175e-01     1
+## mitral.valve                                             -1.2890788963 -2.978417e+00     1
+## monitoring                                               -0.7265018126 -9.963058e-01     1
+## musculoskeletal.diseases                                  0.9698703172  2.216093e-01     1
+## neck.pain                                                 0.5756091403  1.291187e-01     1
+## nondestructive.examination                               -0.8671721009 -1.834623e-01     1
+## patient.assessment                                        0.8080493420  1.733988e-01     1
+## patient.compliance                                        0.7838060534  2.096920e-01     1
+## patient.safety                                            0.4764144155  3.744408e-02     1
+## problem.behavior                                          0.6573784110  1.693169e-01     1
+## problem.solving                                           0.1496090142 -3.701928e-02     1
+## relaxation.time                                          -0.6917711513 -1.887322e+00     1
+## semi.structured.interview                                 0.8571767699  3.096348e-01     1
+## shoulder.pain                                             0.6939460268  1.770440e-01     1
+## social.aspect                                             0.8784660847  2.478158e-01     1
+## statistical.bias                                          0.6774245936  2.261880e-01     1
+## statistics.as.topic                                       0.1760370168 -7.246441e-02     1
+## translations                                              0.9708062447  2.567178e-01     1
+## twins                                                     0.1344882400  1.821080e-01     1
+## african.american                                          0.6637919232  1.790778e-01     1
+## alcohol                                                  -0.6352229873  6.085305e-02     1
+## ambulatory.care                                           0.6503153197  1.220376e-01     1
+## animal.cell                                              -3.1801240814  4.252980e-01     1
+## aphasia                                                   0.4003289366  1.874441e-02     1
+## attention.deficit.disorder                               -0.3711848792 -1.215792e-01     1
+## biometry                                                  0.0757290499 -3.196936e-01     1
+## bipolar.disorder                                          0.8871241361  2.716956e-01     1
+## body.equilibrium                                          0.7547717733  1.097400e-01     1
+## body.mass                                                -0.1726801190 -8.151394e-01     1
+## breast.cancer                                             0.2976666322  3.745138e-01     1
+## cell.line                                                -3.6785408154  8.364910e-01     1
+## clinical.research                                         0.7029556994  2.500330e-01     1
+## clinical.trials                                           0.3654325221  9.103792e-02     1
+## computer.program                                          0.3650054559  8.065374e-02     1
+## criterion.related.validity                                0.6541054531  2.091804e-01     1
+## denmark                                                   0.7067236260  2.281662e-01     1
+## diagnostic.value                                         -0.2003291713 -5.423673e-01     1
+## environmental.factor                                      0.1705102885  2.619678e-02     1
+## ethnic.groups                                             0.5876107595  1.149700e-01     1
+## face.validity                                             0.6301111109  1.487986e-01     1
+## heart.disease                                             0.5459990221 -5.370094e-01     1
+## human.immunodeficiency.virus.infection                    0.2744165285  1.128423e-02     1
+## instrumentation                                           0.5571227163  1.371231e-01     1
+## international.cooperation                                 0.1600407875  2.665069e-02     1
+## interrater.reliability                                    0.3739448433 -1.200435e-01     1
+## markov.chains                                            -0.1512242006 -2.595676e-01     1
+## migraine                                                  0.6358462891  1.745011e-01     1
+## multilevel.analysis                                       0.0251125349 -4.991197e-02     1
+## needs.assessment                                          0.1594083588 -4.483231e-04     1
+## neurologic.disease                                        0.8709628484  2.323913e-01     1
+## nonparametric.test                                        0.6652082659  2.134840e-01     1
+## obsessive.compulsive.disorder                             0.5028037922  1.185360e-01     1
+## ocular                                                    1.0945658836  3.133125e-01     1
+## oxygen                                                   -0.5056562474 -3.970422e-01     1
+## patient.monitoring                                        0.3070912723 -1.756991e-01     1
+## personal.experience                                       0.9730101512  2.536499e-01     1
+## personal.satisfaction                                     0.8750587956  2.669258e-01     1
+## psychologic.assessment                                    0.4007517595  1.110500e-01     1
+## research                                                  0.1506443346  5.972321e-02     1
+## sheep                                                    -1.7141474535 -9.177167e-01     1
+## smoking.cessation                                        -0.1740910864  1.517437e-01     1
+## telephone                                                 0.4117011262  9.118739e-02     1
+## temperature.measurement                                  -1.3617169238 -4.582378e-01     1
+## tobacco.use.disorder                                      0.2323690132  1.127180e-01     1
+## training                                                 -0.7228417050 -2.537987e-01     1
+## visual.field                                              1.3137143548  4.997244e-01     1
+## achievement                                              -0.2131441302 -1.181147e-01     1
+## adaptive.behavior                                         0.5820315489  1.000642e-01     1
+## animal.disease                                           -1.2584927368 -3.386827e-01     1
+## antidepressant.agent                                     -0.7449322010 -1.331049e-01     1
+## apoptosis                                                -3.1928489886  5.316381e-01     1
+## arthroplasty                                              1.1655613398  3.393825e-01     1
+## clinical.outcome                                          0.4343845917  6.771380e-02     1
+## conduct.disorder                                          0.6186385109  1.281333e-01     1
+## cost.of.illness                                           0.7688078535  1.911599e-01     1
+## discriminant.analysis                                     0.5724603826  1.172462e-01     1
+## european.continental.ancestry.group                       0.6383758670  1.536469e-01     1
+## factual                                                   0.6994807140  2.297847e-01     1
+## fetus.echography                                         -0.9314513725 -3.704897e+00     1
+## focus.groups                                              0.7320912860  2.414767e-01     1
+## frail.elderly                                             0.7186242654  1.746290e-01     1
+## health.education                                          0.1815740961  2.140227e-02     1
+## health.promotion                                          0.4620868763  6.852091e-02     1
+## heart.failure                                             0.0604603635 -9.913825e-01     1
+## hospital                                                  0.2509608907  3.646459e-02     1
+## hospital.anxiety.and.depression.scale                     0.9768751010  2.620247e-01     1
+## interpersonal.communication                               0.5445093485  1.305111e-01     1
+## life.change.events                                        0.4005027491  3.334072e-02     1
+## markov.chain                                              0.0006881001  2.097596e-02     1
+## medical.research                                         -0.2090627087 -8.361415e-02     1
+## messenger.rna                                            -3.4040684704  7.640058e-01     1
+## mild.cognitive.impairment                                 0.1854277277  2.390966e-02     1
+## minimal.clinically.important.difference                   0.9391780274  2.069591e-01     1
+## nausea                                                    0.9965549340  3.233957e-01     1
+## newborn.screening                                        -0.7932196800  6.715212e-01     1
+## olanzapine                                                0.0887696252  1.589155e-01     1
+## postural.balance                                          0.7560837460  1.053053e-01     1
+## quality.control                                           0.5485084613  1.493378e-01     1
+## race.difference                                           0.2866486848  2.185041e-01     1
+## replacement                                               1.1655613398  3.393825e-01     1
+## restlessness                                              0.7394188139  2.278911e-01     1
+## risperidone                                               0.3388824247  1.291249e-01     1
+## secondary.analysis                                        0.8479935300  2.207386e-01     1
+## skin                                                     -1.4730067221 -3.080083e-01     1
+## sprague.dawley                                           -2.9846644559 -5.910319e-01     1
+## swine                                                    -1.5925069144 -3.083605e-01     1
+## systolic.blood.pressure                                  -0.4550466137 -1.441240e+00     1
+## u.s..gov.t                                               -2.2315252571 -6.298514e-01     1
+## addiction                                                 0.2013001310 -2.705801e-04     1
+## alcohol.drinking                                          0.6120088786  1.541721e-01     1
+## amphetamine                                              -2.1306664043 -4.728257e-01     1
+## area.under.the.curve                                      0.4795086588  1.169849e-01     1
+## attention                                                -0.0793562450 -1.376762e-01     1
+## biological.marker                                        -0.3286108453  1.301805e-01     1
+## body.weight                                              -1.8106298570 -6.087041e-01     1
+## brown                                                    -0.8782426237 -7.912186e-01     1
+## california                                                0.1060992052 -6.895074e-03     1
+## case.control.study                                        0.2066608013 -2.713264e-01     1
+## case.report                                              -0.4844997931 -2.779464e-01     1
+## cell.proliferation                                       -1.8126374061  3.943060e-01     1
+## cognition.assessment                                      0.5569622053  1.092069e-01     1
+## cognitive.dysfunction                                     0.5575436153  3.537398e-03     1
+## communication                                             0.3148181719  4.539480e-03     1
+## deterioration                                             0.1417099538 -4.322042e-02     1
+## dsm.iv                                                    0.5812393215  2.126443e-01     1
+## echography                                               -0.5647085251 -2.664397e+00     1
+## epilepsy                                                  0.4853641901 -4.961119e-01     1
+## evidence.based.practice                                   0.6420230924  1.770466e-01     1
+## face                                                     -0.9162432754 -6.707045e-01     1
+## fetus.heart                                              -0.9251349911 -3.780952e+00     1
+## fitness                                                   0.4073867784 -3.107452e-02     1
+## forecasting                                              -0.1381590608 -1.274043e-01     1
+## guillain.barre.syndrome                                   0.7146908791  7.397304e-02     1
+## hip.osteoarthritis                                        1.3575619863  4.329565e-01     1
+## independent.living                                        0.9566296555  2.168595e-01     1
+## intelligence                                              0.2002176357  1.505891e-02     1
+## low.vision                                                0.6121183901  2.092182e-01     1
+## macular.degeneration                                      0.8876145937  2.264664e-01     1
+## mental.disease.assessment                                 0.9081346142  1.665189e-01     1
+## mood.disorder                                             0.8184737674  2.672900e-01     1
+## motor.dysfunction                                         0.4338859911  2.270790e-02     1
+## movement                                                  0.4316804277 -7.800544e-02     1
+## movement..physiology.                                    -0.1879131123 -1.342075e-01     1
+## new.zealand                                               0.0782917525 -4.094599e-01     1
+## non.u.s..gov.t                                           -1.3290416450 -5.182659e-01     1
+## nonparametric                                             0.7547646754  2.258320e-01     1
+## nucleotide.sequence                                      -2.3539996599  2.985907e+00     1
+## nursing.home                                              0.5808434671  1.335667e-01     1
+## oxidative.stress                                         -3.2629045607 -2.052848e-01     1
+## performance                                              -0.4466975391 -1.538592e-01     1
+## perimetry                                                 1.3755875075  5.316215e-01     1
+## physician                                                 0.3532241953  9.469949e-02     1
+## physiotherapist                                           0.4961812032  9.715695e-02     1
+## positive.and.negative.syndrome.scale                      0.7383416346  3.068985e-01     1
+## posttraumatic.stress.disorder                             0.5603731386  1.180598e-01     1
+## prenatal                                                 -1.0582886540 -3.620139e+00     1
+## professional.competence                                   0.1232412445 -1.118675e-01     1
+## public.health                                             0.5186807367  9.488281e-02     1
+## quadriplegia                                              0.8877665717  7.510549e-02     1
+## residential.care                                          0.6015866446  1.331754e-01     1
+## review                                                    0.1319161022  2.965080e-02     1
+## screening                                                 0.2452817644  7.272870e-02     1
+## screening.test                                           -0.1121914907 -9.533440e-02     1
+## shoulder                                                  0.7126639794  1.963413e-02     1
+## signal.processing                                        -1.3296525091 -1.188008e+00     1
+## skeletal                                                 -0.5940259016 -4.164927e-01     1
+## skeletal.muscle                                          -0.5940259016 -4.164927e-01     1
+## social.class                                              0.5579257503  1.222052e-01     1
+## social.psychology                                         0.5538804970  1.203555e-01     1
+## thermogenesis                                            -1.1592196950 -8.092675e-01     1
+## trypsin                                                  -0.8544265318 -1.414674e-03     1
+## university                                                0.2300406095  1.752673e-02     1
+## veteran                                                   0.8722356553  2.475018e-01     1
+## visually.impaired.persons                                 1.1050357509  3.408001e-01     1
+## alcohol.related.disorders                                 0.6355534170  1.570278e-01     1
+## antibiotic.resistance                                    -3.1237856640  9.967330e+00     2
+## antineoplastic.agent                                      0.2695594718  1.593422e-01     1
+## arthralgia                                                1.0230843321  3.022654e-01     1
+## asian.continental.ancestry.group                          0.9696655801  2.091531e-01     1
+## automation                                               -0.7680489939 -9.492590e-01     1
+## beck.depression.inventory                                 0.7255277531  2.427875e-01     1
+## body.image                                                0.6711386951  2.875327e-01     1
+## cannabis                                                 -0.0294882166  1.194368e-02     1
+## child.health                                              0.3545051994  2.885287e-02     1
+## childhood                                                 0.4566568732  1.113536e-01     1
+## chronic                                                   0.4645814935  8.464174e-02     1
+## chronic.inflammatory.demyelinating.polyneuropathy         0.7885668585  1.014781e-01     1
+## circadian.rhythm                                         -0.0610474946 -7.909531e-02     1
+## clavulanic.acid                                          -3.5886437061  1.206687e+01     2
+## confidence.interval                                       0.4682572437 -2.206213e-01     1
+## constipation                                              1.0685142859  4.910702e-01     1
+## contrast.sensitivity                                      0.9041196394  2.595607e-01     1
+## correlation.function                                      0.1175296360 -1.922299e-01     1
+## correlational.study                                       0.8359305267  2.141046e-01     1
+## crossover.procedure                                       0.4625532092  7.925412e-02     1
+## diarrhea                                                  0.2853328794  1.879003e+00     1
+## diastolic.blood.pressure                                 -0.5566462801 -1.632039e+00     1
+## disease.classification                                    0.9319289856  2.399192e-01     1
+## distress.syndrome                                         0.7360574145  2.579508e-01     1
+## doctor.patient.relation                                  -0.0409865226 -2.004766e-02     1
+## drug.dependence                                           0.3392235856  8.055091e-02     1
+## educational                                              -0.0924788424 -9.040830e-02     1
+## electromyography                                          0.1623774485 -1.983440e-01     1
+## emotional.stress                                          1.2879918522  3.578126e-01     1
+## energy.metabolism                                        -0.4471587452 -7.204102e-01     1
+## environment                                               0.0422595034  1.017348e-01     1
+## evidence.based.medicine                                   0.4933253310  1.404161e-01     1
+## feeding.behavior                                         -1.3017319212 -3.255351e-01     1
+## fetal.heart                                              -0.9164745331 -3.730260e+00     1
+## gene.expression                                          -3.0041115212  6.273522e-01     1
+## health.care.policy                                        0.1548244920  3.237261e-02     1
+## health.services.research                                 -0.0654776576  1.418564e+00     1
+## health.status.indicator                                   0.6848561909  1.600726e-01     1
+## healthy.aging                                             0.2442775336  4.900406e-02     1
+## heart.function                                           -0.9656977165 -2.652992e+00     1
+## hemodynamics                                             -1.2972153608 -2.014917e+00     1
+## huntington.chorea                                         1.1953435716  4.018233e-01     1
+## infrared.imaging                                         -0.8812637320 -3.408476e-01     1
+## intravenous                                               0.3063794060 -3.135756e-01     1
+## kinetics                                                 -2.6977251769  5.558239e+00     2
+## likert.scale                                              0.3292200999  4.819607e-02     1
+## lower.extremity                                           0.8868699206  1.641887e-01     1
+## lower.limb                                                0.8006768498  1.404345e-01     1
+## marijuana.abuse                                           0.2535240637  7.893741e-02     1
+## marriage                                                  0.7254115814  1.675825e-01     1
+## mathematical.analysis                                     0.0512851323  4.596232e-02     1
+## medical.record                                            1.0032994830  2.631001e-01     1
+## medical.student                                          -0.0281766960 -5.132310e-02     1
+## mental.patient                                            0.8160313937  2.428801e-01     1
+## multicenter.study..topic.                                 0.9711461905  3.960730e-01     1
+## nervous.system.diseases                                   0.7817727686  1.846087e-01     1
+## outpatient.care                                           0.8381341647  2.058612e-01     1
+## personality.assessment                                    0.6491749351  1.419097e-01     1
+## phase.3.clinical.trial                                    0.7560664805  2.433953e-01     1
+## phase.3.clinical.trial..topic.                            0.6404959480  2.844677e-01     1
+## quality.of.life.index                                     0.9513852837  3.045953e-01     1
+## race                                                      0.2553037662  2.623751e-01     1
+## range.of.motion                                           0.6517237353  8.597486e-02     1
+## rehabilitation.centers                                    0.9754599975  2.519175e-01     1
+## reinforcement..psychology.                               -2.8232681262 -6.567668e-01     1
+## respiration                                              -0.2519013987 -4.286581e-01     1
+## response.time                                            -1.6344452659 -2.474367e-01     1
+## sampling                                                  0.2777865431  4.971152e-02     1
+## scotland                                                  0.0736004981  2.562497e-02     1
+## standardization                                           0.4110526245  2.286998e-02     1
+## strabismus                                                0.4850927958  6.051324e-02     1
+## surveys                                                  -0.0334081065 -3.830803e-02     1
+## task.performance.and.analysis                             0.1996018809 -9.556078e-02     1
+## thermography..temperature.measurement.                   -0.8298270663 -3.399752e-01     1
+## thermoregulation                                         -1.8718355261 -5.213638e-01     1
+## tomography                                                0.5033365487  1.117387e-01     1
+## ventricular.dysfunction                                  -1.0671899625 -3.243003e+00     1
+## western.blotting                                         -2.5440399479  2.979343e-01     1
+## accidental.falls                                          0.8416329602  2.184086e-01     1
+## amino.acid.substitution                                  -3.3474870552  1.096388e+01     2
+## anesthesia                                               -0.7500193257 -1.380545e+00     1
+## anhedonia                                                 0.8508255156  2.874398e-01     1
+## animal.behavior                                          -2.8528995275 -6.158802e-01     1
+## articular                                                 0.7314387609  1.145601e-01     1
+## asian                                                     0.4195160602  3.271703e-01     1
+## attention.deficit.disorder.with.hyperactivity            -0.0190144894 -1.693531e-02     1
+## barthel.index                                             1.1637818379  3.301997e-01     1
+## body.surface                                             -1.1640080352 -9.941875e-01     1
+## breast.neoplasms                                          0.3372694626  1.929322e-01     1
+## breathing                                                -0.3073493583 -4.193874e-01     1
+## calculation                                              -0.1998952735 -1.353957e+00     1
+## cancer.survivor                                           0.7640432050  2.036444e-01     1
+## cardiovascular.parameters                                -0.7991056877 -2.958951e+00     1
+## chicago                                                   0.3853688710  9.170342e-02     1
+## child.abuse                                               0.7544639767  9.653819e-02     1
+## chronic.obstructive                                       0.1649294010  2.416046e-01     1
+## classical.test.theory                                     0.8961194356  2.833419e-01     1
+## cocaine                                                  -1.4302079549 -2.547097e-01     1
+## computer.assisted.diagnosis                               0.8017333645  9.843842e-02     1
+## computers                                                 0.3621931562  1.125789e-01     1
+## coping.behavior                                           0.8225344615  2.064565e-01     1
+## counseling                                                0.6436849542  1.869576e-01     1
+## developmental.disorder                                    0.2159189204 -1.005763e-01     1
+## dna                                                      -3.8609164363  8.113451e+00     2
+## dog                                                      -1.6741636967 -1.596071e+00     1
+## drug.therapy                                              0.1923302077 -1.123358e-01     1
+## drug.tolerance                                           -1.5728728511 -4.233959e-01     1
+## early.diagnosis                                          -0.2436059623 -5.056241e-01     1
+## educational.model                                        -0.0519490885 -8.585376e-02     1
+## emotionality                                              0.8031599947  2.892217e-01     1
+## evaluation.studies                                       -0.0739852477 -1.077666e-01     1
+## expanded.disability.status.scale                          0.4794658365  2.082336e-01     1
+## exploratory.research                                      0.6246586043  1.844047e-01     1
+## factual.database                                          0.8266693221  2.867690e-01     1
+## fatigue.severity.scale                                    0.7245192242  1.335379e-01     1
+## frontotemporal.dementia                                   0.6066879061  2.005818e-01     1
+## glucose.blood.level                                      -1.5332576042 -3.483387e-01     1
+## groups.by.age                                             0.4299248082  1.604578e-02     1
+## haloperidol                                              -1.9887768662 -4.248704e-01     1
+## health.services.accessibility                             0.4884148691  7.788598e-02     1
+## hearing.impairment                                        0.7144070857  1.670258e-01     1
+## heart.left.ventricle.ejection.fraction                   -0.9598613723 -2.525385e+00     1
+## heart.muscle.relaxation                                  -1.1783793924 -3.219214e+00     1
+## hiv.infections                                            0.3835913329  2.203295e-02     1
+## immunoreactivity                                         -1.5851971807  6.426288e-01     1
+## injury                                                    0.1028961536  6.078036e-02     1
+## inpatients                                                0.8513987328  2.099588e-01     1
+## insulin.resistance                                       -2.2320660086 -6.157534e-01     1
+## internal.external.control                                 0.4892446319  6.154957e-02     1
+## knowledge                                                -0.2792828074 -1.080446e-01     1
+## leg                                                       0.3854037235 -7.057689e-02     1
+## leisure                                                   0.9406966444  3.244132e-01     1
+## lens.implantation                                         1.1622756654  3.434556e-01     1
+## life.event                                                0.2543445123 -1.523478e-02     1
+## measurement.accuracy                                      0.4563367237  1.510339e-01     1
+## mental.performance                                       -0.2289281141 -1.303790e-01     1
+## migraine.disorders                                        0.8310412148  2.196806e-01     1
+## movement.disorders                                        0.8978582727  2.268789e-01     1
+## musculoskeletal.pain                                      1.0491093774  3.639582e-01     1
+## national.eye.institute.visual.function.questionnaire      1.4863044274  5.489688e-01     1
+## neuroleptic.agent                                         0.7027562112  3.212723e-01     1
+## ontario                                                   0.4773751408 -2.911543e-02     1
+## parameter.estimation                                     -0.5474932176 -1.173056e-01     1
+## patient.referral                                          0.2048853166  4.570254e-01     1
+## pediatrics                                                0.1114824341 -1.842883e-02     1
+## personality.disorder                                      0.5059218286  1.294046e-01     1
+## polyneuropathies                                          1.0824083023  2.560034e-01     1
+## postoperative.complication                                0.6950914359  1.123271e-01     1
+## psychological.well.being                                  1.0183222296  3.320085e-01     1
+## psychotic.disorders                                       0.4638681030  1.516415e-01     1
+## pulmonary.disease                                         0.1649294010  2.416046e-01     1
+## retina.macula.age.related.degeneration                    0.9306164869  2.814214e-01     1
+## risk                                                      0.7095841861  1.956611e-01     1
+## schizophrenic.psychology                                  0.8479623415  3.040640e-01     1
+## school                                                   -0.1232386300 -1.736470e-01     1
+## short.form.12                                             0.8933713824  2.961352e-01     1
+## social.adaptation                                         0.6843232738  2.066541e-01     1
+## spinal.muscular.atrophy                                   0.8606470901  1.849977e-01     1
+## suicide                                                   1.0481125113  2.593666e-01     1
+## survival.analysis                                        -0.1167968868 -8.872744e-03     1
+## time.perception                                          -2.6471562942 -6.092284e-01     1
+## walking.speed                                             0.6686053614  8.077370e-02     1
+## white.matter                                              0.0803050066 -2.025296e-01     1
+## work                                                      0.7020957809  1.959768e-01     1
+## academic.achievement                                      0.1280153611 -8.000702e-02     1
+## acute.disease                                             0.4275187597 -2.845389e-02     1
+## addictive                                                 0.1631388095  2.221178e-04     1
+## adolescence                                               0.3374651660  2.111774e-01     1
+## adolescent.development                                   -0.0253866250 -2.313987e-02     1
+## alcohol.abuse                                             0.3396604205  7.028449e-02     1
+## anemia                                                    0.1865966385 -5.640245e-01     1
+## antidepressive.agents                                    -0.7911890689 -1.775589e-01     1
+## appetite                                                  1.1469198460  4.106942e-01     1
+## arm.movement                                              0.4372889558  4.967375e-02     1
+## backache                                                  0.5484659996  1.071122e-01     1
+## bacterial                                                -3.2153816780  9.675743e+00     2
+## beta.lactamases                                          -3.5715700778  1.178482e+01     2
+## beta.lactamase                                           -3.3474870552  1.096388e+01     2
+## binocular.vision                                          1.4649078184  5.305531e-01     1
+## blood.glucose                                            -1.2925741016 -1.999654e-01     1
+## bovine                                                   -1.8998582598 -5.797220e-01     1
+## brain.hemorrhage                                          0.9536194571  2.264198e-01     1
+## burn                                                      0.7125676247  1.586145e-01     1
+## burns                                                     0.8083890964  1.942894e-01     1
+## calcium                                                  -1.7033665536 -5.885534e-02     1
+## cancer.pain                                               0.8105352949  4.125086e-01     1
+## child.psychology                                          0.3995553868  5.085700e-02     1
+## chinese                                                   0.8061688990  1.200762e-01     1
+## cigarette.smoking                                        -0.5871845820  5.521255e-02     1
+## community                                                 0.3754180250  1.363309e-02     1
+## community.care                                            0.7097672578  1.928010e-01     1
+## confidence.intervals                                      0.5453511723  1.220558e-01     1
+## content.analysis                                          0.5811830173  1.465389e-01     1
+## coronary.artery.disease                                  -0.7393906939 -6.693741e-01     1
+## culture                                                   0.7547434683  1.992129e-01     1
+## curricula                                                -0.6524921698 -1.609207e-01     1
+## cytology                                                 -0.8284805642 -3.295514e-01     1
+## dementia.assessment                                       0.5744784408  1.453683e-01     1
+## descriptive.research                                      0.5683059229  1.101461e-01     1
+## developmental.disabilities                                0.3406161804 -1.101936e-01     1
+## diffusion                                                -1.6182906138  3.034707e-01     1
+## disease.model                                            -3.9889013139 -3.061060e-02     1
+## drug.response                                            -0.7733710027 -2.017115e-01     1
+## drug.safety                                               0.7080479364  2.123816e-01     1
+## dsm.5                                                     0.6668338386  1.681255e-01     1
+## equipment                                                 0.5664100580  1.642927e-01     1
+## error                                                    -0.1542768029 -1.250384e-01     1
+## faculty                                                  -0.1719311187 -1.322630e-01     1
+## flow.rate                                                -0.6819907483 -2.214674e+00     1
+## functional.disease                                        0.6157194460  2.148382e-01     1
+## gene                                                     -2.3878845391  9.610576e-01     1
+## general.practice                                          0.3111631683  9.504920e-02     1
+## genes                                                    -1.3244724386  4.007628e+00     1
+## guillain.barre.syndrome.1                                 0.7952041091  8.165966e-02     1
+## guilt                                                     0.8969270616  3.142436e-01     1
+## hallucination                                             0.7892569058  3.144371e-01     1
+## health.assessment.questionnaire                           0.8053645907  1.964345e-01     1
+## heart.left.ventricle.failure                             -1.1158359442 -2.796008e+00     1
+## heart.ventricle.ejection.time                            -1.0805199313 -3.330929e+00     1
+## hemoglobin.a1c                                            0.3547842463 -1.523529e-01     1
+## high.risk.behavior                                        0.3760177089  6.443749e-02     1
+## hispanic.americans                                        0.9024811000  2.479577e-01     1
+## home.care                                                 0.4590585245  1.183650e-01     1
+## injury.severity                                           1.0524430519  2.309196e-01     1
+## internship.and.residency                                 -0.1929874365 -1.612813e-01     1
+## ischemic.heart.disease                                   -0.1703365998 -8.758358e-01     1
+## item.total.correlation                                    0.8801877330  2.372932e-01     1
+## language.development                                      0.1223309011 -1.555223e-01     1
+## language.test                                             0.1758106567 -1.012523e-01     1
+## linear.system                                             0.4581287614  1.473717e-01     1
+## logistic.regression.analysis                              0.6636196196  1.546502e-01     1
+## medical.information.system                                0.4813867197  8.979709e-02     1
+## medical.school                                           -0.1821873490 -1.039054e-01     1
+## metabolic.syndrome.x                                     -0.6784077525  5.867532e-01     1
+## microbiology                                             -1.5181680117 -1.689767e-01     1
+## mood                                                      0.7732121105  2.169500e-01     1
+## myotonic.dystrophy                                        0.9643846389  2.724231e-01     1
+## neonatal.screening                                       -0.8115319463  7.837033e-01     1
+## new.york                                                  0.0588699442  6.266398e-01     1
+## nurse                                                     0.3755884429  8.628201e-02     1
+## nursing.student                                           0.5177055613  7.076197e-02     1
+## oral.drug.administration                                 -1.2492388698 -4.546928e-01     1
+## outpatient.department                                     0.6684011446  1.387063e-01     1
+## patient.education                                         0.6182839969  1.594609e-01     1
+## patient.selection                                         0.3836243247 -6.974666e-01     1
+## phase.2.clinical.trial                                    0.6059223529  2.038307e-01     1
+## physical.capacity                                         0.9189572272  2.696270e-01     1
+## physical.fitness                                          0.3065833805 -1.268652e-01     1
+## post.traumatic                                            0.5633550719  9.694959e-02     1
+## postoperative.complications                               0.3427805940 -1.059160e-02     1
+## prematurity                                              -0.1089452057 -3.640914e-01     1
+## program.evaluation                                        0.4527204535  1.560598e-01     1
+## quality.of.health.care                                    0.2737447602  7.104354e-04     1
+## recurrence                                                0.5457408465  1.246709e-01     1
+## residence.characteristics                                 0.3201433443  3.679175e-02     1
+## retirement                                                0.4998894871  6.774448e-02     1
+## rheumatic.disease                                         0.9164720305  1.165817e-01     1
+## schizoaffective.psychosis                                 0.8903700673  3.059037e-01     1
+## self.esteem                                               1.1032176072  3.820248e-01     1
+## speech                                                    0.4840372613  9.604977e-02     1
+## stress.disorders                                          0.5633550719  9.694959e-02     1
+## stroke.volume                                            -0.9569087313 -2.895516e+00     1
+## switzerland                                               0.5157960065  1.570674e-01     1
+## technology                                                0.1195793389 -2.168070e-02     1
+## therapy.effect                                            0.1620466892  2.001919e-02     1
+## thermometers                                             -0.9874227502 -2.974811e-01     1
+## total.quality.management                                  0.4619499133  3.392372e-01     1
+## traumatic                                                 0.8967491500  2.126679e-01     1
+## uncertainty                                              -0.4000431056  5.727174e-02     1
+## universities                                              0.3092679627  7.949438e-02     1
+## upregulation                                             -4.7839882428  9.582886e-01     1
+## vasoconstriction                                         -1.4807865068 -7.655248e-01     1
+## veterans                                                  0.8525797473  2.456200e-01     1
+## veterinary                                               -1.6927267963 -4.201740e-01     1
+## visual.fields                                             1.5536248235  6.028524e-01     1
+## activity.of.daily.living.assessment                       0.9154571246  1.845799e-01     1
+## adl.disability                                            0.6985184854  1.791378e-01     1
+## adverse.effects                                           0.7504351294  2.036146e-01     1
+## african.americans                                         0.5738868060  1.033994e-01     1
+## aluminum                                                 -1.3614094167 -1.971438e-01     1
+## amoxicillin.plus.clavulanic.acid                         -3.2068089236  1.029710e+01     2
+## antipsychotic.agents                                      0.1262844847  1.726185e-01     1
+## atmospheric.temperature                                  -0.9203212746 -2.863079e-01     1
+## automobile.driving                                        0.6260368730  5.698473e-02     1
+## behavior.disorder                                         0.2323289749 -1.682172e-03     1
+## beta.lactam.antibiotic                                   -3.5184342458  1.162485e+01     2
+## binocular                                                 1.4768359874  5.274664e-01     1
+## body.position                                             0.3207082122  9.755007e-03     1
+## body.posture                                              0.3838505995 -4.363236e-02     1
+## borderline.state                                          0.2591614446  5.508082e-02     1
+## brain.ischemia                                            0.7973528309  1.540573e-01     1
+## breathing.rate                                           -1.2410682310 -9.591221e-01     1
+## c.reactive.protein                                        0.1089469028 -1.855332e-01     1
+## cancer.fatigue                                            0.9506061992  4.214495e-01     1
+## cannabis.addiction                                        0.1834582844  6.022942e-02     1
+## car.driving                                               0.7302997964  9.253321e-02     1
+## carbamazepine                                             0.2021374129 -5.215796e-02     1
+## cardiovascular.disease                                    0.5960845899 -2.628144e-01     1
+## cefotaxime                                               -3.6488462908  1.222502e+01     2
+## charcot.marie.tooth.disease                               0.6090645036  2.937229e-01     1
+## child.behavior.disorders                                  0.6442079217  1.060478e-01     1
+## chronic.kidney.failure                                    0.1228127237 -7.375640e-01     1
+## clinical.global.impression.scale                          0.8788698956  2.599597e-01     1
+## cold                                                     -0.9816035922 -6.435001e-01     1
+## comparative.effectiveness                                 0.6967445296  2.157493e-01     1
+## computer.assisted.tomography                             -0.0608695127  1.043836e-01     1
+## cooperation                                               0.1900372392 -3.960495e-02     1
+## cultural.anthropology                                     0.5781813777  1.479296e-01     1
+## d..digital.image.correlation..dic.                       -0.9506702194 -2.920102e-01     1
+## data.base                                                 0.8349668142  2.469198e-01     1
+## deformation                                              -0.8953446925 -2.590719e-01     1
+## delusion                                                  0.8583175369  3.340527e-01     1
+## depression.assessment                                     0.9709910211  3.693536e-01     1
+## dexamphetamine                                           -2.6268328679 -6.713999e-01     1
+## diseases                                                  0.0622861285 -1.462843e-01     1
+## doppler.flowmetry                                        -1.2640995069 -2.886752e+00     1
+## down.regulation                                          -4.4303821943  1.017181e+00     1
+## drug.effects                                             -2.4116525791  1.977200e-01     1
+## drug.use                                                  0.6984199202  1.692034e-01     1
+## drug.withdrawal                                           0.8182159392  2.180340e-01     1
+## duchenne.muscular.dystrophy                               0.8100596377  2.297793e-01     1
+## eating.disorder                                           0.6500032133  1.409252e-01     1
+## elderly.care                                              0.5831157877  1.875546e-01     1
+## emotional.stability                                       1.1159526033  3.187660e-01     1
+## employment.status                                         0.6599631104  1.529245e-01     1
+## epworth.sleepiness.scale                                  0.6383436763  8.970782e-02     1
+## ethnic.difference                                         0.8638165381  2.289124e-01     1
+## evidence.based.practice.1                                 0.3359322250  8.222311e-02     1
+## expectation                                               0.3416161764  1.384266e-01     1
+## external.validity                                         1.3358796137  4.320824e-01     1
+## gene.mutation                                            -1.6074327169  4.346624e+00     1
+## glasgow.coma.scale                                        0.8308586281  1.257570e-01     1
+## glucose.tolerance.test                                   -1.7257129557 -5.970324e-01     1
+## growth                                                   -2.2775702711 -2.794426e-01     1
+## health.care.survey                                        0.6760580169  1.725035e-01     1
+## health.service                                            0.6795703268  1.254838e-01     1
+## heart.diseases                                            0.2240636928 -5.248730e-01     1
+## heart.left.ventricle.ejection.time                       -1.0930626872 -2.755496e+00     1
+## heart.left.ventricle.relaxation                          -0.7148430563 -1.779968e+00     1
+## heart.rate.variability                                   -1.0334457783 -1.171312e+00     1
+## heart.stroke.volume                                      -1.1432865184 -2.482235e+00     1
+## home.for.the.aged                                         0.9310186351  2.767257e-01     1
+## homes.for.the.aged                                        1.0004182008  2.691750e-01     1
+## hopelessness                                              0.8858879422  3.685601e-01     1
+## hypothesis                                                0.3236998741  6.036420e-02     1
+## immunoglobulins                                           0.9284314667  8.763428e-02     1
+## inbred.c57bl                                             -4.0193698134  2.107664e-01     1
+## independence                                              0.6274065919  1.458514e-01     1
+## injections                                               -1.4179245813 -7.915345e-01     1
+## intelligence.tests                                        0.1751371566 -1.475663e-01     1
+## intensive.care                                            0.6884858451  1.210867e-01     1
+## internationality                                          0.3616984385  1.373882e-01     1
+## intraocular                                               1.1622756654  3.434556e-01     1
+## intravenous.drug.administration                          -1.3284662608 -5.014140e-01     1
+## juvenile                                                  0.4022108786  1.063112e-01     1
+## kidney.disease                                            0.9648230885  4.069898e-02     1
+## knee.joint                                                1.1645621474  3.000622e-01     1
+## language.tests                                            0.2163168535 -8.974048e-02     1
+## life.style                                                0.5851102665  1.219459e-01     1
+## lifestyle                                                 0.4295794166  4.574189e-05     1
+## mathematical.models                                      -0.2727991313 -2.190088e-02     1
+## membrane.protein                                         -2.9575522015  4.942473e-01     1
+## mental.recall                                            -0.4909669323 -2.798007e-01     1
+## meta.analysis                                             0.4994839935  2.049003e-01     1
+## mobilization                                              1.0362980114  3.639063e-01     1
+## monotherapy                                              -0.4017949950  3.075572e-02     1
+## montgomery.asberg.depression.rating.scale                 0.9291293360  3.781841e-01     1
+## mood.change                                               0.8711752193  2.342703e-01     1
+## morbidity                                                 0.6329339607 -9.338928e-02     1
+## musculoskeletal.disease.assessment                        0.7771996268  1.985620e-01     1
+## neuroimaging                                              0.5553254947  3.068904e-01     1
+## nicotine                                                 -0.5499669750 -7.565810e-02     1
+## non.invasive.procedure                                   -1.4910193374 -1.213200e+00     1
+## north.america                                            -0.2527312610 -5.480613e-02     1
+## nurses                                                    0.4241634607  1.099571e-01     1
+## nursing.homes                                             0.6910828586  1.610885e-01     1
+## obsessive.compulsive.disorder.1                           0.4696065159  8.359418e-02     1
+## occupational.therapist                                    0.4092213744  9.761772e-02     1
+## optical.coherence                                         1.0655680430  3.134334e-01     1
+## organization                                              0.4208679828  1.463616e-01     1
+## p.h.s.                                                   -2.0419474191 -5.315906e-01     1
+## paracetamol                                               0.0560376796 -5.730981e-03     1
+## parent.child.relations                                    0.6939773551  1.854433e-01     1
+## patient                                                   0.9164862375  2.808982e-01     1
+## patient.coding                                            0.7484330581  2.750616e-01     1
+## patient.counseling                                        0.7940335886  2.984260e-01     1
+## patient.discharge                                         0.9374759706  2.338551e-01     1
+## patient.health.questionnaire.9                            1.0103485849  3.280528e-01     1
+## polymerase.chain.reaction                                -3.5080177779  1.084124e+01     2
+## process.development                                       0.4497653142  1.662223e-01     1
+## psychosocial.care                                         0.9640205133  2.627662e-01     1
+## psycinfo                                                  0.1166579357  1.272853e-02     1
+## rasch.modeling                                           -0.7816498354 -1.685852e-01     1
+## recall                                                    0.2247990416 -1.117863e-01     1
+## receptors                                                -2.4902247269 -4.673390e-01     1
+## refraction.error                                          0.9385528336  1.465906e-01     1
+## relapse                                                   0.3420744668  1.555620e-01     1
+## remission.induction                                       0.6707676376  2.570072e-01     1
+## remote.sensing                                           -0.7939008112 -3.499789e-01     1
+## risk.taking                                               0.2294344262  2.047232e-02     1
+## rna                                                      -2.4916751446  3.743860e-01     1
+## schools                                                   0.0075915839 -1.264991e-01     1
+## scientist                                                -0.2437717884 -9.842550e-02     1
+## self.assessment                                           0.8634937925  1.603956e-01     1
+## sexual.dysfunction                                        0.6151314572  2.554575e-01     1
+## sexual.function                                           0.6220005191  2.544158e-01     1
+## single.blind.method                                       0.4536222437 -1.595951e-02     1
+## social.isolation                                          0.3039492047  1.235173e-01     1
+## social.phobia                                             0.9093227732  2.569648e-01     1
+## spectral.domain.optical.coherence.tomography              0.8370461793  2.109546e-01     1
+## spondylitis                                               1.1064303976  4.016986e-01     1
+## statistical.parameters                                    0.4758953187  1.647485e-01     1
+## substance.withdrawal.syndrome                             0.0785132269  1.225225e-01     1
+## sulfonamide                                              -1.7634092948  6.264469e+00     2
+## surgery                                                  -0.0087650265 -2.598177e-01     1
+## surgical.patient                                          0.6503245061  1.545657e-01     1
+## temperature.changes                                      -0.9126021724 -2.361243e-01     1
+## thematic.analysis                                         0.6581842756  2.303946e-01     1
+## therapy                                                  -0.1844547146 -2.480034e-01     1
+## translating                                               1.0164805054  2.583250e-01     1
+## undergraduate                                            -0.1453922118 -9.451316e-02     1
+## utilization                                               1.0057209608  3.287450e-01     1
+## verbal.behavior                                           0.4142804454  8.415847e-02     1
+## video.recording                                          -0.6837041169 -4.850046e-01     1
+## videorecording                                           -0.6837041169 -4.850046e-01     1
+## visual.field.tests                                        1.6744740069  6.745043e-01     1
+## wistar                                                   -4.2794055012 -2.872415e-01     1
+## acquired.brain.injury                                     0.5984839782  8.890176e-02     1
+## amino.acid.sequence                                      -3.0292972887  1.981361e+00     1
+## analgesic.agent                                          -0.4538895843  1.298640e-01     1
+## anamnesis                                                 0.3280926420  5.623387e-03     1
+## angiogenesis.inhibitors                                   0.7398023857  2.082800e-01     1
+## animal.food                                              -2.1433731808 -3.663227e-01     1
+## ankylosing                                                1.1064303976  4.016986e-01     1
+## antibodies                                                0.3185646310  1.288552e-01     1
+## antineoplastic.combined.chemotherapy.protocols           -0.2569644517 -2.463554e-01     1
+## arousal                                                  -0.5280953058 -1.053325e-01     1
+## artificial.ventilation                                    0.4053253812 -8.384912e-02     1
+## beta.lactam.resistance                                   -3.6505544004  1.200371e+01     2
+## biomarkers                                               -0.7679630892  8.013690e-02     1
+## biomedical.research                                       0.2569643295  8.586787e-02     1
+## body.movement                                             0.4649692470  5.628333e-02     1
+## brain.region                                             -1.2119049653 -2.088549e-01     1
+## cancer.chemotherapy                                       0.9165408284  3.373800e-01     1
+## cancer.staging                                            0.2729091934  2.364164e-01     1
+## carrier.protein                                          -4.0535009811  6.433680e-01     1
+## cefalotin                                                -3.5105606536  1.189634e+01     2
+## cells                                                    -1.6292283562  9.206195e-02     1
+## chi.square.distribution                                   0.3435601739 -6.918431e-01     1
+## clinical.decision.making                                  0.3317054841 -5.014018e-02     1
+## clinical.examination                                      0.4045093444  3.585133e-02     1
+## clinical.protocol                                        -0.0935915834 -2.852795e-01     1
+## clinical.study                                            0.4470931769 -7.296561e-02     1
+## cocaine.dependence                                        0.0727467574 -7.964217e-03     1
+## combination                                               0.1793482039 -6.213498e-02     1
+## communication.skill                                       0.3567318718  5.444787e-02     1
+## corrected.distance.visual.acuity                          0.9601458718  1.246474e-01     1
+## critical.thinking                                         0.1360492745 -5.768538e-02     1
+## crops                                                    -1.2181323453  1.007761e-01     1
+## data.handling                                            -0.8830789429 -1.872714e-01     1
+## degenerative.disease                                      0.1654982928  6.487098e-02     1
+## device                                                   -0.6569519220 -1.187118e+00     1
+## diabetic.patient                                          0.6096684482  1.067829e-01     1
+## diagnostic.test                                           0.2107213990  4.049725e-01     1
+## diastolic.dysfunction                                    -0.7261588530 -2.619571e+00     1
+## differential                                              0.4420442970  9.127703e-02     1
+## disease.burden                                           -0.2236605061  2.146946e-01     1
+## dogs                                                     -1.9585947337 -2.001038e+00     1
+## enzyme.activity                                          -3.7201568725  2.631319e+00     1
+## eye.examination                                           0.8943873767  1.160514e-01     1
+## false.positive.result                                    -0.4774876516  1.903488e-01     1
+## fluorodeoxyglucose.f.18                                  -0.8799762756 -8.777080e-01     1
+## functional.laterality                                     0.5428760634  1.119798e-01     1
+## gene.overexpression                                      -3.6480368933  6.169249e-01     1
+## genetic.analysis                                         -0.1168314983  4.168795e-01     1
+## genetic.screening                                        -0.5120470908  5.554684e-01     1
+## genetic.variability                                      -1.2382499795  2.233555e+00     1
+## graduate                                                 -0.2441332743 -2.144958e-01     1
+## hamilton.depression.rating.scale                          1.1066876945  4.186115e-01     1
+## hamilton.scale                                            0.4347707738  1.696929e-01     1
+## health.care.cost                                          0.7998644520  3.490511e-01     1
+## health.care.need                                          0.5914416875  1.063449e-01     1
+## health.personnel                                          0.7083375702  2.013438e-01     1
+## health.status.disparities                                 0.6558586474  1.867209e-01     1
+## heart.ejection.fraction                                  -0.8483632932 -2.671923e+00     1
+## heart.infarction                                          0.5035871618  2.216277e-02     1
+## heart.ventricle.function                                 -0.7518478548 -3.258197e+00     1
+## hemodialysis                                             -0.1564972209 -1.088882e+00     1
+## hemoglobin                                               -0.3802755265 -1.186418e+00     1
+## hemoglobin.blood.level                                    0.5774145630  9.334355e-02     1
+## hip.arthroplasty                                          1.2138915340  3.757136e-01     1
+## histogram                                                -1.0564689355 -2.145587e-01     1
+## hormone.substitution                                     -0.5860080989 -4.114792e-01     1
+## horse                                                    -1.5219697428 -4.958606e-01     1
+## household                                                 0.7571282491  1.962117e-01     1
+## huntington.disease                                        1.1953435716  4.018233e-01     1
+## imaging                                                  -1.0540084337 -3.311966e-01     1
+## immunologic.factor                                        0.8238693518  1.328691e-01     1
+## immunologic.factors                                       0.8238693518  1.328691e-01     1
+## impact.of.vision.impairment.questionnaire                 1.1606896880  3.507755e-01     1
+## impulsiveness                                            -1.0504974787 -1.454810e-01     1
+## inflammatory.rasch.built.overall.disability.scale         0.8463032053  1.238093e-01     1
+## information.system                                        0.9585167957  2.556526e-01     1
+## infrared.imagery                                         -0.8801505879 -1.850302e-01     1
+## infrared.thermography                                    -0.9801584376 -2.691744e-01     1
+## insulin.dependent.diabetes.mellitus                      -0.0638231442 -1.433706e+00     1
+## intelligence.test                                         0.2111570748 -9.185398e-02     1
+## interviews                                                0.4938152382  1.271601e-01     1
+## isolation.and.purification                               -0.9100452229  1.245856e-01     1
+## isometric.exercise                                       -0.5273626463 -7.051843e-01     1
+## judgment                                                  0.3844468041 -2.925430e-03     1
+## kinesiotherapy                                            0.7501065691  8.064176e-02     1
+## knee.replacement                                          1.0917060094  2.989956e-01     1
+## life.satisfaction                                         0.8348685615  1.792953e-01     1
+## lipid                                                    -2.7289901184 -1.393020e-01     1
+## long.term.care                                           -0.0697549199 -3.784835e-02     1
+## longitudinal.data                                        -0.5811543295 -1.372193e-01     1
+## medical.history                                           0.1013625888 -4.308560e-02     1
+## medical.information                                       0.1679592104  1.768029e-01     1
+## medical.practice                                          0.7638061780  2.659948e-01     1
+## mental.concentration                                      0.2457940383  2.384196e-02     1
+## mental.health.service                                     0.2724356840  1.060878e-01     1
+## modeling                                                 -0.5738804059 -2.510781e-01     1
+## molecular                                                -3.1715528570  9.912195e+00     2
+## molecular.sequence.data                                  -3.6877771798  9.002124e+00     2
+## monte.carlo.methods                                      -0.7749262903 -1.660958e-01     1
+## multicenter.studies.as.topic                              0.7219258625  1.680975e-01     1
+## muscular.dystrophy                                        0.2635431793  1.764825e-02     1
+## natural.resistance.associated.macrophage.protein.2       -2.7844155455  5.231261e-01     1
+## neuropathy                                                0.5899639259  1.127395e-01     1
+## neurosis                                                  0.2141259782  1.096583e-01     1
+## non.p.h.s.                                               -2.1371431011 -6.708776e-01     1
+## occupation                                                0.3615839707 -2.308141e-02     1
+## onset.age                                                 0.3173179801  3.338816e-01     1
+## open.study                                                0.9554766694  2.484795e-01     1
+## optical.coherence.tomography                              1.0295024408  3.052074e-01     1
+## parameters                                                0.4124761236 -9.236880e-02     1
+## patient.centered.care                                     0.7898243593  2.672708e-01     1
+## patient.acceptance.of.health.care                         0.3459305314  1.974678e-02     1
+## patient.education.as.topic                                0.4359149408  8.782392e-02     1
+## patient.rehabilitation                                    0.8076604192  2.489113e-01     1
+## pharmacy                                                 -0.2100645758 -6.745541e-02     1
+## physical.mobility                                         1.0316288477  1.863117e-01     1
+## physicians                                                0.4021034104  7.732014e-02     1
+## physiologic                                              -1.3957434677 -7.333336e-01     1
+## physiologic.monitoring                                   -1.3957434677 -7.333336e-01     1
+## plant.root                                               -1.8656597629  3.555519e-01     1
+## plant.roots                                              -1.8656597629  3.555519e-01     1
+## plants..botany.                                          -1.9958163563  3.053627e-01     1
+## post.hoc.analysis                                        -0.3241096074  1.867505e-01     1
+## posture                                                   0.0840894485  1.640838e-01     1
+## preoperative.evaluation                                   0.8875101915  2.251092e-01     1
+## prevention.and.control                                    0.8733416093  1.892097e-01     1
+## proportional.hazards.models                               0.5811782754  2.117205e-01     1
+## protein                                                  -2.1454651449  2.429971e+00     1
+## protein.function                                         -3.7517951168  1.124566e+00     1
+## psychological.well.being.1                                0.7929376752  2.698609e-01     1
+## radiation.dose                                           -0.8674667432 -5.314365e-02     1
+## rasch.built.overall.disability.scale                      0.8481547334  6.638260e-02     1
+## recreation                                                0.5305020391  6.212365e-02     1
+## refraction                                                1.0849918866  1.797921e-01     1
+## register                                                  0.9201283611  2.243431e-01     1
+## registries                                                0.9827927795  2.280785e-01     1
+## reliability.analysis                                     -0.4249563984 -9.603301e-02     1
+## respiratory.tract.disease.assessment                      0.5911922532  5.549355e-01     1
+## scanning.electron.microscopy                             -0.0456047035  1.175801e-03     1
+## self.assessment..psychology.                              0.5647173276  1.993713e-01     1
+## sex.factor                                                0.7727092796  1.310175e-01     1
+## sex.ratio                                                 0.6934207674  1.584840e-01     1
+## sexuality                                                 0.8546863693  3.575350e-01     1
+## short.term                                               -1.0920889243 -4.557313e-01     1
+## somnolence                                                0.9277336865  2.581905e-01     1
+## standing                                                  0.4492537708  4.925615e-02     1
+## statistical.methods                                      -0.4420185452 -7.444234e-02     1
+## stimulus.response                                        -2.5157575400 -4.753957e-01     1
+## stroke.patient                                            1.2439449806  3.784220e-01     1
+## student.t.test                                            0.2041276098 -8.983374e-03     1
+## suicidal.behavior                                         0.9729000448  2.112970e-01     1
+## survivor                                                  1.1608008090  3.274725e-01     1
+## survivors                                                 0.9470892231  2.934518e-01     1
+## tazobactam                                               -3.6866653354  1.246943e+01     2
+## thermal.conductivity                                     -0.8030157322 -1.995100e-01     1
+## ticarcillin                                              -3.5105606536  1.189634e+01     2
+## tissue.doppler.imaging                                   -0.7168075410 -3.151784e+00     1
+## tooth                                                    -0.2686389139 -3.048219e-01     1
+## translating..language.                                    0.9784919961  2.778423e-01     1
+## treadmill.exercise                                       -1.1398829582 -1.069744e+00     1
+## trends                                                    0.2746779122  3.505864e-02     1
+## triacylglycerol                                          -0.7253582884 -6.274499e-01     1
+## tumor                                                    -3.0759394522  7.602727e-01     1
+## university.hospital                                       0.6651214974  2.222801e-01     1
+## withdrawal.syndrome                                       0.1677284357  1.524395e-01     1
+## zinc.transporter.1                                       -3.9265644327  8.342156e-01     1</code></pre>
+<pre class="r"><code>CS$km.res$centers</code></pre>
+<pre><code>##         Dim.1       Dim.2 clust
+## 1  0.08908844 -0.02583303     1
+## 2 -3.31383078 10.19504595     2</code></pre>
+</div>
