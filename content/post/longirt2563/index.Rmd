@@ -9,6 +9,8 @@ tags:
 
 > The content of this doc is not complete. But the part of bibliometrix process may be useful to refer to later.
 
+- [Slides](intro0524.pdf)
+
 ```{r message = FALSE}
 library(bibliometrix)
 library(tidyverse)
