@@ -4,6 +4,9 @@ title: A Hugo website
 theme: hugo-lithium
 googleAnalytics: ''
 disqusShortname: ''
+enableEmoji: true
+hasCJKLanguage: true
+
 ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
@@ -24,10 +27,15 @@ params:
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
   description: A website built through Hugo and blogdown.
+  pagetitle: "JackMD"
+  copyright: "© {.time} JW Tsai"
+  copyrightUrl: "/"
   favicon: favicon.ico
   highlightjsCDN: //cdnjs.cloudflare.com/ajax/libs
   highlightjsLang:
     - r
+    - python
+    - tex
     - yaml
   highlightjsTheme: github
   highlightjsVersion: 9.12.0
