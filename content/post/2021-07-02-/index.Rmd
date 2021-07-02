@@ -12,7 +12,7 @@ tags: []
 - [分析篇]
 - [程式篇]
 
-我心目中教育研究的技術，至少有下面四個面向：
+我心目中教育研究的技術（理論先不談），至少有下面四個面向：
 
 - 科學計算
 - 測量模型
@@ -20,6 +20,7 @@ tags: []
 - 程式編寫
 
 所以這個 blog 基本上也會圍繞著這些主題來寫。
+如果每一篇只能有 3 個核心主題的話，你會把哪些主題列為核心？？
 
 
 
@@ -32,6 +33,13 @@ tags: []
 - 調整/比較模型、
 - 做數據實驗（模擬研究）、
 - 發展新的方法、整合數種方法
+
+### Core Topics
+```
+1) Essential Computing Skills
+2) Statistics
+3) Simlation
+```
 
 ### Book list：
 
@@ -59,6 +67,13 @@ tags: []
 - LCA and CDM
 - Other Models: Pairwise Comparison, Proximity, Response Time, and Network Models
 
+### Core Topics
+```
+1) FA
+2) IRT
+3) CDM
+```
+
 ### Book list：
 
 - Klaas Sijtsma, L. Andries van der Ark. (2020). Measurement Models for Psychological Attributes.
@@ -66,9 +81,15 @@ tags: []
 
 ## 分析篇
 
-- 調查資料分析 
-- 長期追蹤資料分析
-- 廣義線性模型（解釋型 IRT, SEM, ...）
+
+### Core Topics
+
+```
+1) Survey data
+2) longitudinal/repeated measurured data
+3) GLM (Explanatory IRT, SEM, ...)
+```
+- 實驗設計？
 
 
 ## 程式篇
