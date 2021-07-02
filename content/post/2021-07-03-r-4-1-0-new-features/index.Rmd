@@ -2,7 +2,7 @@
 title: 'R 4.1.0 new features'
 author: 'JW Tsai'
 date: '2021-07-03'
-slug: r-4-1-0-new-features
+slug: 'r-4-1-0-new-features'
 categories:
   - R
 tags: []
