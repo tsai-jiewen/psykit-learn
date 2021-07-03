@@ -15,8 +15,8 @@ tags: []
 我心目中教育研究的技術（理論先不談），至少有下面四個面向：
 
 - 科學計算
-- 測量模型
-- 資料分析
+- 測量模型 (Descriptive models)
+- 資料分析 (Explanatory models)
 - 程式編寫
 
 所以這個 blog 基本上也會圍繞著這些主題來寫。
@@ -37,8 +37,8 @@ tags: []
 ### Core Topics
 ```
 1) Essential Computing Skills
-2) Statistics
-3) Simlation
+2) Stat Exp
+3) Simulation
 ```
 
 ### Book list：
