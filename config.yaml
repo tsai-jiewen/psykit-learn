@@ -1,9 +1,9 @@
 baseurl: /
 languageCode: en-us
-title: A Hugo website
+title: A jwlearn blog
 theme: hugo-lithium
 googleAnalytics: ''
-disqusShortname: ''
+disqusShortname: 'https-jwlearn-netlify-app'
 enableEmoji: true
 hasCJKLanguage: true
 
@@ -20,9 +20,9 @@ menu:
     - name: About
       url: /about/
     - name: GitHub
-      url: https://github.com/rstudio/blogdown
-    - name: Twitter
-      url: https://twitter.com/rstudio
+      url: https://github.com/tsai-jiewen
+    - name: 
+      url: 
 params:
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
