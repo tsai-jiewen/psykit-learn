@@ -1,7 +1,7 @@
 baseurl: /
 languageCode: en-us
 title: A jwlearn blog
-theme: hugo-lithium
+theme: "hugo-lithium"
 googleAnalytics: ''
 disqusShortname: 'https-jwlearn-netlify-app'
 enableEmoji: true

@@ -1,23 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2022.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">{{ partial "header.html" . }}</span></p>
-<p class="p1"><span class="s1">{{ if eq .Section "post" }} {{ .ReadingTime }} min read {{ end }}</span></p>
-<h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>{{ .Title }}</b></span></h1>
-<p class="p1"><span class="s1">{{ if eq .Section "post" }} {{ .Date.Format "2006-01-02" }} {{ end }}</span></p>
-<p class="p1"><span class="s1">{{ .Content }}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{{ partial "disqus.html" .}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{{ partial "footer.html" . }}<span class="Apple-converted-space"> </span></span></p>
-</body>
-</html>
+{{ partial "header.html" . }}
+
+<main class="content" role="main">
+
+  <article class="article">
+    {{ if eq .Section "post" }}
+    <span class="article-duration">{{ .ReadingTime }} min read</span>
+    {{ end }}
+
+    <h1 class="article-title">{{ .Title }}</h1>
+
+    {{ if eq .Section "post" }}
+    <span class="article-date">{{ .Date.Format "2006-01-02" }}</span>
+    {{ end }}
+
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+  </article>
+
+  {{ partial "disqus.html" .}}
+
+</main>
+
+{{ partial "footer.html" . }}
