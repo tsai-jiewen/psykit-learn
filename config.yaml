@@ -1,5 +1,5 @@
 baseurl: /
-languageCode: en-us
+languageCode: zh-tw
 title: A jwlearn blog
 theme: "hugo-lithium"
 googleAnalytics: ''
@@ -32,6 +32,7 @@ menu:
       
 params:
   likerID: "tsai_jiewen"
+  copyright: "Copyright {year} JW Tsai"
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
   description: A website built through Hugo and blogdown.
@@ -44,6 +45,8 @@ params:
     - yaml
   highlightjsTheme: github
   highlightjsVersion: 9.12.0
+  # footer
+  author: JW Tsai
   logo:
     alt: Logo
     height: 50
