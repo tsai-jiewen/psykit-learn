@@ -1,16 +1,16 @@
 ---
 title: "如何用 blogdown 建立個人網站？"
-author: '介文'
+author: "JW Tsai"
 date: '2020-11-16'
-slug: blogdown
+slug: ''
 ---
 
 [![hackmd-github-sync-badge](https://hackmd.io/WTHz1t8KRwuV0j7ldbEUhA/badge)](https://hackmd.io/WTHz1t8KRwuV0j7ldbEUhA)
 
-
-
-
-目前建好的網站如下：[蔡介文 Tsai Jie-wen](https://tsaijw.netlify.app/blog/)
+- [1 使用 R 套件 blogdown]
+- [2 建立 Github repo]
+- [3 部署到 Netlify]
+- [4 其他調整議題]
 
 
 
@@ -99,7 +99,9 @@ GitHub/my_blog/themes/hugo-nanx2020/layouts/partials/footer.html
 ```
 刪掉就可以。
 
+### 4.7 LikeCoin 設置
 
+關於 likeCoin 設定的問題，詳細可以參考這篇 LikeCion 的官方文章：[如何在 Hugo 開發環境的文章中加入 LikeCoin button](https://docs.like.co/v/zh/user-guide/creator/self-host/hugo)
 
 
 
