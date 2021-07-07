@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on A jwlearn website</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on A jwlearn website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R 4.1.0 new features</title>
+      <link>/post/2021/07/03/r-4-1-0-new-features/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/07/03/r-4-1-0-new-features/</guid>
+      <description>Native pipe # R 4.1.0 rnorm(100, mean = 4, sd = 1) |&amp;gt; density() |&amp;gt; plot()  Short anonymous function F1 &amp;lt;- \(x) x^2 + 2*x + 1 class(F1) ## [1] &amp;quot;function&amp;quot; Deriv::Deriv(F1) ## function (x) ## 2 + 2 * x curve(F1)  Amazing operation mtcars |&amp;gt; subset(cyl == 4) |&amp;gt; {\(d) lm(mpg ~ disp, data = d)}() ## ## Call: ## lm(formula = mpg ~ disp, data = d) ## ## Coefficients: ## (Intercept) disp ## 40.</description>
+    </item>
+    
+  </channel>
+</rss>
