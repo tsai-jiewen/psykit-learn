@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+	<meta name="generator" content="Hugo 0.83.1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | A jwlearn website</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/post/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+
+
+
+<p><a href="https://github.com/yihui/hugo-xmin"><img src="https://simpleicons.org/icons/github.svg" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" /></a></p>
+<h1 id="hugo-xmin">HUGO XMIN</h1>
+<h2 id="_keep-it-simple-but-not-simpler_"><em>Keep it simple, but not simpler</em></h2>
+<p><strong>XMin</strong> is a Hugo theme written by <a href="https://yihui.org">Yihui Xie</a> in about four hours: half an hour was spent on the Hugo templates, and 3.5 hours were spent on styling. The main motivation for writing this theme was to provide a really minimal example to beginners of Hugo templates. This XMin theme contains about 130 lines of code in total, including the code in HTML templates and CSS (also counting empty lines).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find . -not -path <span style="color:#e6db74">&#39;*/exampleSite/*&#39;</span> <span style="color:#ae81ff">\(</span> -name <span style="color:#e6db74">&#39;*.html&#39;</span> -o -name <span style="color:#e6db74">&#39;*.css&#39;</span> <span style="color:#ae81ff">\)</span> | xargs wc -l
+</code></pre></div><p>I can certainly further reduce the code, for example, by eliminating the CSS, but I believe a tiny bit of CSS can greatly improve readability. You cannot really find many CSS frameworks that only contain 50 lines of code.</p>
+<p>Although it is a minimal theme, it is actually fully functional. It supports pages (including the home page), blog posts, a navigation menu, categories, tags, and RSS. With <a href="https://github.com/yihui/hugo-xmin/blob/master/exampleSite/layouts/partials/foot_custom.html">a little bit customization</a>, it can easily support LaTeX math expressions, e.g.,</p>
+<p><code>$${\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)$$</code></p>
+<p>All pages not under the root directory of the website are listed below. You can also visit the list page of a single section, e.g., <a href="/post/">posts</a>, or <a href="/note/">notes</a>. See the <a href="/about/">About</a> page for the usage of this theme.</p>
+
+
+<ul>
+  
+  
+  
+  <li>
+    <span class="date">2021/07/07</span>
+    <a href="/post/2021/07/07/%E7%A7%91%E5%AD%B8%E5%AF%AB%E4%BD%9C%E7%9A%84%E4%B8%89%E9%9A%8E%E6%A2%AF/">科學寫作的三階梯</a>
+  </li>
+  
+  <li>
+    <span class="date">2021/07/03</span>
+    <a href="/post/2021/07/03/r-4-1-0-new-features/">R 4.1.0 new features</a>
+  </li>
+  
+  <li>
+    <span class="date">2021/07/02</span>
+    <a href="/post/2021/07/02/%E6%95%99%E8%82%B2%E7%A0%94%E7%A9%B6%E6%8A%80%E8%A1%93%E7%9A%84%E5%AD%B8%E7%BF%92%E5%9C%B0%E5%9C%96/">教育研究技術的學習地圖</a>
+  </li>
+  
+  <li>
+    <span class="date">2020/11/16</span>
+    <a href="/post/2020/11/16/%E5%A6%82%E4%BD%95%E7%94%A8-blogdown-%E5%BB%BA%E7%AB%8B%E5%80%8B%E4%BA%BA%E7%B6%B2%E7%AB%99/">如何用 blogdown 建立個人網站？</a>
+  </li>
+  
+  <li>
+    <span class="date">2017/06/14</span>
+    <a href="/note/2017/06/14/another-note/">Another Note on A blogdown Tutorial</a>
+  </li>
+  
+  <li>
+    <span class="date">2017/06/13</span>
+    <a href="/note/2017/06/13/a-quick-note/">A Quick Note on Two Beautiful Websites</a>
+  </li>
+  
+  <li>
+    <span class="date">2016/02/14</span>
+    <a href="/post/2016/02/14/a-plain-markdown-post/">A Plain Markdown Post</a>
+  </li>
+  
+  <li>
+    <span class="date">2015/07/23</span>
+    <a href="/post/2015/07/23/lorem-ipsum/">Lorem Ipsum</a>
+  </li>
+  
+</ul>
+
+  <footer>
+  <script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  © <a href="/">JW Tsai</a> 2020 &ndash; 2021 | <a href="https://github.com/tsai-jiewen">Github</a>
+  
+  </footer>
+  
+  
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  
+  
+  </body>
+</html>
+

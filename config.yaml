@@ -1,11 +1,19 @@
+
 baseurl: "/"
 languageCode: "en-us"
-title: "A minimal Hugo website"
+title: "A jwlearn website"
 theme: "hugo-xmin"
 googleAnalytics: ""
-disqusShortname: ""
-ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+disqusShortname: "https-jwlearn-netlify-app"
 footnotereturnlinkcontents: "↩"
+hasCJKLanguage: true
+enableEmoji: true
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+  - \.knit\.md$
+  - \.utf8\.md$
 
 permalinks:
   note: "/note/:year/:month/:day/:slug/"
@@ -14,24 +22,29 @@ permalinks:
 menu:
   main:
     - name: Home
-      url: ""
+      url: "/post/"
       weight: 1
     - name: About
-      url: "about/"
+      url: "/about/"
       weight: 2
     - name: Categories
-      url: "categories/"
+      url: "/categories/"
       weight: 3
     - name: Tags
-      url: "tags/"
+      url: "/tags/"
       weight: 4
     - name: Subscribe
       url: "index.xml"
 
 params:
   description: "A website built through Hugo and blogdown."
-  footer: "&copy; [Yihui Xie](https://yihui.org) 2017 -- 2020 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
-
+  footer: "&copy; [JW Tsai](/) 2020 -- 2021 | [Github](https://github.com/tsai-jiewen)"
+  # options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion: "9.12.0"
+  highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
+  highlightjsLang: ["r", "yaml", "tex"]
+  highlightjsTheme: "github"
+  
 markup:
   goldmark:
     renderer:
