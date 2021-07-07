@@ -101,7 +101,7 @@ GitHub/my_blog/themes/hugo-nanx2020/layouts/partials/footer.html
 
 ### 4.7 LikeCoin 設置
 
-關於 likeCoin 設定的問題，詳細可以參考這篇 LikeCion 的官方文章：[如何在 Hugo 開發環境的文章中加入 LikeCoin button](https://docs.like.co/v/zh/user-guide/creator/self-host/hugo)
+關於 LikeCoin 設定的問題，詳細可以參考這篇 LikeCion 的官方文章：[如何在 Hugo 開發環境的文章中加入 LikeCoin button](https://docs.like.co/v/zh/user-guide/creator/self-host/hugo)
 
 
 
