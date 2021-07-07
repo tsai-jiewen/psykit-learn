@@ -3,16 +3,16 @@ languageCode: "en-us"
 title: "A jwlearn website"
 theme: "hugo-xmin"
 googleAnalytics: ""
-disqusShortname: 'https-jwlearn-netlify-app'
+disqusShortname: "https-jwlearn-netlify-app"
+footnotereturnlinkcontents: "↩"
+hasCJKLanguage: true
+enableEmoji: true
 ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
   - _cache$
   - \.knit\.md$
   - \.utf8\.md$
-footnotereturnlinkcontents: "↩"
-enableEmoji: true
-hasCJKLanguage: true
 
 permalinks:
   note: "/note/:year/:month/:day/:slug/"
@@ -21,43 +21,29 @@ permalinks:
 menu:
   main:
     - name: Home
-      url: ""
+      url: "/post/"
       weight: 1
     - name: About
-      url: "about/"
+      url: "/about/"
       weight: 2
     - name: Categories
-      url: "categories/"
+      url: "/categories/"
       weight: 3
     - name: Tags
-      url: "tags/"
+      url: "/tags/"
       weight: 4
     - name: Subscribe
       url: "index.xml"
 
 params:
-  likerID: "tsai_jiewen"
-  description: "A jwlearn blogdown."
-  footer: "&copy; [JW Tsai](/) 2020 -- 2021 | [Github](https://github.com/tsai-jiewen) "
-  MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
-  MathJaxVersion: 2.7.5
-  favicon: favicon.ico
-  highlightjsCDN: //cdnjs.cloudflare.com/ajax/libs
-  highlightjsLang:
-    - r
-    - python
-    - tex
-    - yaml
-  highlightjsTheme: github
-  highlightjsVersion: 9.12.0
-  logo:
-    alt: Logo
-    height: 50
-    url: logo.png
-    width: 50
-author:
-  name: JW Tsai
-
+  description: "A website built through Hugo and blogdown."
+  footer: "&copy; [JW Tsai](/) 2020 -- 2021 | [Github](https://github.com/tsai-jiewen)"
+  # options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion: "9.12.0"
+  highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
+  highlightjsLang: ["r", "yaml", "tex"]
+  highlightjsTheme: "github"
+  
 markup:
   goldmark:
     renderer:

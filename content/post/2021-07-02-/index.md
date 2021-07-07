@@ -5,6 +5,7 @@ date: '2021-07-02'
 slug: ''
 categories: []
 tags: []
+from_Rmd: yes
 ---
 
 - [計算篇]

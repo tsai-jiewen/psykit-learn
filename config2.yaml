@@ -1,0 +1,52 @@
+baseurl: "/"
+languageCode: "en-us"
+title: "jwlearn"
+theme: "hugo-xmin"
+disqusShortname: "https-jwlearn-netlify-app"
+hasCJKLanguage: true
+enableEmoji: true
+footnotereturnlinkcontents: "↩"
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+  - \.knit\.md$
+  - \.utf8\.md$
+
+permalinks:
+  post: "/:year/:month/:day/:slug/"
+  
+
+menu:
+  main:
+    - name: "About"
+      url: "/about/"
+      weight: 1
+    - name: "Post"
+      url: "/post/"
+      weight: 2
+    - name: Series
+      url: /categories/
+      weight: 3
+    - name: Tags
+      url: /tags/
+      weight: 4
+      
+
+params:
+  description: ""
+  footer: "&copy; [JW Tsai](/) 2020 - 2021"
+  disqusURL: "/"
+
+  # options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion: "9.12.0"
+  highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
+  highlightjsLang: ["r", "yaml", "tex"]
+  highlightjsTheme: "github"
+
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
