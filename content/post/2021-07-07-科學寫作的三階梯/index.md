@@ -2,7 +2,7 @@
 title: 科學寫作的三階梯
 author: JW Tsai
 date: '2021-07-07'
-slug: 科學寫作的三階梯
+slug: ''
 categories: []
 tags: []
 ---
