@@ -1,11 +1,12 @@
 baseurl: "/"
 languageCode: "en-us"
-title: "jwlearn"
+title: "A jwlearn website"
 theme: "hugo-xmin"
+googleAnalytics: ""
 disqusShortname: "https-jwlearn-netlify-app"
+footnotereturnlinkcontents: "↩"
 hasCJKLanguage: true
 enableEmoji: true
-footnotereturnlinkcontents: "↩"
 ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
@@ -14,38 +15,35 @@ ignoreFiles:
   - \.utf8\.md$
 
 permalinks:
-  post: "/:year/:month/:day/:slug/"
-  
+  note: "/note/:year/:month/:day/:slug/"
+  post: "/post/:year/:month/:day/:slug/"
 
 menu:
   main:
-    - name: "About"
-      url: "/about/"
-      weight: 1
-    - name: "Post"
+    - name: Home
       url: "/post/"
+      weight: 1
+    - name: About
+      url: "/about/"
       weight: 2
-    - name: Series
-      url: /categories/
+    - name: Categories
+      url: "/categories/"
       weight: 3
     - name: Tags
-      url: /tags/
+      url: "/tags/"
       weight: 4
-      
+    - name: Subscribe
+      url: "index.xml"
 
 params:
-  description: ""
-  footer: "&copy; [JW Tsai](/) 2020 - 2021"
-  disqusURL: "/"
-
+  description: "A website built through Hugo and blogdown."
+  footer: "&copy; [JW Tsai](/) 2020 -- 2021 | [Github](https://github.com/tsai-jiewen)"
   # options for highlight.js (version, additional languages, and theme)
   highlightjsVersion: "9.12.0"
   highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
   highlightjsLang: ["r", "yaml", "tex"]
   highlightjsTheme: "github"
-
-
-
+  
 markup:
   goldmark:
     renderer:
