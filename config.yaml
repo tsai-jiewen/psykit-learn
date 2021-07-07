@@ -33,6 +33,7 @@ menu:
 params:
   likerID: "tsai_jiewen"
   copyright: "Copyright {year} JW Tsai"
+  footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
   description: A website built through Hugo and blogdown.
