@@ -5,12 +5,11 @@ date: '2021-07-02'
 categories: []
 tags: []
 slug: ''
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
-- [計算篇]
-- [測量篇]
-- [分析篇]
-- [程式篇]
 
 我心目中教育研究的技術（理論先不談），至少有下面四個面向：
 
