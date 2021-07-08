@@ -5,6 +5,9 @@ date: '2021-07-03'
 slug: r-4-1-0-new-features
 categories: R
 tags: []
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 ### Native pipe
