@@ -2,15 +2,19 @@
 title: "教育研究技術的學習地圖"
 author: "JW Tsai"
 date: '2021-07-02'
-slug: ''
-categories: []
-tags: []
 output:
   blogdown::html_page:
-    toc: true
+    toc: yes
     toc_depth: 1
-    number_sections: true
+    number_sections: yes
     fig_width: 6
+  html_document:
+    toc: yes
+    toc_depth: '1'
+    df_print: paged
+categories: []
+tags: []
+slug: ''
 ---
 
 - [計算篇]
