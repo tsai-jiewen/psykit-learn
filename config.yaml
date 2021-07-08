@@ -21,16 +21,16 @@ permalinks:
 
 menu:
   main:
-    - name: JW-LEARN
+    - name: HOME
       url: ''
       weight: 1
-    - name: Posts
-      url: "/post/"
-      weight: 2
     - name: About
       url: "/about/"
+      weight: 2
+    - name: Posts
+      url: "/post/"
       weight: 3
-    - name: Categories
+    - name: Series
       url: "/categories/"
       weight: 4
     - name: Tags
