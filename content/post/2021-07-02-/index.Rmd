@@ -5,6 +5,12 @@ date: '2021-07-02'
 slug: ''
 categories: []
 tags: []
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 1
+    number_sections: true
+    fig_width: 6
 ---
 
 - [計算篇]
