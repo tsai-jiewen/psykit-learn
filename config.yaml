@@ -29,10 +29,10 @@ menu:
       weight: 2
     - name: Notes
       url: "/note/"
-      weight: 4
+      weight: 3
     - name: Lects
       url: "/post/"
-      weight: 3
+      weight: 4
     - name: Series
       url: "/categories/"
       weight: 5
