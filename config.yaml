@@ -27,12 +27,12 @@ menu:
     - name: About
       url: "/about/"
       weight: 2
-    - name: Posts
-      url: "/post/"
-      weight: 3
     - name: Notes
       url: "/note/"
       weight: 4
+    - name: Lects
+      url: "/post/"
+      weight: 3
     - name: Series
       url: "/categories/"
       weight: 5
