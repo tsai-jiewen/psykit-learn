@@ -31,7 +31,7 @@ menu:
       url: "/note/"
       weight: 3
     - name: Lects
-      url: "/post/"
+      url: "/lect/"
       weight: 4
     - name: Series
       url: "/categories/"
