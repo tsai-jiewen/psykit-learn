@@ -16,11 +16,12 @@
 }
 body {
   font-family: 'Merriweather', sans-serif;
+  font-size: 115%;
 }
 <<<<<<< Updated upstream
 code {
   font-family: "Lucida Console", Monaco, monospace;
-  font-size: 80%;
+  font-size: 85%;
 =======
 h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
   font-family: 'Lato', sans-serif;
