@@ -14,6 +14,7 @@ tags:
 output:
   blogdown::html_page:
     toc: true
+draft: true
 ---
 
 This sample post is mainly for [**blogdown**](https://github.com/rstudio/blogdown) users. If you do not use **blogdown**, you can skip the first section.
