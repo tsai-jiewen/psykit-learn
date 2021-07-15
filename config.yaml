@@ -21,7 +21,7 @@ permalinks:
 
 menu:
   main:
-    - name: HOME
+    - name: JW-LEARN
       url: ''
       weight: 1
     - name: About
