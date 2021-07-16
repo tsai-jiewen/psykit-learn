@@ -17,7 +17,7 @@
 <section class="article-meta article-footer">
   <h3>{{ default "About the Author" $.Site.Params.text.about_author }}</h3>
   {{ range $.Scratch.Get "author_info" }}
-    <p>{{ . | markdownify }}</p>
+    <p >{{ . | markdownify }}</p>
   {{ end }}
 </section>
 {{ end }}
