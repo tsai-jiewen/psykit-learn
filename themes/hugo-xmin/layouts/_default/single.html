@@ -7,6 +7,12 @@
 
 <main>
 {{ .Content }}
+
+{{ partial "author.html" . }}
+{{ partial "info.html" . }}
+{{ partial "prev_next.html" . }}
+
+
 {{ partial "likecoin.html" . }}
 {{ partial "disqus.html" .}}
 </main>
