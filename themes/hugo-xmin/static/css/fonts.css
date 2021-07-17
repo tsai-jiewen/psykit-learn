@@ -1,13 +1,13 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
-body{
-  /* 先套用 Noto Sans TC 這個 思源黑體 */
-  font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+@font-face {
+  font-family: FakePearl-Regular;
+  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
+  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
 }
  
 body {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'FakePearl-Medium', sans-serif;
   font-size: 105%;
-  font-weight: 500
+  font-weight: 400
 }
 <<<<<<< Updated upstream
 code {
