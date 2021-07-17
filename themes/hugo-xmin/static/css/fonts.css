@@ -5,13 +5,13 @@
 }
  
 body {
-  font-family: 'FakePearl-Medium', sans-serif;
+  font-family: 'FakePearl-Regular', sans-serif;
   font-size: 105%;
   font-weight: 400
 }
 <<<<<<< Updated upstream
 code {
-  font-family: 'Monaco', 'Lucida Console',  monospace;
+  font-family: 'Monaco', Consolas,  monospace;
   font-size: 90%;
 =======
 h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
