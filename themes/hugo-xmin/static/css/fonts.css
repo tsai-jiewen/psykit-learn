@@ -1,21 +1,14 @@
 @font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Merriweather'), local('Merriweather-Regular'),
-       url('../fonts/merriweather-v13-latin-regular.woff2') format('woff2'),
-       url('../fonts/merriweather-v13-latin-regular.woff') format('woff');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'),
-       url('../fonts/lato-v11-latin-regular.woff2') format('woff2'),
-       url('../fonts/lato-v11-latin-regular.woff') format('woff');
-}
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: 500;
+   src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'),
+        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
+        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
+ }
+ 
 body {
-  font-family: 'Merriweather', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 105%;
 }
 <<<<<<< Updated upstream
