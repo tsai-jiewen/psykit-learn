@@ -5,7 +5,7 @@ title: "Home"
 [<img src="favicon.ico" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" />](/)
 
 # JW-LEARN
-### _Hello, Welcome to JW-LEARN.</br> This blog is a learning journal that focuses on knowledge related to educational measurement and psychometrics._
+### _Hello, Welcome to JW-LEARN.<br> This blog is a learning journal that focuses on knowledge related to educational measurement and psychometrics._
 
 ---
 
@@ -22,7 +22,7 @@ title: "Home"
 
 這些都很值得我整理起來，一方面也跟大家分享。
 
-在台灣的教育或心理學領域裡面，真正算得上是測驗統計或心理計量領域的研究者本來就已經不多。而這些學者裡面真正關注在「當代測量模型」的人可以說是非常稀有（我把 SEM 相關的那些都排除掉了，寫 SEM 的人倒是滿多的）。根據 Sijtsma 和 van der Ark (2020) 在 _Measurement models for psychological attributes_ 書中定義的，就聚焦在：
+在台灣的教育或心理學領域裡面，真正算得上是測驗統計或心理計量領域的研究者本來就已經不多。而這些學者裡面真正關注在「當代測量模型」的人可以說是非常稀有（我把 SEM 相關的那些都排除掉了，寫 SEM 的人倒是滿多的，包括我自己的[碩士論文](https://hdl.handle.net/11296/zz563u)在內）。根據 Sijtsma 和 van der Ark (2020) 在 _Measurement models for psychological attributes_ 書中定義的，就聚焦在：
 
 - 非參數IRT、
 - IRT、
