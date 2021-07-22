@@ -1,7 +1,7 @@
 ---
 title: How to use R Markdown to creat slides and write drafts?
 author: 
-date: \today
+date: 2021-07-22
 slug: 
 categories:
 tags:
