@@ -1,4 +1,3 @@
-{{ if in (split "en,cn,zoey" ",") .Section }}
 {{ if or .PrevInSection .NextInSection }}
 <nav id="article-nav">
     {{ if .PrevInSection }}
@@ -29,5 +28,4 @@ document.addEventListener('keyup', function(e) {
   if (url) window.location = url;
 });
 </script>
-{{ end }}
 {{ end }}
