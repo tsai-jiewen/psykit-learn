@@ -31,7 +31,7 @@ tags:
 
 ## 2) R Markdown for **beamer slides**
 - You can follow only the basic R presentation way. Do not need any other pkg, but tinytex.
-- - use LaTex pkg: `{ctex}` and `{xeCJK}` for Chinese fonts.
+- use LaTex pkg: `{ctex}` and `{xeCJK}` for Chinese fonts.
 - `\setCJKmainfont` can set Chinese font (in the xeCJK or your local computer? )you want, e.g. `DFKai-SB` (標楷體)。
 - `mainfont`: you can use CJK fonts or English fonts. Cuz I prefer **Kai+Calibri** setting, so I choose `Calibri` as the main font.
 - `theme`: you can visit the Beamer theme gallery [here](https://deic-web.uab.cat/~iblanes/beamer_gallery/index.html) to select your favorite theme.
@@ -40,7 +40,7 @@ tags:
 - `\alert{}` can turn a string's color to red. (Note: `black` or `\textbf{}` can not be available in Chinese words).`<mark> </mark>` can <mark>mark some words.</mark>
 - Level 3 heading: (`###`) will be a block. see below:(---)
 - **YAML 如下：**（還有很多可以加的，<mark>See: [The YAML Fieldguide](https://cran.r-project.org/web/packages/ymlthis/vignettes/yaml-fieldguide.html)</mark> ）
-```yaml
+```
 ---
 title: "Groenen & Andries Van Der Ark (2006) and  **Stout (2002)**"
 # subtitle: 今天吃什麼？
@@ -73,7 +73,7 @@ linkcolor: purple
     4) 完成初稿之後，再做細部調整（尤其中文部分）。
 - [`apa.csl`](https://github.com/citation-style-language/styles/blob/master/apa.csl) 是 APA 7/e，英文部分應該可以信賴？但可能還是要注意「第一次要引用全部作者」的部分。
 - **YAML 如下：**
-```yaml
+```
 ---
 title: "在 R Markdown 文件中使用中文"
 author: 
