@@ -146,5 +146,12 @@ csl: apa.csl #apa-old-doi-prefix.csl
 - `\newpage # Ref` 這是開新的一頁來放 Ref 的內容。自動生成。
 
 ---
-## 4) Reflection<-（留一個區塊給將來回來補充）
+## 4) Reflection<-
+
+引用一段 Xie 在 [xaringan Presentations](https://bookdown.org/yihui/rmarkdown/xaringan.html) 指導手冊裡面的話：
+
+> The main reason I stopped using LateX Beamer slides was because of its popularity: when you attend academic conference, you see Beamer slides everywhere. --- Xie
+
+但我覺得在人文社會科學裡面，比較少有這種情況。（除了少數計量/計算領域的簡報會出現 beamer 風格以外，絕大部分都是 PPT 吧）。
+
 ---
