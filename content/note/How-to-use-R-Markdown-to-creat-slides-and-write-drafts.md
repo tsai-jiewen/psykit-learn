@@ -9,10 +9,10 @@ tags:
   - Markdwon
 ---
 
-[![hackmd-github-sync-badge](https://hackmd.io/IHBEI5Y1RU6Q0DwndPRI9g/badge)](https://hackmd.io/IHBEI5Y1RU6Q0DwndPRI9g)
+[![hackmd-github-sync-badge]](https://hackmd.io/IHBEI5Y1RU6Q0DwndPRI9g)
 
 
-**你好，這是 JW-LEARN，一個專門記錄教育測量、心理計量相關知識的學習筆記。**
+**你好，這是 JW-LEARN，一個專門記錄教育/心理測量相關知識的學習筆記。**
 
 今天要分享的是用 R Markdown 實現一條龍做學術工作（資料分析、寫作初稿、簡報）的理想。其實這也不是一個新想法，老早以前就有很多人有這種想法了。例如：[Yongfu Liao](https://yongfu.name/)、[陳紹慶](https://scchen.com/zh/post/dynamic-writing/)、等等，我只是記錄一下我自己的方式，讓以後的自己方便使用。
 
@@ -72,6 +72,7 @@ linkcolor: purple
     3) `[@tsai2020]`/`[@chua2020, @tsai2020]`（有框）會顯示為 <mark>(Tsai, 2020)</mark>/ <mark>(Chua, 2020; Tsai, 2020)</mark>（句末引用），而 `@tsai2020`（無框）會顯示為 <mark>Tsai (2020)</mark> （句中引用）。
     4) 完成初稿之後，再做細部調整（尤其中文部分）。
 - [`apa.csl`](https://github.com/citation-style-language/styles/blob/master/apa.csl) 是 APA 7/e，英文部分應該可以信賴？但可能還是要注意「第一次要引用全部作者」的部分。
+- 如果在意 `apa.csl` 的 doi 部分的話，可以換成 `apa-old-doi-prefix.csl`。
 - **YAML 如下：**
 ```
 ---
@@ -95,7 +96,7 @@ output:
 CJKmainfont: DFKai-SB
 mainfont: Calibri
 bibliography: myref.bib
-csl: apa.csl
+csl: apa.csl #apa-old-doi-prefix.csl
 ---
 ```
 
