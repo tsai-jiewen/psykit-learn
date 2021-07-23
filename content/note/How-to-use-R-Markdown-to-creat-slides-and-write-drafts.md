@@ -9,7 +9,7 @@ tags:
   - Markdwon
 ---
 
-[![hackmd-github-sync-badge]](https://hackmd.io/IHBEI5Y1RU6Q0DwndPRI9g)
+[[hackmd-github-sync-badge]](https://hackmd.io/IHBEI5Y1RU6Q0DwndPRI9g)
 
 
 **你好，這是 JW-LEARN，一個專門記錄教育/心理測量相關知識的學習筆記。**
@@ -39,7 +39,7 @@ tags:
 - `font`: Cuz the RBeamer is dependent on LaTex engine, so only <mark>8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt</mark> are available sizes. The default font size is 11pt, but using Chinese fonts, I suggest 12pt is a better choice.
 - `\alert{}` can turn a string's color to red. (Note: `black` or `\textbf{}` can not be available in Chinese words).`<mark> </mark>` can <mark>mark some words.</mark>
 - Level 3 heading: (`###`) will be a block. see below:(---)
-- **YAML 如下：**（還有很多可以加的，<mark>See: [The YAML Fieldguide](https://cran.r-project.org/web/packages/ymlthis/vignettes/yaml-fieldguide.html)</mark> ）
+- **YAML 如下（a retro ver.）：**（還有很多可以加的，<mark>See: [The YAML Fieldguide](https://cran.r-project.org/web/packages/ymlthis/vignettes/yaml-fieldguide.html)</mark> ）
 ```
 ---
 title: "Groenen & Andries Van Der Ark (2006) and  **Stout (2002)**"
@@ -60,6 +60,27 @@ linkcolor: purple
 # csl: apa.csl
 ---
 ```
+
+- 大都會版本的 **YAML 如下（a metropolis ver.）：** 用到了 [**binb: Binb is not Beamer**](https://www.rdocumentation.org/packages/binb/versions/0.0.6) pkg。
+- 這個版本的配色真的潮很多（相比之下 beamer 那些主題用色充滿古早味）。雖然也是極簡路線，但很符合我的審美。
+
+```
+---
+title: "Groenen & Andries Van Der Ark (2006) and  **Stout (2002)**"
+author: "JW"
+date: \today
+output:
+  binb::metropolis:
+    latex_engine: xelatex
+CJKmainfont: DFKai-SB
+#mainfont: Calibri
+fontsize: 12pt
+urlcolor: blue
+linkcolor: purple
+---
+```
+
+- 關於**寫輪眼**，其實我還是很想走到這一步的。但是我目前還沒掌握訂製好（包括字型、字號大小、配色、布局等等）的作法。等我確實掌握之後再追加上來。
 
 ## 3) R Markdown for **academic writing**
 
