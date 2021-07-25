@@ -5,9 +5,6 @@ date: '2021-07-02'
 categories: []
 tags: []
 slug: ''
-output:
-  blogdown::html_page:
-    toc: true
 ---
 
 

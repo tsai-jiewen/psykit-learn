@@ -1,6 +1,6 @@
 ---
-title: How to use R Markdown to make slides and write drafts?
-author: 
+title: 'How to use R Markdown to make slides and write drafts?'
+author: JW Tsai
 date: 2021-07-22
 slug: 
 categories:

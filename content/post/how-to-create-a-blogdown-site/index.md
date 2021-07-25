@@ -1,6 +1,6 @@
 ---
 title: "如何用 blogdown 建立個人網站？"
-author: "JW Tsai"
+author: JW Tsai
 date: '2020-11-16'
 slug: ''
 ---
