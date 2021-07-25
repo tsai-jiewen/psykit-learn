@@ -5,14 +5,11 @@ menu:
 title: Home
 ---
 
-[<img src="favicon.ico" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" />](/)
+JW-LEARN
 
-# JW-LEARN
-### _Hello, Welcome to JW-LEARN.<br> This blog is a learning journal that focuses on knowledge related to educational measurement and psychometrics._
+_Hello, Welcome to JW-LEARN.<br> This blog is a learning journal that focuses on knowledge related to educational measurement and psychometrics._
 
----
-
-## 為什麼要寫這個筆記？
+為什麼要寫這個筆記？
 
 **JW-LEARN** 簡單來講是一個寫學習筆記的計畫。目前的規劃是盡量日更，每天只要紀錄一點點就行。例如：
 
@@ -34,13 +31,13 @@ title: Home
 
 而這些少數的人，又多半已經是教授、研究員、學者專家等級的人物。也就是說在測統這塊領域，<mark>新手跟頂級高手的 level 相差非常遠，而中間循序漸進的過度鷹架（中文內容）幾乎沒有，完全只能靠英語文獻</mark>。很簡單可以證明，你可以在博客來上面找看看，有幾本中文教科書專門介紹上面講的那些模型，除了 IRT 跟 LCA 有幾本以外，其他幾乎沒有。
 
-## TA 是誰？
+TA 是誰？
 
 所以我們這些初級學生得要重新爬過文獻。我的第一個超級用戶就是<mark>未來的我自己</mark>，這些筆記是寫給未來的我看的，他除了學習之外也方便把這些片段的紀錄系統整理起來。
 
 另一方面我也希望能把這個足跡留下來，給有興趣學習測驗統計/心理計量這塊領域的高中生/大學生/研究生們參考。畢竟在中文世界裡面，當代測量理論的確有一大塊**從入門到精通**（希望不是從入門到放棄）的知識內容缺口。
 
 
-## 預計會包含哪些內容？
+預計會包含哪些內容？
 
 （這部分有待規劃）
