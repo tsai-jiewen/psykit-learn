@@ -1,0 +1,21 @@
+@font-face {
+  font-family: FakePearl-Regular;
+  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
+  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
+}
+ 
+body {
+  font-family: 'FakePearl-Regular', sans-serif;
+  font-size: 115%;
+  font-weight: 400
+}
+<<<<<<< Updated upstream
+code {
+  font-family: 'Monaco', Consolas,  monospace;
+  font-size: 95%;
+=======
+h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
+  font-family: 'Merriweather', sans-serif;
+  
+>>>>>>> Stashed changes
+}
