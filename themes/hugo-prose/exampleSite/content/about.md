@@ -1,4 +1,12 @@
 ---
+title: About Hugo Prose
+author: Yihui Xie
+categories: [Hugo, Theme]
+tags: [menu, TOC, sidenote, appendix, citation, numbered section]
+menu:
+  header:
+    name: About
+    weight: 2
 appendix:
   acknowledgments: |
     We thank the authors of the [Wowchemy](https://wowchemy.com) theme, [tufte.css](https://github.com/edwardtufte/tufte.css), and the
@@ -11,33 +19,13 @@ appendix:
     [Alison Hill](https://twitter.com/apreshill/status/1070550028274429952). We are not sure if this Hugo
     Prose theme would make it easier or even harder to answer the frequently asked question "blogdown or
     distill?"
-
+    
     The images on this page are from Wikipedia entries [Stoicism](https://en.wikipedia.org/wiki/Stoicism)
     and [清明上河图](https://zh.wikipedia.org/wiki/%E6%B8%85%E6%98%8E%E4%B8%8A%E6%B2%B3%E5%9C%96). The
     CSS style for draft posts was borrowed from Fabian Tamp's
     [paperesque](https://github.com/capnfabs/paperesque/) theme. [Wladimir Palant's tutorial](https://palant.info/2020/06/04/the-easier-way-to-use-lunr-search-with-hugo/)
     helped a lot with our implementation of the client-side search.
-author: Yihui Xie
-categories:
-- Hugo
-- Theme
-features:
-- +toc
-- +number_sections
-- +sidenotes
-- -citation
-menu:
-  header:
-    name: About
-    weight: 2
-tags:
-- menu
-- TOC
-- sidenote
-- appendix
-- citation
-- numbered section
-title: About Hugo Prose
+features: [+toc, +number_sections, +sidenotes, -citation]
 ---
 
 **Hugo Prose** is a minimalist theme derived from the [**XMin**
