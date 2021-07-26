@@ -7,14 +7,14 @@ title: Home
 
 <img src="favicon.ico" style="max-width:15%;min-width:40px;float:right;" alt="Github repo"/>
 
-# JW-LEARN
-### _Hello, Welcome to JW-LEARN.<br> This blog is a learning journal that focuses on educational measurement and psychometrics._
+# PSYKIT-LEARN
+### _Hello, Welcome to PSYKIT-LEARN.<br> This blog is a learning journal that focuses on educational measurement and psychometrics._
 
 ---
 
 ## 為什麼要寫這個筆記？
 
-**JW-LEARN** 簡單來講是一個寫學習筆記的計畫。目前的規劃是盡量日更，每天只要紀錄一點點就行。例如：
+**PSYKIT-LEARN** 簡單來講是一個寫學習筆記的計畫。目前的規劃是盡量日更，每天只要紀錄一點點就行。例如：
 
 - 某本書提到的幾個知識點、
 - 某一個 R 套件的幾種寫法、
