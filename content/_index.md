@@ -5,10 +5,10 @@ menu:
 title: Home
 ---
 
-[<img src="favicon.ico" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" />](/)
+<img src="favicon.ico" style="max-width:15%;min-width:40px;float:right;" alt="Github repo"/>
 
 # JW-LEARN
-### _Hello, Welcome to JW-LEARN.<br> This blog is a learning journal that focuses on knowledge related to educational measurement and psychometrics._
+### _Hello, Welcome to JW-LEARN.<br> This blog is a learning journal that focuses on educational measurement and psychometrics._
 
 ---
 

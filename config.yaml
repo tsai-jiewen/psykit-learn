@@ -66,4 +66,4 @@ markup:
     codeFences: false
   goldmark:
     renderer:
-      unsafe: false
+      unsafe: true
