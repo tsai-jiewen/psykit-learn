@@ -5,7 +5,7 @@ defaultContentLanguage: "en"
 title: "psykit-learn"
 theme: "hugo-prose"
 googleAnalytics: ""
-disqusShortname: ""
+disqusShortname: "https-jwlearn-netlify-app"
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 footnotereturnlinkcontents: "↩"
 paginate: 2
@@ -44,22 +44,21 @@ menu:
       url: "#"
 
 params:
-  homePosts: 6
+  homePosts: 2
   likerID: "tsai_jiewen"
   mainSections: ["post", "work"]
-  editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
+  editLink: "https://github.com/tsai-jiewen/psykit-learn"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]
   description: >
     A website built through Hugo and blogdown with the hugo-prose theme.
   footer: >
-    &copy; [Lucius Annaeus Seneca](https://en.wikipedia.org/wiki/Seneca_the_Younger)
-    4 BC -- AD 65
+    &copy; [JW Tsai](/) 2020 - 2021
   license: >
     Text and figures are licensed under [Creative Commons Attribution CC BY
     4.0](https://creativecommons.org/licenses/by/4.0/). The source code is
     licensed under MIT. The full source is available at
-    https://github.com/yihui/hugo-prose.
+    https://github.com/tsai-jiewen/psykit-learn.
 
 markup:
   highlight:
