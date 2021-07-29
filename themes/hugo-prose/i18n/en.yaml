@@ -23,7 +23,7 @@
   translation: "If you find any mistakes (including typos) or want to suggest changes, please feel free to "
 
 - id: suggestChangesText2
-  translation: "edit the source file of this page on Github and create a pull request."
+  translation: "comment below and let me know."
 
 - id: nextPost
   translation: "Next post (older)"

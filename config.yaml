@@ -22,13 +22,11 @@ menu:
     - name: Search
       url: "#"
       identifier: menu-search
-      pre: "optional"
-    - name: Subscribe
-      url: "index.xml"
-      pre: "optional"
+#    - name: Subscribe
+#      url: "index.xml"
   footer:
     - name: Contact
-      url: "/404.html"
+      url: "card/contact"
       weight: 1
     - name: Categories
       url: "/categories/"
@@ -49,7 +47,7 @@ params:
   homePosts: 2
   likerID: "tsai_jiewen"
   mainSections: ["post", "work"]
-  editLink: "https://github.com/tsai-jiewen/psykit-learn"
+  editLink: "/"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]
   description: >
