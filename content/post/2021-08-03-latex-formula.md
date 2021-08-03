@@ -9,6 +9,9 @@ tags:
   - HackMD
 ---
 
+[![hackmd-github-sync-badge](https://hackmd.io/_WzY5zURTaady2-8mobKGA/badge)](https://hackmd.io/_WzY5zURTaady2-8mobKGA)
+
+
 今天要分享的是 LaTeX。
 
 我在大三暑假與大四一整年（大約是 2016 年 7 月到 2017 年 6 月底那段時間），都在 [均一教育平台](https://www.junyiacademy.org) （那時候的均一也不完全是現在的均一）當實習生，收穫當然很多，但最實用的收穫卻是學會 LaTeX 跟連帶的啟蒙 Markdown。
@@ -39,7 +42,7 @@ It is too tired to use MS Word to make a formula like the one above. But at the 
 ## 一些常用 LaTeX（我怕忘記）
 
 - The first question is how to bold the Greek letters? The answer is to use `\pmb{}`!
-- The second is how to keep the in-line `\sum` superscript on display mode ($\sum\limits_{k=1}^{K_i}$) instead of the in-line mode ($\sum_{k=1}^{K_i}$)? The answer is to add a `\limits` after `\sum`, and it can work!
+- The second is how to keep the in-line `\sum` superscript on display mode ($$\sum\limits_{k=1}^{K_i}$$) instead of the in-line mode ($$\sum_{k=1}^{K_i}$$)? The answer is to add a `\limits` after `\sum`, and it can work!
 
 
 ---
