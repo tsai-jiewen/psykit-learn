@@ -44,9 +44,9 @@ menu:
       url: "#"
 
 params:
-  homePosts: 2
+  homePosts: 10
   likerID: "tsai_jiewen"
-  mainSections: ["post", "work"]
+  mainSections: [""]
   editLink: "/"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]
