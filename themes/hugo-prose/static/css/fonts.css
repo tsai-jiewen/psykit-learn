@@ -3,9 +3,15 @@
   src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff2) format("woff2")
   , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff) format("woff");
 }
+
+@font-face {
+  font-family: SweiSpringCJKtc-Regular;
+  src: url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringCJKtc-Regular.woff2) format("woff2")
+  , url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringCJKtc-Regular.woff) format("woff");
+}
  
 body {
-  font-family: 'FakePearl-Light', sans-serif;
+  font-family: 'SweiSpringCJKtc-Regular', sans-serif;
   font-size: 115%;
   font-weight: 400
 }
