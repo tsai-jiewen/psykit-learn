@@ -9,9 +9,14 @@
   src: url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringCJKtc-Regular.woff2) format("woff2")
   , url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringCJKtc-Regular.woff) format("woff");
 }
+
+@font-face {
+  font-family: SweiDelLunaSansCJKtc-Regular;
+  src: url(https://cdn.jsdelivr.net/gh/max32002/swei-right-bottom-sans@2.130/WebFont/CJK%20TC/SweiDelLunaSansCJKtc-Regular.woff2) format("woff2");
+}
  
 body {
-  font-family: 'FakePearl-Light', sans-serif;
+  font-family: 'SweiDelLunaSansCJKtc-Regular', 'Georgia', serif;
   font-size: 115%;
   font-weight: 400
 }
