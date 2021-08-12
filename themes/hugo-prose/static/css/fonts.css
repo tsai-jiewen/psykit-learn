@@ -24,9 +24,11 @@ body {
 code {
   font-family: 'Monaco', Consolas,  monospace;
   font-size: 95%;
+  letter-spacing: 2px
 =======
 h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
   font-family: 'Merriweather', sans-serif;
+  letter-spacing: 2px
   
 >>>>>>> Stashed changes
 }
