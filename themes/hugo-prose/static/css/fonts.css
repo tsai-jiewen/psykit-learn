@@ -18,7 +18,8 @@
 body {
   font-family: 'FakePearl-Light', sans-serif;
   font-size: 115%;
-  font-weight: 400
+  font-weight: 400;
+  letter-spacing: 2px
 }
 <<<<<<< Updated upstream
 code {
