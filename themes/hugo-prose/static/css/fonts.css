@@ -1,4 +1,10 @@
 @font-face {
+  font-family: FakePearl-Light;
+  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff2) format("woff2")
+  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff) format("woff");
+}
+
+@font-face {
   font-family: FakePearl-ExtraLight;
   src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-ExtraLight.woff2) format("woff2")
   , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-ExtraLight.woff) format("woff");
@@ -16,7 +22,7 @@
 }
  
 body {
-  font-family: 'FakePearl-ExtraLight', sans-serif;
+  font-family: 'FakePearl-Light', sans-serif;
   font-size: 125%;
   font-weight: 400;
   letter-spacing: 0.5px
