@@ -1,3 +1,7 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+</style>
+
 @font-face {
   font-family: FakePearl-Light;
   src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff2) format("woff2")
@@ -23,9 +27,9 @@
 }
  
 body {
-  font-family: 'SweiSansCJKtc-Regular', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 125%;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 1px
 }
 <<<<<<< Updated upstream
