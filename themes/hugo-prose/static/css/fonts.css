@@ -1,6 +1,9 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 </style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap');
+</style>
 
 @font-face {
   font-family: FakePearl-Light;
@@ -27,7 +30,7 @@
 }
  
 body {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Lato', 'Noto Sans TC', sans-serif;
   font-size: 120%;
   font-weight: 400;
   letter-spacing: 1px
