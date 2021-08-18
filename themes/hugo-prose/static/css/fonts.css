@@ -7,10 +7,6 @@
 @import url('https://cdn.jsdelivr.net/gh/chiron-fonts/chiron-sans-hk-pro@1.008/build/webfont/css/vf.css');
 @import url('https://cdn.jsdelivr.net/gh/chiron-fonts/chiron-sans-hk-pro@1.008/build/webfont/css/vf-italic.css')
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chiron-fonts/chiron-sans-hk-pro@1.008/build/webfont/css/vf.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chiron-fonts/chiron-sans-hk-pro@1.008/build/webfont/css/vf-italic.css"/>
-
-
 @font-face {
   font-family: FakePearl-Light;
   src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff2) format("woff2")
@@ -38,7 +34,7 @@
 body {
   font-family: 'Lato', 'Chiron Sans HK Pro WS', sans-serif;
   font-size: 115%;
-  font-weight: 350;
+  font-weight: 400;
   letter-spacing: 1px
 }
 <<<<<<< Updated upstream
