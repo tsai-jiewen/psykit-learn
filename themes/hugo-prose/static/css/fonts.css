@@ -10,20 +10,6 @@
 @import url('https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Regular.css')
 @import url('https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Light.css')
 @import url('https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Bold.css')
-  
-  
-<link
-  href="https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Regular.css"
-  rel="stylesheet"
-/>
-<link
-  href="https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Light/TaipeiSansTCBeta-Light.css"
-  rel="stylesheet"
-/>
-<link
-  href="https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Bold/TaipeiSansTCBeta-Bold.css"
-  rel="stylesheet"
-/>
 
 @font-face {
   font-family: SweiSansCJKtc-Regular;
@@ -44,7 +30,7 @@
 }
  
 body {
-  font-family: 'Lato', 'SweiSpringSugarCJKtc-Regular', sans-serif;
+  font-family: 'Lato', 'SweiSansCJKtc-Regular', sans-serif;
   font-size: 115%;
   font-weight: 400;
   letter-spacing: 1px
