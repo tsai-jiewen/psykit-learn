@@ -6,12 +6,24 @@
 
 @import url('https://cdn.jsdelivr.net/gh/chiron-fonts/chiron-sans-hk-pro@1.008/build/webfont/css/vf.css');
 @import url('https://cdn.jsdelivr.net/gh/chiron-fonts/chiron-sans-hk-pro@1.008/build/webfont/css/vf-italic.css')
-
-@font-face {
-  font-family: FakePearl-Light;
-  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff2) format("woff2")
-  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff) format("woff");
-}
+  
+@import url('https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Regular.css')
+@import url('https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Light.css')
+@import url('https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Bold.css')
+  
+  
+<link
+  href="https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Regular/TaipeiSansTCBeta-Regular.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Light/TaipeiSansTCBeta-Light.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc/packages/core/dist/Bold/TaipeiSansTCBeta-Bold.css"
+  rel="stylesheet"
+/>
 
 @font-face {
   font-family: SweiSansCJKtc-Regular;
@@ -32,7 +44,7 @@
 }
  
 body {
-  font-family: 'Lato', 'Chiron Sans HK Pro WS', sans-serif;
+  font-family: 'Lato', 'TaipeiSansTCBeta', sans-serif;
   font-size: 115%;
   font-weight: 400;
   letter-spacing: 1px
