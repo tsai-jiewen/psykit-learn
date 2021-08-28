@@ -40,14 +40,14 @@
  
 body {
   font-family: 'FakePearl-Light', sans-serif;
-  font-size: 115%;
+  font-size: 100%;
   font-weight: 400;
   letter-spacing: 1px
 }
 <<<<<<< Updated upstream
 code {
   font-family: 'Monaco', Consolas,  monospace;
-  font-size: 95%;
+  font-size: 80%;
   letter-spacing: 1px
 =======
 h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
