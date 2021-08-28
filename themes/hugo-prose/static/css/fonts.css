@@ -30,9 +30,15 @@
   src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
   , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
 }
+@font-face {
+  font-family: FakePearl-Light;
+  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff2) format("woff2")
+  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff) format("woff");
+}
+
  
 body {
-  font-family: 'Lato', 'FakePearl-Regular', sans-serif;
+  font-family: 'Lato', 'FakePearl-Light', sans-serif;
   font-size: 115%;
   font-weight: 400;
   letter-spacing: 1px
