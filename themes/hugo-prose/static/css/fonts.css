@@ -20,6 +20,13 @@
   src: url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringSugarCJKtc-Regular.woff2) format("woff2")
   , url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringSugarCJKtc-Regular.woff) format("woff");
 }
+@font-face {
+  font-family: SweiSpringSugarCJKtc-Medium;
+  src: url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringSugarCJKtc-Medium.woff2) format("woff2")
+  , url(https://cdn.jsdelivr.net/gh/max32002/swei-spring@1.065/WebFont/CJK%20TC/SweiSpringSugarCJKtc-Medium.woff) format("woff");
+}
+
+
 
 @font-face {
   font-family: SweiDelLunaSansCJKtc-Regular;
@@ -39,7 +46,7 @@
 
  
 body {
-  font-family: 'FakePearl-Light', sans-serif;
+  font-family: 'SweiSpringSugarCJKtc-Medium', serif;
   font-size: 100%;
   font-weight: 400;
   letter-spacing: 1px
