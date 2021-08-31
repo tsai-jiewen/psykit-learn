@@ -46,4 +46,4 @@ It is too tired to use MS Word to make a formula like the one above. But at the 
 
 
 ---
-## Re<-
+## Re:

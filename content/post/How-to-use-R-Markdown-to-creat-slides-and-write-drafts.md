@@ -16,7 +16,7 @@ tags:
 
 
 
-## 1) Why?
+## Why?
 
 其實 R 在科學寫作跟發表這方面並不缺乏成熟的 pkg，（缺的可能是成熟的（正體）「中文」工具）。例如知名的**寫輪眼**跟**啪啪芽**：
 
@@ -27,7 +27,7 @@ tags:
 
 我希望有可以簡單到直接開來就可以用，可以輸出成 pdf（寫輪眼就是一款主打放棄 pdf 的工具）或 word（畢竟還要輸出來修改）。所以我還是選擇用 R beamer，雖然捨棄了即時預覽的酷炫功能（無限月讀）。也還是使用基本的 R Markdown，連 CTex Doc 都捨棄，因為從一個極簡主義的角度來想：我其實只需要 Markdwon, LaTex, BibTex 這些功能，其他的都還是要後續修改。所以產生了下面兩種作法。
 
-## 2) R Markdown for **beamer slides**
+## R Markdown for **beamer slides**
 - You can follow only the basic R presentation way. Do not need any other pkg, but tinytex.
 - use LaTex pkg: `{ctex}` and `{xeCJK}` for Chinese fonts.
 - `\setCJKmainfont` can set Chinese font (in the xeCJK or your local computer? )you want, e.g. `DFKai-SB` (標楷體)。
@@ -80,7 +80,7 @@ linkcolor: purple
 
 - 關於**寫輪眼**，其實我還是很想走到這一步的。但是我目前還沒掌握訂製好（包括字型、字號大小、配色、布局等等）的作法。等我確實掌握之後再追加上來。
 
-## 3) R Markdown for **academic writing**
+## R Markdown for **academic writing**
 
 - 不用下載 `rticle`，不用受限於 `Ctex Doc` template 的設定，直接開一個 R Markdown 貼上 yaml 就可以跑。
 - 匯出 .pdf 或 .docx 都可以。PDF 版才有完整格式，WORD 版只適合作後續修改的功能。
@@ -124,13 +124,13 @@ csl: apa.csl #apa-old-doi-prefix.csl
 ```
 # Questions 
 # Lit review
-# Niche (Theoritical model)
+# The value (Theoritical model)
 # Design (Stats model)
-# Data
-# Data analysis
+# Data 
+# Method
 # Answers 
 # Defence (AD)
-# Reco & lim
+# limit
 
 \newpage
 # Ref
@@ -144,7 +144,7 @@ csl: apa.csl #apa-old-doi-prefix.csl
 - `\newpage # Ref` 這是開新的一頁來放 Ref 的內容。自動生成。
 
 ---
-## 4) Reflection<-
+## Re:
 
 引用一段 Xie 在 [xaringan Presentations](https://bookdown.org/yihui/rmarkdown/xaringan.html) 指導手冊裡面的話：
 
